@@ -1,6 +1,6 @@
 # Sunstreet
 
-<small>By Ismail Marmoush and [Contributers](https://github.com/IsmailMarmoush/sunstreet/graphs/contributors) are much welcome to join. </small>
+<small>By Ismail Marmoush and [Contributers](https://github.com/m-io/sunstreet/graphs/contributors) are much welcome to join. </small>
 
 Sunstreet is a minimalistic blog template, specially made for Github pages and can be statically/dynamically served anywhere else too. You can view the demo from [here](http://marmoush.com) which is my personal blog.
 
