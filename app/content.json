@@ -1,0 +1,83 @@
+{
+    "global": {
+        "header": {
+            "img": "images/sunset.jpg",
+            "title": "Marmoush.com",
+            "subtitle": "Web and Big Data",
+            "addGradient": false
+        }
+    },
+    "blog": {
+        "1": {
+            "url": "blog/Papyrus-Java-to-UML-Reverse-Engineering.md",
+            "date": "02/03/2014",
+            "thumb": "images/blog/eclipse.png",
+            "header": {
+                "img": "images/blog/eclipse.png",
+                "title": "Papyrus Java To UML Reverse Engineering",
+                "subtitle": "Software Engineering",
+                "addGradient": false
+            },
+            "disqus": {
+                "enable": true,
+                "identifier": "/12345",
+                "lang": "en"
+            }
+        },        
+        "2": {
+            "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
+            "date": "01/01/2014",
+            "thumb": "images/blog/debian-wallpaper.jpg",
+            "header": {
+                "img": "images/blog/debian-wallpaper.jpg",
+                "title": "Minimal Debian Installation",
+                "subtitle": "Linux",
+                "addGradient": true
+            },
+            "disqus": {
+                "enable": true,
+                "identifier": "/0000001",
+                "lang": "en"
+            }
+        }
+
+    },
+    "pages": {
+        "1": {
+            "url": "pages/about.md",
+            "header": {
+                "img": "images/sunset.jpg",
+                "title": "About",
+                "subtitle": "",
+                "addGradient": false
+            },
+            "disqus": {
+                "enable": false
+            }
+        },
+        "2": {
+            "url": "pages/contact.md",
+            "header": {
+                "img": "images/sunset.jpg",
+                "title": "Contact",
+                "subtitle": "",
+                "addGradient": false
+            },
+            "disqus": {
+                "enable": false
+            }
+        },
+        "3": {
+            "url": "pages/portfolio.md",
+            "header": {
+                "img": "images/sunset.jpg",
+                "title": "Portfolio",
+                "subtitle": "",
+                "addGradient": false
+            },
+            "disqus": {
+                "enable": false
+            }
+        }
+    }
+}
