@@ -2,171 +2,163 @@
 <html class="no-js" lang="">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Ismail Marmoush personal blog">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>Marmoush.com</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <meta charset="utf-8">
+  <meta name="description" content="Ismail Marmoush personal blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <title>Marmoush.com</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css styles/normalize.css -->
-    <script src="../bower_components/normalize.css/normalize.css"></script>
-    <!-- endbuild -->
+  <!-- build:css styles/normalize.css -->
+  <script src="../bower_components/normalize.css/normalize.css"></script>
+  <!-- endbuild -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
 
-    <!-- build:css styles/pace.css -->
-    <link rel="stylesheet" href="styles/pace.css">
-    <!-- endbuild -->
+  <!-- build:css styles/pace.css -->
+  <link rel="stylesheet" href="styles/pace.css">
+  <!-- endbuild -->
 
-    <!-- build:css styles/solarized.css -->
-    <link rel="stylesheet" href="styles/solarized_dark.css">
-    <!-- endbuild -->
+  <!-- build:css styles/solarized.css -->
+  <link rel="stylesheet" href="styles/solarized_dark.css">
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="../bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/jquery.js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/jquery.js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/lorem.min.js -->
-    <script src="../bower_components/Lorem.js/lorem.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/lorem.min.js -->
+  <script src="../bower_components/Lorem.js/lorem.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/marked.min.js -->
-    <script src="../bower_components/marked/marked.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/marked.min.js -->
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/pace.min.js -->
-    <script src="../bower_components/pace/pace.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/pace.min.js -->
+  <script src="../bower_components/pace/pace.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/routie.min.js -->
-    <script src="../bower_components/routie/dist/routie.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/routie.min.js -->
+  <script src="../bower_components/routie/dist/routie.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/toc.min.js -->
-    <script src="../bower_components/toc/dist/toc.min.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/toc.min.js -->
+  <script src="../bower_components/toc/dist/toc.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/highlight.pack.js -->
-    <script src="scripts/highlight.pack.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/vendor/highlight.pack.js -->
+  <script src="scripts/highlight.pack.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
 
 </head>
 
 <body>
-    <!--[if lt IE 10]>
+  <!--[if lt IE 10]>
          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
          <![endif]-->
 
-    <div id="bar">
-        <img id="menuIcon" src="images/menu.png" />
-        <img id="contentIcon" src="images/info.png" />
-    </div>
+  <div id="bar">
+    <img id="menuIcon" src="images/menu.png" />
+    <img id="contentIcon" src="images/info.png" />
+  </div>
 
-    <div id="content">
-        <div id="header">
-            <div id="headerImgContainer">
-                <img id="headerImg" src="images/sunset.jpg" />
-            </div>
-            <div id="gradientContainer" class="gradient">
-                <span id="subtitle"></span>
-                <span id="title"></span>
-            </div>
-        </div>
-        <div id="container">
-            <div id="slider">
-                <ul id="slides">
-                </ul>
-            </div>
-            <div id="blog" style="display:none">
-                <div id="post">
-                </div>
-                <div id="disqus_thread"></div>
-            </div>
-            <div id="footer">
-                Marmoush.com &copy; 2015 <a href="http://marmoush.com/">Ismail Marmoush</a>
-            </div>
-        </div>
+  <div id="content">
+    <div id="header">
+      <div id="headerImgContainer">
+        <img id="headerImg" src="images/sunset.jpg" />
+      </div>
+      <div id="gradientContainer" class="gradient">
+        <span id="subtitle"></span>
+        <span id="title"></span>
+      </div>
     </div>
-    <div id="rsb">
-
-    </div>
-    <div id="lsb">
-        <img src="images/logo.png" />
-        <ul>
-            <li class="blogLink"><a href="#" onclick="Animation.scrollTo('#slider')">Blog</a>
-            </li>
-            <li><a href="#pages/portfolio.md" onclick="Animation.scrollTo('#post')">Portfolio</a>
-            </li>
-            <li><a href="#pages/about.md" onclick="Animation.scrollTo('#post')">About</a>
-            </li>
-            <li><a href="#pages/contact.md" onclick="Animation.scrollTo('#post')">Contact</a>
-            </li>
-            <li><a href="https://github.com/IsmailMarmoush/">Github</a>
-            </li>
-            <li><a href="https://plus.google.com/+IsmailMarmoush">Google+</a>
-            </li>
-            <li><a href="https://twitter.com/ismailmarmoush">Twitter</a>
-            </li>
-            <li><a href="http://www.linkedin.com/profile/view?id=235757224">LinkedIn</a>
-            </li>
+    <div id="container">
+      <div id="slider">
+        <ul id="slides">
         </ul>
-        <span> Marmoush.com &copy; 2015 Ismail Marmoush</span>
+      </div>
+      <div id="blog" style="display:none">
+        <div id="post">
+        </div>
+        <div id="disqus_thread"></div>
+      </div>
+      <div id="footer">
+        Marmoush.com &copy; 2015 <a href="http://marmoush.com/">Ismail Marmoush</a>
+      </div>
     </div>
+  </div>
+  <div id="rsb">
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-18732433-1');
-        ga('send', 'pageview', '/' + window.location.hash);
-    </script>
+  </div>
+  <div id="lsb">
+    <img src="images/logo.png" />
+    <ul>
+      <li class="blogLink"> <a href="#" onclick="Animation.scrollTo('#slider')">Blog</a> </li>
+      <li> <a href="#pages/portfolio.md" onclick="Animation.scrollTo('#post')">Portfolio</a> </li>
+      <li><a href="#pages/about.md" onclick="Animation.scrollTo('#post')">About</a> </li>
+      <li><a href="#pages/contact.md" onclick="Animation.scrollTo('#post')">Contact</a> </li>
+      <li><a href="https://github.com/IsmailMarmoush/">Github</a> </li>
+      <li><a href="https://plus.google.com/+IsmailMarmoush">Google+</a> </li>
+      <li><a href="https://twitter.com/ismailmarmoush">Twitter</a> </li>
+      <li><a href="http://www.linkedin.com/profile/view?id=235757224">LinkedIn</a> </li>
+    </ul>
+    <span> Marmoush.com &copy; 2015 Ismail Marmoush</span>
+  </div>
 
-    <script type="text/javascript">
-        console.log("loading disqus");
-        var disqus_shortname = 'ismailmarmoush';
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function() {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = '//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-18732433-1');
+    ga('send', 'pageview', '/' + window.location.hash);
+  </script>
 
-        /* * * Disqus Reset Function * * */
-        var disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
-            DISQUS.reset({
-                reload: true,
-                config: function() {
-                    this.page.identifier = newIdentifier;
-                    this.page.url = newUrl;
-                    this.page.title = newTitle;
-                    this.language = newLanguage;
-                }
-            });
-        };
-        console.log('end loading disqus');
-    </script>
+  <script type="text/javascript">
+    console.log("loading disqus");
+    var disqus_shortname = 'ismailmarmoush';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * Disqus Reset Function * * */
+    var disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
+      DISQUS.reset({
+        reload: true,
+        config: function() {
+          this.page.identifier = newIdentifier;
+          this.page.url = newUrl;
+          this.page.title = newTitle;
+          this.language = newLanguage;
+        }
+      });
+    };
+    console.log('end loading disqus');
+  </script>
 </body>
 
 </html>

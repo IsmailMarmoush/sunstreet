@@ -29,38 +29,8 @@ console.log('\'Ello \'Ello!');
 /********* Objects *********/
 // Selectors take normal name
 // Classes take trailing 'Class', e.g gradientClass
-
-var Config = {
-    contentJson: 'content.json',
-    title: 'Marmoush.com/',
-
-    // Header
-    headerImg: '#headerImg',
-    gradientContainer: '#gradientContainer',
-    gradientClass: 'gradient',
-
-    // Content
-    content: '#content',
-    // Bars
-    bar: '#bar',
-    rsb: '#rsb',
-    lsb: '#lsb',
-    menuIcon: '#menuIcon',
-    contentIcon: '#contentIcon',
-
-    // Container
-    slider: '#slider',
-    slides: '#slides',
-    blog: '#blog',
-    post: '#post',
-
-    // Disqus
-    disqusThread: '#disqus_thread',
-    enableDisqus: true,
-
-    // Errors
-    errorId: '#error'
-};
+var configContent={};
+var configApp={};
 var Backend = {};
 var Utils = {};
 var Animation = {};
@@ -86,8 +56,8 @@ Utils.isGithubApiLink = function(url) {
 // TODO
 Utils.selectMenu = function() {
     'use strict';
-    //$(Config.lsb + ' li').removeClass('selected');
-    //$(Config.lsb + ' a[href^="#' + val.url + '"]').parent().addClass('selected');
+    //$(configApp.lsb + ' li').removeClass('selected');
+    //$(configApp.lsb + ' a[href^="#' + val.url + '"]').parent().addClass('selected');
 };
 
 Utils.fitSize = function(src, dest) {
@@ -99,12 +69,12 @@ Utils.fitSize = function(src, dest) {
 Utils.fitGradientToImg = function() {
     'use strict';
     console.log('Fitting gradient size to header img size');
-    Utils.fitSize(Config.headerImg, Config.gradientContainer);
+    Utils.fitSize(configApp.headerImg, configApp.gradientContainer);
 };
 
 Utils.gradientInit = function() {
     'use strict';
-    $.each([Config.headerImg, window], function(k, v) {
+    $.each([configApp.headerImg, window], function(k, v) {
         $(v).resize(function() {
             Utils.fitGradientToImg();
         });
@@ -114,7 +84,7 @@ Utils.gradientInit = function() {
 Utils.showErrorMsg = function(msg) {
     'use strict';
     // TODO Add some UX
-    $(Config.errorId).html();
+    $(configApp.errorId).html();
 };
 
 Utils.startsWith = function(str, val) {
@@ -158,14 +128,14 @@ Animation.toggleLeftSidebar = function(selectors) {
 
     $.each(selectors, function(key, val) {
         $(val).click(function() {
-            $(Config.bar).toggleClass(bc);
-            $(Config.content).toggleClass(bc);
-            $(Config.lsb).toggleClass(lsb);
-            if ($(Config.content).hasClass(bc)) {
-                $(Config.content).one('click', function() {
-                    $(Config.bar).removeClass(bc);
-                    $(Config.content).removeClass(bc);
-                    $(Config.lsb).removeClass(lsb);
+            $(configApp.bar).toggleClass(bc);
+            $(configApp.content).toggleClass(bc);
+            $(configApp.lsb).toggleClass(lsb);
+            if ($(configApp.content).hasClass(bc)) {
+                $(configApp.content).one('click', function() {
+                    $(configApp.bar).removeClass(bc);
+                    $(configApp.content).removeClass(bc);
+                    $(configApp.lsb).removeClass(lsb);
                 });
             }
         });
@@ -178,12 +148,12 @@ Animation.toggleRightSidebar = function(selectors) {
     var rsb = 'moveRSB';
     $.each(selectors, function(key, val) {
         $(val).click(function() {
-            $(Config.bar).toggleClass(bc);
-            $(Config.rsb).toggleClass(rsb);
-            if ($(Config.rsb).hasClass(rsb)) {
-                $(Config.content).one('click', function() {
-                    $(Config.bar).removeClass(bc);
-                    $(Config.rsb).removeClass(rsb);
+            $(configApp.bar).toggleClass(bc);
+            $(configApp.rsb).toggleClass(rsb);
+            if ($(configApp.rsb).hasClass(rsb)) {
+                $(configApp.content).one('click', function() {
+                    $(configApp.bar).removeClass(bc);
+                    $(configApp.rsb).removeClass(rsb);
                 });
             }
         });
@@ -200,10 +170,10 @@ Comments.disqusReload = function(enableDisqus, disqusIdentifier, language, title
     }
 
     if (enableDisqus) {
-        $(Config.disqusThread).show();
+        $(configApp.disqusThread).show();
         disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
     } else {
-        $(Config.disqusThread).hide();
+        $(configApp.disqusThread).hide();
     }
 };
 
@@ -230,7 +200,7 @@ Content.markdown = function(md, callback) {
 Content.runToc = function(container) {
     'use strict';
     container = typeof container !== 'undefined' ? container : '#post';
-    $(Config.rsb).toc({
+    $(configApp.rsb).toc({
         'selectors': 'h1,h2,h3,h4,h5,h6',
         'container': container,
         'smoothScrolling': false,
@@ -257,7 +227,7 @@ Content.fillSlider = function(data) {
         var p = '<p>' + val.header.title + '</p>';
         var p2 = '<p>' + val.date + '</p>';
         var li = '<li><a href="#' + val.url + '">' + img + p + p2 + '</a></li>';
-        $(li).appendTo(Config.slides);
+        $(li).appendTo(configApp.slides);
     });
 };
 
@@ -268,12 +238,12 @@ Content.updateBrowserTitle = function(title) {
 
 Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
     'use strict';
-    $(Config.headerImg).attr('src', imgSrc);
+    $(configApp.headerImg).attr('src', imgSrc);
     Utils.fitGradientToImg();
-    if (Config.headerImg && addGradient) {
-        $(Config.gradientContainer).addClass(Config.gradientClass);
+    if (configApp.headerImg && addGradient) {
+        $(configApp.gradientContainer).addClass(configApp.gradientClass);
     } else {
-        $(Config.gradientContainer).removeClass(Config.gradientClass);
+        $(configApp.gradientContainer).removeClass(configApp.gradientClass);
     }
     // Update Header Title
     if (title) {
@@ -289,13 +259,13 @@ Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
 
 Content.reloadPage = function(val) {
     'use strict';
-    $(Config.rsb).show();
-    $(Config.contentIcon).show();
-    Content.updateBrowserTitle(Config.title + val.header.title);
+    $(configApp.rsb).show();
+    $(configApp.contentIcon).show();
+    Content.updateBrowserTitle(configContent.title + val.header.title);
     Backend.loadContent(val.url, function(data) {
         Content.setHeaderImg(val.header.img, val.header.addGradient, val.header.title, val.header.subtitle);
         Content.markdown(data, function(compiledMarkdown) {
-            $(Config.post).html(compiledMarkdown);
+            $(configApp.post).html(compiledMarkdown);
             $('pre').addClass('hljs');
         });
         Content.runToc();
@@ -314,9 +284,9 @@ Content.routes = function(data) {
     $.each(blog, function(key, val) {
         // Routing listener
         urls[val.url] = function() {
-            $(Config.post).html('');
-            $(Config.slides).fadeOut(500, function() {
-                $(Config.blog).fadeIn(500, function() {
+            $(configApp.post).html('');
+            $(configApp.slides).fadeOut(500, function() {
+                $(configApp.blog).fadeIn(500, function() {
                     Content.reloadPage(val);
                 });
             });
@@ -326,9 +296,9 @@ Content.routes = function(data) {
     $.each(pages, function(key, val) {
         urls[val.url] = function() {
             console.log('Showing page:' + val.url);
-            $(Config.post).html('');
-            $(Config.slides).fadeOut(500, function() {
-                $(Config.blog).fadeIn(500, function() {
+            $(configApp.post).html('');
+            $(configApp.slides).fadeOut(500, function() {
+                $(configApp.blog).fadeIn(500, function() {
                     Content.reloadPage(val);
                 });
             });
@@ -336,13 +306,13 @@ Content.routes = function(data) {
     });
 
     urls[''] = function() {
-        $(Config.post).html('');
-        $(Config.rsb).hide();
-        $(Config.contentIcon).hide();
-        Content.updateBrowserTitle(Config.title);
+        $(configApp.post).html('');
+        $(configApp.rsb).hide();
+        $(configApp.contentIcon).hide();
+        Content.updateBrowserTitle(configApp.title);
         Content.setHeaderImg(gh.img, gh.addGradient, gh.title, gh.subtitle);
-        $(Config.blog).fadeOut(500, function() {
-            $(Config.slides).fadeIn(500, function() {
+        $(configApp.blog).fadeOut(500, function() {
+            $(configApp.slides).fadeIn(500, function() {
                 Utils.fitGradientToImg();
             });
         });
@@ -406,13 +376,13 @@ $(document).ready(function() {
     'use strict';
     console.log('loading routes, filling sliders');
 
-    Backend.loadJson(Config.contentJson, function(data) {
+    Backend.loadJson('config-content.json', function(data) {
         Content.routes(data);
         Content.fillSlider(data);
     });
 
-    Animation.toggleLeftSidebar([Config.menuIcon, Config.lsb]);
-    Animation.toggleRightSidebar([Config.contentIcon, Config.rsb]);
+    Animation.toggleLeftSidebar([configApp.menuIcon, configApp.lsb]);
+    Animation.toggleRightSidebar([configApp.contentIcon, configApp.rsb]);
     Animation.smoothScrolling();
     Utils.gradientInit();
 });

@@ -1,0 +1,25 @@
+{
+  "headerImg": "#headerImg",
+  "gradientContainer": "#gradientContainer",
+  "gradientClass": "gradient",
+
+  "content": "#content",
+
+  "barId": "#bar",
+  "rsb": "#rsb",
+  "lsb": "#lsb",
+  "menuIcon": "#menuIcon",
+  "contentIcon": "#contentIcon",
+
+
+  "slider": "#slider",
+  "slides": "#slides",
+  "blogId": "#blog",
+  "post": "#post",
+
+
+  "disqusThread": "#disqus_thread",
+  "enableDisqus": true,
+
+  "errorId": "#error"
+}
