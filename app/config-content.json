@@ -1,6 +1,8 @@
 {
   "global": {
     "title": "Ismail Marmoush",
+    "disqusShortname":"ismailmarmoush",
+    "googleAnalyticsId":"UA-18732433-1",
     "header": {
       "img": "images/sunset.jpg",
       "title": "Marmoush.com",
@@ -9,7 +11,7 @@
     }
   },
   "bar": {
-    "logo": "/images/path",
+    "logoPath": "images/logo.png",
     "information": "Marmoush.com © 2015 Ismail Marmoush"
   },
   "pages": {

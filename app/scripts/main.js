@@ -37,6 +37,8 @@ var Animation = {};
 var Comments = {};
 var Content = {};
 var GithubApi = {};
+var GoogleApi = {};
+var DisqusApi = {};
 /******************** Utilities **************************/
 
 Utils.getHash = function() {
@@ -314,30 +316,12 @@ Content.routes = function() {
   };
   routie(urls);
 };
-/******************* Github API ****************/
-GithubApi.loadReadme = function(path, callback) {
+
+Content.leftSideBarInit = function() {
   'use strict';
-  $.ajax({
-    url: path,
-    dataType: 'json',
-    type: 'GET',
-    async: true,
-    statusCode: {
-      404: function(response) {
-
-      },
-      200: function(response) {
-        // Decoding base64
-        var d = window.atob(response.content);
-        callback(d);
-      }
-    },
-    error: function(jqXHR, status, errorThrown) {
-      Utils.showErrorMsg(jqXHR + ':' + status + ':' + ':' + errorThrown);
-    }
-  });
+  $(configApp.lsbId + ' > img').attr('src', configContent.bar.logoPath);
+  $(configApp.lsbId + ' > span').html(configContent.bar.information);
 };
-
 /******************* Backend ********************/
 
 Backend.loadJson = function(path, callback) {
@@ -366,7 +350,87 @@ Backend.loadContent = function(url, callback) {
   }
 };
 
-//function sideBarOpened
+/******************* Github API ****************/
+GithubApi.loadReadme = function(path, callback) {
+  'use strict';
+  $.ajax({
+    url: path,
+    dataType: 'json',
+    type: 'GET',
+    async: true,
+    statusCode: {
+      404: function(response) {
+
+      },
+      200: function(response) {
+        // Decoding base64
+        var d = window.atob(response.content);
+        callback(d);
+      }
+    },
+    error: function(jqXHR, status, errorThrown) {
+      Utils.showErrorMsg(jqXHR + ':' + status + ':' + ':' + errorThrown);
+    }
+  });
+};
+
+/******************* Google API ****************/
+
+/* jshint ignore:start */
+GoogleApi.analytics = function() {
+  'use strict';
+  (function(b, o, i, l, e, r) {
+    b.GoogleAnalyticsObject = l;
+    b[l] || (b[l] =
+      function() {
+        (b[l].q = b[l].q || []).push(arguments)
+      });
+    b[l].l = +new Date;
+    e = o.createElement(i);
+    r = o.getElementsByTagName(i)[0];
+    e.src = '//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e, r)
+  }(window, document, 'script', 'ga'));
+  console.log("Init Google Analytics Id:" + configContent.global.googleAnalyticsId);
+  ga('create', configContent.global.googleAnalyticsId);
+  ga('send', 'pageview', '/' + window.location.hash);
+};
+/* jshint ignore:end */
+
+/******************* Disqus API ****************/
+/* jshint ignore:start */
+DisqusApi.init = function() {
+  'use strict';
+
+  console.log('loading disqus');
+  console.log('Init Disqus Shortname:' + configContent.global.disqusShortname);
+  var disqus_shortname = configContent.global.disqusShortname;
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+
+  /* * * Disqus Reset Function * * */
+  var disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
+    DISQUS.reset({
+      reload: true,
+      config: function() {
+        this.page.identifier = newIdentifier;
+        this.page.url = newUrl;
+        this.page.title = newTitle;
+        this.language = newLanguage;
+      }
+    });
+  };
+  console.log('end loading disqus');
+};
+/* jshint ignore:end */
+
+/******************* Initialization ****************/
 $(document).ready(function() {
   'use strict';
   console.log('loading routes, filling sliders');
@@ -378,10 +442,13 @@ $(document).ready(function() {
       configContent = data;
       Content.routes();
       Content.fillSlider();
+      Content.leftSideBarInit();
       Animation.toggleLeftSidebar();
       Animation.toggleRightSidebar();
       Animation.smoothScrolling();
       Utils.gradientInit();
+      GoogleApi.analytics();
+      DisqusApi.init();
     });
   });
 
