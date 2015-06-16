@@ -101,7 +101,7 @@ Utils.startsWith = function(str, val) {
 
 Animation.smoothScrolling = function() {
   'use strict';
-  $('#rsb a[href^="#"]').on('click', function(e) {
+  $(configApp.rsbId + ' a[href^="#"]').on('click', function(e) {
     e.preventDefault();
     var target = this.hash;
     var $target = $(target);
@@ -199,7 +199,7 @@ Content.markdown = function(md, callback) {
 
 Content.runToc = function(container) {
   'use strict';
-  container = typeof container !== 'undefined' ? container : '#post';
+  container = typeof container !== 'undefined' ? container : configApp.postId;
   $(configApp.rsbId).toc({
     'selectors': 'h1,h2,h3,h4,h5,h6',
     'container': container,
