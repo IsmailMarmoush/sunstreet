@@ -1,24 +1,22 @@
 {
-  "headerImg": "#headerImg",
-  "gradientContainer": "#gradientContainer",
+  "headerImgId": "#headerImg",
+  "gradientContainerId": "#gradientContainer",
   "gradientClass": "gradient",
 
-  "content": "#content",
+  "contentId": "#content",
 
   "barId": "#bar",
-  "rsb": "#rsb",
-  "lsb": "#lsb",
-  "menuIcon": "#menuIcon",
-  "contentIcon": "#contentIcon",
+  "rsbId": "#rsb",
+  "lsbId": "#lsb",
+  "menuIconId": "#menuIcon",
+  "contentIconId": "#contentIcon",
 
-
-  "slider": "#slider",
-  "slides": "#slides",
+  "slidesId": "#slides",
   "blogId": "#blog",
-  "post": "#post",
+  "postId": "#post",
 
 
-  "disqusThread": "#disqus_thread",
+  "disqusThreadId": "#disqus_thread",
   "enableDisqus": true,
 
   "errorId": "#error"
