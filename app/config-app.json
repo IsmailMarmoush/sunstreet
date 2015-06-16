@@ -15,9 +15,7 @@
   "blogId": "#blog",
   "postId": "#post",
 
-
   "disqusThreadId": "#disqus_thread",
-  "enableDisqus": true,
 
   "errorId": "#error"
 }

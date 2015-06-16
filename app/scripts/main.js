@@ -34,7 +34,6 @@ var configApp = {};
 var Backend = {};
 var Utils = {};
 var Animation = {};
-var Comments = {};
 var Content = {};
 var GithubApi = {};
 var GoogleApi = {};
@@ -161,25 +160,7 @@ Animation.toggleRightSidebar = function() {
     });
   });
 };
-/*************** END App Animation ************/
 
-/*************** Comment System ************/
-
-Comments.disqusReload = function(enableDisqus, disqusIdentifier, language, title) {
-  'use strict';
-  if (language === undefined) {
-    language = 'en';
-  }
-
-  if (enableDisqus) {
-    $(configApp.disqusThreadId).show();
-    disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
-  } else {
-    $(configApp.disqusThreadId).hide();
-  }
-};
-
-/************** End Comment System ***********/
 
 
 
@@ -225,7 +206,7 @@ Content.fillSlider = function() {
     // fill slides
     console.log(val.url);
     var img = '<img src="' + val.thumb + '" />';
-    var p = '<p>' + val.header.title + '</p>';
+    var p = '<p>' + val.title + '</p>';
     var p2 = '<p>' + val.date + '</p>';
     var li = '<li><a href="#' + val.url + '">' + img + p + p2 + '</a></li>';
     $(li).appendTo(configApp.slidesId);
@@ -260,16 +241,16 @@ Content.reloadPage = function(val) {
   'use strict';
   $(configApp.rsb).show();
   $(configApp.contentIconId).show();
-  Content.updateBrowserTitle(configContent.title + val.header.title);
+  Content.updateBrowserTitle(configContent.title + val.title);
   Backend.loadContent(val.url, function(data) {
-    Content.setHeaderImg(val.header.img, val.header.addGradient, val.header.title, val.header.subtitle);
+    Content.setHeaderImg(val.img, val.addGradient, val.title, val.subtitle);
     Content.markdown(data, function(compiledMarkdown) {
       $(configApp.postId).html(compiledMarkdown);
       $('pre').addClass('hljs');
     });
     Content.runToc();
     Animation.smoothScrolling();
-    Comments.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
+    DisqusApi.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
   });
 
 };
@@ -306,8 +287,8 @@ Content.routes = function() {
     $(configApp.postId).html('');
     $(configApp.rsbId).hide();
     $(configApp.contentIconId).hide();
-    Content.updateBrowserTitle(configApp.title);
-    Content.setHeaderImg(configContent.global.header.img, configContent.global.header.addGradient, configContent.global.header.title, configContent.global.header.subtitle);
+    Content.updateBrowserTitle(configContent.global.title);
+    Content.setHeaderImg(configContent.global.img, configContent.global.addGradient, configContent.global.title, configContent.global.subtitle);
     $(configApp.blogId).fadeOut(500, function() {
       $(configApp.slidesId).fadeIn(500, function() {
         Utils.fitGradientToImg();
@@ -321,7 +302,9 @@ Content.leftSideBarInit = function() {
   'use strict';
   $(configApp.lsbId + ' > img').attr('src', configContent.bar.logoPath);
   $(configApp.lsbId + ' > span').html(configContent.bar.information);
+
 };
+
 /******************* Backend ********************/
 
 Backend.loadJson = function(path, callback) {
@@ -398,6 +381,21 @@ GoogleApi.analytics = function() {
 /* jshint ignore:end */
 
 /******************* Disqus API ****************/
+DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, title) {
+  'use strict';
+  if (language === undefined) {
+    language = 'en';
+  }
+
+  if (enableDisqus) {
+    $(configApp.disqusThreadId).show();
+    disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
+  } else {
+    $(configApp.disqusThreadId).hide();
+  }
+};
+
+
 /* jshint ignore:start */
 DisqusApi.init = function() {
   'use strict';
