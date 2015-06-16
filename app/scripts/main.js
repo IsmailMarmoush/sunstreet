@@ -121,12 +121,12 @@ Animation.scrollTo = function(element) {
   }, 900);
 };
 
-Animation.toggleLeftSidebar = function(selectors) {
+Animation.toggleLeftSidebar = function() {
   'use strict';
   var bc = 'moveContentRight';
   var lsb = 'moveLSB';
 
-  $.each(selectors, function(key, val) {
+  $.each([configApp.menuIconId, configApp.lsbId], function(key, val) {
     $(val).click(function() {
       $(configApp.barId).toggleClass(bc);
       $(configApp.contentId).toggleClass(bc);
@@ -142,11 +142,11 @@ Animation.toggleLeftSidebar = function(selectors) {
   });
 };
 
-Animation.toggleRightSidebar = function(selectors) {
+Animation.toggleRightSidebar = function() {
   'use strict';
   var bc = 'moveContentLeft';
   var rsb = 'moveRSB';
-  $.each(selectors, function(key, val) {
+  $.each([configApp.contentIconId, configApp.rsbId], function(key, val) {
     $(val).click(function() {
       $(configApp.barId).toggleClass(bc);
       $(configApp.rsbId).toggleClass(rsb);
@@ -200,7 +200,7 @@ Content.markdown = function(md, callback) {
 Content.runToc = function(container) {
   'use strict';
   container = typeof container !== 'undefined' ? container : '#post';
-  $(configApp.lsbId).toc({
+  $(configApp.rsbId).toc({
     'selectors': 'h1,h2,h3,h4,h5,h6',
     'container': container,
     'smoothScrolling': false,
@@ -217,10 +217,9 @@ Content.runToc = function(container) {
   });
 };
 
-Content.fillSlider = function(data) {
+Content.fillSlider = function() {
   'use strict';
-  var blog = data.blog;
-  $.each(blog, function(key, val) {
+  $.each(configContent.blog, function(key, val) {
     // fill slides
     console.log(val.url);
     var img = '<img src="' + val.thumb + '" />';
@@ -252,8 +251,6 @@ Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
   if (subtitle) {
     subtitle = '';
   }
-  //    $('#title').text(title);
-  //    $('#subtitle').text(subtitle);
 };
 
 
@@ -306,7 +303,7 @@ Content.routes = function() {
   urls[''] = function() {
     $(configApp.postId).html('');
     $(configApp.rsbId).hide();
-    $(configApp.contentIconIdId).hide();
+    $(configApp.contentIconId).hide();
     Content.updateBrowserTitle(configApp.title);
     Content.setHeaderImg(configContent.global.header.img, configContent.global.header.addGradient, configContent.global.header.title, configContent.global.header.subtitle);
     $(configApp.blogId).fadeOut(500, function() {
@@ -376,14 +373,16 @@ $(document).ready(function() {
 
   Backend.loadJson('config-app.json', function(data) {
     configApp = data;
-    Animation.toggleLeftSidebar([configApp.menuIconId, configApp.lsbId]);
-    Animation.toggleRightSidebar([configApp.contentIconId, configApp.rsbId]);
-    Animation.smoothScrolling();
-    Utils.gradientInit();
+
     Backend.loadJson('config-content.json', function(data) {
       configContent = data;
       Content.routes();
-      Content.fillSlider(data);
+      Content.fillSlider();
+      Animation.toggleLeftSidebar();
+      Animation.toggleRightSidebar();
+      Animation.smoothScrolling();
+      Utils.gradientInit();
     });
   });
+
 });

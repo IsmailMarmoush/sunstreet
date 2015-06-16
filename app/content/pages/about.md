@@ -1,4 +1,4 @@
-Hi, 
+## Hi, 
 
 So I was walking down the street, and it hit me "Why not just delete all the crap I used to say about myself and make a whole new website with better content ?!".
 
@@ -12,4 +12,3 @@ Ismail Marmoush
 
 
 Last Updated February 2015
-
