@@ -1,55 +1,55 @@
 {
-    "global": {
-        "title": "Marmoush.com",
-        "disqusShortname": "ismailmarmoush",
-        "googleAnalyticsId": "UA-18732433-1",
-        "img": "images/sunset.jpg",
-        "subtitle": "Web and Big Data",
-        "addGradient": false
-    },
-    "bar": {
-        "logoPath": "images/logo.png",
-        "information": "Marmoush.com © 2015 Ismail Marmoush"
-    },
-    "pages": {
-        "1": {
-            "title":"About",
-            "url": "pages/about.md",
-            "img": "images/sunset.jpg",
-            "addGradient": false,
-            "disqus": {
-                "enable": false
-            }
-        }
-    },
-    "blog": {
-        "1": {
-            "title": "Papyrus Java To UML Reverse Engineering",
-            "url": "blog/Papyrus-Java-to-UML-Reverse-Engineering.md",
-            "date": "02/03/2014",
-            "thumb": "images/blog/eclipse.png",
-            "img": "images/blog/eclipse.png",
-            "subtitle": "Software Engineering",
-            "addGradient": false,
-            "disqus": {
-                "enable": true,
-                "identifier": "/12345",
-                "lang": "en"
-            }
-        },
-        "2": {
-            "title": "Minimal Debian Installation",
-            "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
-            "date": "01/01/2014",
-            "thumb": "images/blog/debian-wallpaper.jpg",
-            "img": "images/blog/debian-wallpaper.jpg",
-            "subtitle": "Linux",
-            "addGradient": true,
-            "disqus": {
-                "enable": true,
-                "identifier": "/0000001",
-                "lang": "en"
-            }
-        }
+  "global": {
+    "title": "Marmoush.com",
+    "disqusShortname": "ismailmarmoush",
+    "googleAnalyticsId": "UA-18732433-1",
+    "img": "images/sunset.jpg",
+    "subtitle": "Web and Big Data",
+    "addGradient": false
+  },
+  "bar": {
+    "logoPath": "images/logo.png",
+    "information": "Marmoush.com © 2015 Ismail Marmoush"
+  },
+  "pages": {
+    "1": {
+      "title": "About",
+      "url": "pages/about.md",
+      "img": "images/sunset.jpg",
+      "addGradient": true,
+      "disqus": {
+        "enable": false
+      }
     }
+  },
+  "blog": {
+    "1": {
+      "title": "Papyrus Java To UML Reverse Engineering",
+      "url": "blog/Papyrus-Java-to-UML-Reverse-Engineering.md",
+      "subtitle": "Software Engineering",
+      "date": "02/03/2014",
+      "thumb": "content-images/eclipse.png",
+      "img": "content-images/eclipse.png",
+      "addGradient": false,
+      "disqus": {
+        "enable": true,
+        "identifier": "/12345",
+        "lang": "en"
+      }
+    },
+    "2": {
+      "title": "Minimal Debian Installation",
+      "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
+      "subtitle": "Linux",
+      "date": "01/01/2014",
+      "thumb": "content-images/debian-wallpaper.jpg",
+      "img": "content-images/debian-wallpaper.jpg",
+      "addGradient": false,
+      "disqus": {
+        "enable": true,
+        "identifier": "/0000001",
+        "lang": "en"
+      }
+    }
+  }
 }

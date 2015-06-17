@@ -23,7 +23,6 @@
 /* global hljs */
 /* global DISQUS */
 /* global disqusReset */
-/* global IScroll */
 console.log('\'Ello \'Ello!');
 
 /********* Objects *********/
@@ -58,21 +57,7 @@ Utils.fitSize = function(src, dest) {
   'use strict';
   $(dest).height($(src).height());
   $(dest).width($(src).width());
-};
-
-Utils.fitGradientToImg = function() {
-  'use strict';
-  console.log('Fitting gradient size to header img size');
-  Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
-};
-
-Utils.gradientInit = function() {
-  'use strict';
-  $.each([configApp.headerImgId, window], function(k, v) {
-    $(v).resize(function() {
-      Utils.fitGradientToImg();
-    });
-  });
+  console.log('fitting size:' + $(src).height() + ':' + $(src).width());
 };
 
 Utils.showErrorMsg = function(msg) {
@@ -95,6 +80,15 @@ Utils.titleToLink = function(str) {
   return '/' + str.replace(/\s+/g, '-');
 };
 
+// Listener for window and headerImgId to resize the gradient if they changed
+Utils.gradientListener = function() {
+  'use strict';
+  $.each([configApp.headerImgId, window], function(k, v) {
+    $(v).resize(function() {
+      Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
+    });
+  });
+};
 /******************** App Animation **************************/
 
 
@@ -196,6 +190,7 @@ Content.runToc = function(container) {
       return $heading.text();
     }
   });
+  $(configApp.rsbId).show();
 };
 
 Content.fillSlider = function() {
@@ -218,14 +213,17 @@ Content.updateBrowserTitle = function(title) {
 
 Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
   'use strict';
-  $(configApp.headerImgId).attr('src', imgSrc);
-  Utils.fitGradientToImg();
-  if (configApp.headerImgId && addGradient) {
-    $(configApp.gradientContainerId).addClass(configApp.gradientClass);
-  } else {
-    $(configApp.gradientContainerId).removeClass(configApp.gradientClass);
-  }
-  // Update Header Title
+
+  $(configApp.headerImgId).load(function() {
+    if (configApp.headerImgId && addGradient) {
+      $(configApp.gradientContainerId).addClass(configApp.gradientClass);
+    } else {
+      $(configApp.gradientContainerId).removeClass(configApp.gradientClass);
+    }
+    Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
+  }).attr('src', imgSrc);
+
+  // TODO Update Header Title
   if (title) {
     title = '';
   }
@@ -237,18 +235,17 @@ Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
 
 Content.reloadPage = function(val) {
   'use strict';
-  $(configApp.rsb).show();
   $(configApp.contentIconId).show();
   Content.updateBrowserTitle(configContent.global.title + ' ' + val.title);
   Backend.loadContent(val.url, function(data) {
-    Content.setHeaderImg(val.img, val.addGradient, val.title, val.subtitle);
     Content.markdown(data, function(compiledMarkdown) {
       $(configApp.postId).html(compiledMarkdown);
       $('pre').addClass('hljs');
+      Content.setHeaderImg(val.img, val.addGradient, val.title, val.subtitle);
+      Content.runToc();
+      Animation.smoothScrolling();
+      DisqusApi.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
     });
-    Content.runToc();
-    Animation.smoothScrolling();
-    DisqusApi.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
   });
 
 };
@@ -286,10 +283,9 @@ Content.routes = function() {
     $(configApp.rsbId).hide();
     $(configApp.contentIconId).hide();
     Content.updateBrowserTitle(configContent.global.title);
-    Content.setHeaderImg(configContent.global.img, configContent.global.addGradient, configContent.global.title, configContent.global.subtitle);
     $(configApp.blogId).fadeOut(500, function() {
       $(configApp.slidesId).fadeIn(500, function() {
-        Utils.fitGradientToImg();
+        Content.setHeaderImg(configContent.global.img, configContent.global.addGradient, configContent.global.title, configContent.global.subtitle);
       });
     });
   };
@@ -301,7 +297,7 @@ Content.leftSideBarInit = function() {
   $(configApp.lsbId + ' > img').attr('src', configContent.bar.logoPath);
   $(configApp.lsbId + ' > span').html(configContent.bar.information);
   $.each(configContent.pages, function(index, val) {
-    var a = '<li> <a href="#' +  Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
+    var a = '<li> <a href="#' + Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
     $(configApp.lsbId + ' > ul').append(a);
   });
 };
@@ -456,10 +452,9 @@ $(document).ready(function() {
       Animation.toggleLeftSidebar();
       Animation.toggleRightSidebar();
       Animation.smoothScrolling();
-      Utils.gradientInit();
       GoogleApi.analytics();
       DisqusApi.init();
-      var myScroll = new IScroll('#content');
+      Utils.gradientListener();
     });
   });
 
