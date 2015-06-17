@@ -23,7 +23,7 @@
 /* global hljs */
 /* global DISQUS */
 /* global disqusReset */
-
+/* global IScroll */
 console.log('\'Ello \'Ello!');
 
 /********* Objects *********/
@@ -391,6 +391,20 @@ GoogleApi.analytics = function() {
 /* jshint ignore:end */
 
 /******************* Disqus API ****************/
+/* * * Disqus Reset Function * * */
+DisqusApi.disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
+  'use strict';
+  DISQUS.reset({
+    reload: true,
+    config: function() {
+      this.page.identifier = newIdentifier;
+      this.page.url = newUrl;
+      this.page.title = newTitle;
+      this.language = newLanguage;
+    }
+  });
+};
+
 DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, title) {
   'use strict';
   if (language === undefined) {
@@ -399,11 +413,12 @@ DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, titl
 
   if (enableDisqus) {
     $(configApp.disqusThreadId).show();
-    disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
+    DisqusApi.disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
   } else {
     $(configApp.disqusThreadId).hide();
   }
 };
+
 
 
 /* jshint ignore:start */
@@ -421,19 +436,6 @@ DisqusApi.init = function() {
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
-
-  /* * * Disqus Reset Function * * */
-  var disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
-    DISQUS.reset({
-      reload: true,
-      config: function() {
-        this.page.identifier = newIdentifier;
-        this.page.url = newUrl;
-        this.page.title = newTitle;
-        this.language = newLanguage;
-      }
-    });
-  };
   console.log('end loading disqus');
 };
 /* jshint ignore:end */
@@ -457,6 +459,7 @@ $(document).ready(function() {
       Utils.gradientInit();
       GoogleApi.analytics();
       DisqusApi.init();
+      var myScroll = new IScroll('#content');
     });
   });
 

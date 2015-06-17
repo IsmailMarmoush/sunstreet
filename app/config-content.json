@@ -13,9 +13,9 @@
     },
     "pages": {
         "1": {
+            "title":"About",
             "url": "pages/about.md",
             "img": "images/sunset.jpg",
-            "title":"About",
             "addGradient": false,
             "disqus": {
                 "enable": false
@@ -24,11 +24,11 @@
     },
     "blog": {
         "1": {
+            "title": "Papyrus Java To UML Reverse Engineering",
             "url": "blog/Papyrus-Java-to-UML-Reverse-Engineering.md",
             "date": "02/03/2014",
             "thumb": "images/blog/eclipse.png",
             "img": "images/blog/eclipse.png",
-            "title": "Papyrus Java To UML Reverse Engineering",
             "subtitle": "Software Engineering",
             "addGradient": false,
             "disqus": {
@@ -38,11 +38,11 @@
             }
         },
         "2": {
+            "title": "Minimal Debian Installation",
             "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
             "date": "01/01/2014",
             "thumb": "images/blog/debian-wallpaper.jpg",
             "img": "images/blog/debian-wallpaper.jpg",
-            "title": "Minimal Debian Installation",
             "subtitle": "Linux",
             "addGradient": true,
             "disqus": {
