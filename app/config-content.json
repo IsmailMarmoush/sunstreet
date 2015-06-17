@@ -16,7 +16,6 @@
             "url": "pages/about.md",
             "img": "images/sunset.jpg",
             "title":"About",
-            "subtitle": "",
             "addGradient": false,
             "disqus": {
                 "enable": false

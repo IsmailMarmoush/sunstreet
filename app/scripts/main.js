@@ -90,6 +90,11 @@ Utils.startsWith = function(str, val) {
   }
 };
 
+Utils.titleToLink = function(str) {
+  'use strict';
+  return '/' + str.replace(/\s+/g, '-');
+};
+
 /******************** App Animation **************************/
 
 
@@ -201,7 +206,7 @@ Content.fillSlider = function() {
     var img = '<img src="' + val.thumb + '" />';
     var p = '<p>' + val.title + '</p>';
     var p2 = '<p>' + val.date + '</p>';
-    var li = '<li><a href="#' + val.url + '">' + img + p + p2 + '</a></li>';
+    var li = '<li><a href="#' + Utils.titleToLink(val.title) + '">' + img + p + p2 + '</a></li>';
     $(li).appendTo(configApp.slidesId);
   });
 };
@@ -234,7 +239,7 @@ Content.reloadPage = function(val) {
   'use strict';
   $(configApp.rsb).show();
   $(configApp.contentIconId).show();
-  Content.updateBrowserTitle(configContent.title + val.title);
+  Content.updateBrowserTitle(configContent.global.title + ' ' + val.title);
   Backend.loadContent(val.url, function(data) {
     Content.setHeaderImg(val.img, val.addGradient, val.title, val.subtitle);
     Content.markdown(data, function(compiledMarkdown) {
@@ -254,7 +259,7 @@ Content.routes = function() {
   var urls = {};
   $.each(configContent.blog, function(key, val) {
     // Routing listener
-    urls[val.url] = function() {
+    urls[Utils.titleToLink(val.title)] = function() {
       $(configApp.postId).html('');
       $(configApp.slidesId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
@@ -265,7 +270,7 @@ Content.routes = function() {
   });
 
   $.each(configContent.pages, function(key, val) {
-    urls[val.url] = function() {
+    urls[Utils.titleToLink(val.title)] = function() {
       console.log('Showing page:' + val.url);
       $(configApp.postId).html('');
       $(configApp.slidesId).fadeOut(500, function() {
@@ -295,7 +300,10 @@ Content.leftSideBarInit = function() {
   'use strict';
   $(configApp.lsbId + ' > img').attr('src', configContent.bar.logoPath);
   $(configApp.lsbId + ' > span').html(configContent.bar.information);
-
+  $.each(configContent.pages, function(index, val) {
+    var a = '<li> <a href="#' +  Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
+    $(configApp.lsbId + ' > ul').append(a);
+  });
 };
 
 /******************* Backend ********************/
