@@ -46,14 +46,7 @@ Utils.getHash = function() {
   var hash = url.substring(url.indexOf('#') + 1);
   return hash;
 };
-Utils.isGithubApiLink = function(url) {
-  'use strict';
-  if (Utils.startsWith(url, 'https://api.github.com/repos')) {
-    return true;
-  } else {
-    return false;
-  }
-};
+
 // TODO
 Utils.selectMenu = function() {
   'use strict';
@@ -316,7 +309,7 @@ Backend.loadJson = function(path, callback) {
 
 Backend.loadContent = function(url, callback) {
   'use strict';
-  if (Utils.isGithubApiLink(url)) {
+  if (GithubApi.isGithubApiLink(url)) {
     GithubApi.loadReadme(url, function(data) {
       callback(data);
     });
@@ -334,6 +327,15 @@ Backend.loadContent = function(url, callback) {
 };
 
 /******************* Github API ****************/
+GithubApi.isGithubApiLink = function(url) {
+  'use strict';
+  if (Utils.startsWith(url, 'https://api.github.com/repos')) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 GithubApi.loadReadme = function(path, callback) {
   'use strict';
   $.ajax({
