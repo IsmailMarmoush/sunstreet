@@ -209,24 +209,24 @@ Content.updateBrowserTitle = function(title) {
   document.title = title;
 };
 
-Content.setHeaderImg = function(imgSrc, addGradient, title, subtitle) {
+Content.setHeaderImg = function(val) {
   'use strict';
-
+  // imgSrc, addGradient, title, subtitle
   $(configApp.headerImgId).load(function() {
-    if (configApp.headerImgId && addGradient) {
+    if (configApp.headerImgId && val.addGradient) {
       $(configApp.gradientContainerId).addClass(configApp.gradientClass);
     } else {
       $(configApp.gradientContainerId).removeClass(configApp.gradientClass);
     }
     Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
-  }).attr('src', imgSrc);
+  }).attr('src', val.img);
 
   // TODO Update Header Title
-  if (title) {
-    title = '';
+  if (val.addHeaderTitle) {
+    $(configApp.headerTextId + ' > span').html(val.title).css('font-size',val.titleSize);
   }
-  if (subtitle) {
-    subtitle = '';
+  if (val.addHeaderSubtitle) {
+    $(configApp.headerTextId + ' > p').html(val.subtitle).css('font-size',val.subtitleSize);
   }
 };
 
@@ -239,7 +239,7 @@ Content.reloadPage = function(val) {
     Content.markdown(data, function(compiledMarkdown) {
       $(configApp.postId).html(compiledMarkdown);
       $('pre').addClass('hljs');
-      Content.setHeaderImg(val.img, val.addGradient, val.title, val.subtitle);
+      Content.setHeaderImg(val);
       Content.runToc();
       Animation.smoothScrolling();
       DisqusApi.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
@@ -282,7 +282,7 @@ Content.routes = function() {
     Content.updateBrowserTitle(configContent.global.title);
     $(configApp.blogId).fadeOut(500, function() {
       $(configApp.slidesId).fadeIn(500, function() {
-        Content.setHeaderImg(configContent.global.img, configContent.global.addGradient, configContent.global.title, configContent.global.subtitle);
+        Content.setHeaderImg(configContent.global);
       });
     });
   };

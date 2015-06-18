@@ -506,19 +506,24 @@ a {
 .gradient {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 1)));
 }
-.titleGeneric {
-  color: rgba(255, 255, 255, .9);
-  font-weight: 600;
+#headerText {
   font-family: @titleFontFamily;
-  text-transform: uppercase;
-}
-#title {
-  .titleGeneric;
-  font-size: 4em;
-}
-#subtitle {
-  .titleGeneric;
-  font-size: 2em;
+  font-weight: 900;
+  text-align: left;
+  color: rgba(255, 255, 255, .8);
+  // position
+  position: absolute;
+  bottom: 10px;
+  display: block;
+  margin: 0 0 5px 20px;
+  span {
+    text-transform: uppercase;
+    line-height: 1.1em;
+  }
+  p {
+    font-family: @titleFontFamily;
+    margin-bottom:5px;
+  }
 }
 #blog {
   margin: 0 auto;
@@ -540,7 +545,6 @@ a {
 /************* Slider ****************/
 #slider {
   font-family: @titleFontFamily;
-
   width: 100%;
   text-align: center;
   font-size: 1em;
@@ -597,7 +601,7 @@ pre.hljs {
   font-size: 0.9em;
 }
 code {
-  color:@codeFontColor;
+  color: @codeFontColor;
 }
 ::selection {
   background: rgba(0, 0, 0, 0.2);
@@ -608,7 +612,7 @@ code {
 /******************* BlockQuote ***************/
 blockquote {
   font-family: @codeFontFamily;
-  font-size: .7em;
+  font-size: 0.7em;
   line-height: 1.2;
   text-align: justify;
   overflow-y: hidden;

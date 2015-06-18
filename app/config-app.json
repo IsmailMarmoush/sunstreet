@@ -1,9 +1,10 @@
 {
+  "contentId": "#content",
+
   "headerImgId": "#headerImg",
+  "headerTextId": "#headerText",
   "gradientContainerId": "#gradientContainer",
   "gradientClass": "gradient",
-
-  "contentId": "#content",
 
   "barId": "#bar",
   "rsbId": "#rsb",
