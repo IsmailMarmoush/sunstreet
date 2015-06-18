@@ -23,7 +23,7 @@
 /* global hljs */
 /* global DISQUS */
 /* global disqusReset */
-console.log('\'Ello \'Ello!');
+
 
 /********* Objects *********/
 // Selectors take normal name
@@ -57,7 +57,6 @@ Utils.fitSize = function(src, dest) {
   'use strict';
   $(dest).height($(src).height());
   $(dest).width($(src).width());
-  console.log('fitting size:' + $(src).height() + ':' + $(src).width());
 };
 
 Utils.showErrorMsg = function(msg) {
@@ -197,7 +196,6 @@ Content.fillSlider = function() {
   'use strict';
   $.each(configContent.blog, function(key, val) {
     // fill slides
-    console.log(val.url);
     var img = '<img src="' + val.thumb + '" />';
     var p = '<p>' + val.title + '</p>';
     var p2 = '<p>' + val.date + '</p>';
@@ -268,7 +266,6 @@ Content.routes = function() {
 
   $.each(configContent.pages, function(key, val) {
     urls[Utils.titleToLink(val.title)] = function() {
-      console.log('Showing page:' + val.url);
       $(configApp.postId).html('');
       $(configApp.slidesId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
@@ -380,7 +377,6 @@ GoogleApi.analytics = function() {
     e.src = '//www.google-analytics.com/analytics.js';
     r.parentNode.insertBefore(e, r)
   }(window, document, 'script', 'ga'));
-  console.log("Init Google Analytics Id:" + configContent.global.googleAnalyticsId);
   ga('create', configContent.global.googleAnalyticsId);
   ga('send', 'pageview', '/' + window.location.hash);
 };
@@ -421,8 +417,6 @@ DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, titl
 DisqusApi.init = function() {
   'use strict';
 
-  console.log('loading disqus');
-  console.log('Init Disqus Shortname:' + configContent.global.disqusShortname);
   var disqus_shortname = configContent.global.disqusShortname;
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
@@ -432,14 +426,12 @@ DisqusApi.init = function() {
     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
-  console.log('end loading disqus');
 };
 /* jshint ignore:end */
 
 /******************* Initialization ****************/
 $(document).ready(function() {
   'use strict';
-  console.log('loading routes, filling sliders');
 
   Backend.loadJson('config-app.json', function(data) {
     configApp = data;
