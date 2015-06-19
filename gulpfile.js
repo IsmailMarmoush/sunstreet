@@ -78,12 +78,22 @@ gulp.task('extras', function() {
         // 'app/LICENSE',
         'app/*.*',
         '!app/*.html',
-        'app/content/**/*',
+        // 'app/content/**/*',
         'node_modules/apache-server-configs/dest/.htaccess'
     ], {
         dot: true
     }).pipe(gulp.dest('dest'));
 });
+
+gulp.task('content', function() {
+    return gulp.src([
+        'app/content/**/*',
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dest/content'));
+});
+
+
 
 gulp.task('clean', require('del').bind(null, ['dest']));
 
@@ -128,7 +138,7 @@ gulp.task('watch', ['connect'], function() {
     gulp.watch('app/*.*', ['extras']);
     gulp.watch('app/index.html', ['html']);
 
-    gulp.watch('app/content/**/*', ['extras']);
+    gulp.watch('app/content/**/*', ['content']);
     gulp.watch('app/css/**/*.css', ['html']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('app/images/**/*', ['images']);
@@ -144,7 +154,7 @@ gulp.task('watch', ['connect'], function() {
 });
 
 // better use gulp so that clean is used before building
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras','content'], function() {
     return gulp.src('dest/**/*').pipe($.size({
         title: 'build',
         gzip: true

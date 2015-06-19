@@ -7,12 +7,12 @@
     "addGradient": false,
     "addHeaderTitle": false,
     "addHeaderTag": false,
-    "img": "images/sunset.jpg",
+    "img": "content/images/sunset.jpg",
     "disqusShortname": "ismailmarmoush",
     "googleAnalyticsId": "UA-18732433-1"
   },
   "bar": {
-    "logoPath": "images/logo.png",
+    "logoPath": "content/images/logo.png",
     "information": "Marmoush.com © 2015 Ismail Marmoush"
   },
   "pages": {
@@ -21,8 +21,8 @@
       "titleSize": "2em",
       "tag": "",
       "tagSize": "2em",
-      "url": "pages/about.md",
-      "img": "images/sunset.jpg",
+      "url": "content/pages/about.md",
+      "img": "content/images/sunset.jpg",
       "addGradient": true,
       "addHeaderTitle": false,
       "addHeaderTag": false,
@@ -31,9 +31,9 @@
       }
     }
   },
-  "blog": {
+  "posts": {
     "1": {
-      "url": "blog/Papyrus-Java-to-UML-Reverse-Engineering.md",
+      "url": "content/posts/Papyrus-Java-to-UML-Reverse-Engineering.md",
       "title": "Papyrus Java To UML Reverse Engineering",
       "titleSize": "4em",
       "tag": "Software Engineering",
@@ -42,8 +42,8 @@
       "addHeadertag": true,
       "addGradient": true,
       "date": "02/03/2014",
-      "thumb": "content-images/eclipse.png",
-      "img": "content-images/eclipse.png",
+      "thumb": "content/images/eclipse.png",
+      "img": "content/images/eclipse.png",
       "disqus": {
         "enable": true,
         "identifier": "/12345",
@@ -60,8 +60,8 @@
       "addHeaderTag": true,
       "addGradient": false,
       "date": "01/01/2014",
-      "thumb": "content-images/debian-wallpaper.jpg",
-      "img": "content-images/debian-wallpaper.jpg",
+      "thumb": "content/images/debian-wallpaper.jpg",
+      "img": "content/images/debian-wallpaper.jpg",
       "disqus": {
         "enable": true,
         "identifier": "/0000001",

@@ -194,7 +194,7 @@ Content.runToc = function(container) {
 
 Content.fillSlider = function() {
   'use strict';
-  $.each(configContent.blog, function(key, val) {
+  $.each(configContent.posts, function(key, val) {
     // fill slides
     var img = '<img src="' + val.thumb + '" />';
     var p = '<p>' + val.title + '</p>';
@@ -256,7 +256,7 @@ Content.routes = function() {
   'use strict';
 
   var urls = {};
-  $.each(configContent.blog, function(key, val) {
+  $.each(configContent.posts, function(key, val) {
     // Routing listener
     urls[Utils.titleToLink(val.title)] = function() {
       $(configApp.postId).html('');
