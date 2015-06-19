@@ -211,7 +211,7 @@ Content.updateBrowserTitle = function(title) {
 
 Content.setHeaderImg = function(val) {
   'use strict';
-  // imgSrc, addGradient, title, subtitle
+  // imgSrc, addGradient, title, tag
   $(configApp.headerImgId).load(function() {
     if (configApp.headerImgId && val.addGradient) {
       $(configApp.gradientContainerId).addClass(configApp.gradientClass);
@@ -224,9 +224,13 @@ Content.setHeaderImg = function(val) {
   // TODO Update Header Title
   if (val.addHeaderTitle) {
     $(configApp.headerTextId + ' > span').html(val.title).css('font-size',val.titleSize);
+  }else{
+    $(configApp.headerTextId + ' > span').html('');
   }
-  if (val.addHeaderSubtitle) {
-    $(configApp.headerTextId + ' > p').html(val.subtitle).css('font-size',val.subtitleSize);
+  if (val.addHeaderTag) {
+    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size',val.tagSize);
+  }else{
+    $(configApp.headerTextId + ' > p').html('');
   }
 };
 
