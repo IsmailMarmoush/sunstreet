@@ -136,7 +136,7 @@ gulp.task('watch', ['connect'], function() {
 
     // specified build instead of build all
     gulp.watch('app/*.*', ['extras']);
-    gulp.watch('app/index.html', ['html']);
+    gulp.watch('app/*.html', ['html']);
 
     gulp.watch('app/content/**/*', ['content']);
     gulp.watch('app/css/**/*.css', ['html']);
