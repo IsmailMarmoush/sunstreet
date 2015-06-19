@@ -5,10 +5,10 @@ dest
 bower_components
 test/bower_components
 *~
-#*#
 .#*
 
 
 app/*~
 app/styles/*.css
-app/content/
+app/content/*.*
+!app/content/*.md
