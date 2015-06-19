@@ -13,7 +13,7 @@
   },
   "bar": {
     "logoPath": "content/images/logo.png",
-    "information": "Marmoush.com © 2015 Ismail Marmoush"
+    "information": "Marmoush.com © 2015 <br/> Ismail Marmoush"
   },
   "pages": {
     "1": {
