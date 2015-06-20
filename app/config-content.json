@@ -4,10 +4,10 @@
     "titleSize": "2em",
     "tag": "Web and Big Data",
     "tagSize": "2em",
+    "img": "content/images/sunset.jpg",
     "addGradient": false,
     "addHeaderTitle": false,
     "addHeaderTag": false,
-    "img": "content/images/sunset.jpg",
     "disqusShortname": "ismailmarmoush",
     "googleAnalyticsId": "UA-18732433-1"
   },

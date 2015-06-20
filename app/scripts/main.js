@@ -223,13 +223,13 @@ Content.setHeaderImg = function(val) {
 
   // TODO Update Header Title
   if (val.addHeaderTitle) {
-    $(configApp.headerTextId + ' > span').html(val.title).css('font-size',val.titleSize);
-  }else{
+    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize);
+  } else {
     $(configApp.headerTextId + ' > span').html('');
   }
   if (val.addHeaderTag) {
-    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size',val.tagSize);
-  }else{
+    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize);
+  } else {
     $(configApp.headerTextId + ' > p').html('');
   }
 };
@@ -448,8 +448,12 @@ $(document).ready(function() {
       Animation.toggleLeftSidebar();
       Animation.toggleRightSidebar();
       Animation.smoothScrolling();
-      GoogleApi.analytics();
-      DisqusApi.init();
+      if (configContent.googleAnalyticsId) {
+        GoogleApi.analytics();
+      }
+      if (configContent.disqusShortname) {
+        DisqusApi.init();
+      }
       Utils.gradientListener();
     });
   });
