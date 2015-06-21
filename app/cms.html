@@ -30,7 +30,9 @@
       <legend>JSON File</legend>
       <textarea id="source" rows="20"></textarea>
     </fieldset>
-    <button id="validateBtn"> Validate</button>
+    <button id="validateBtn"> Validate JSON</button>
+    <button id="updateSettingsBtn"> JSON -> Settings</button>
+    <button id="updateJsonBtn"> Settings -> JSON</button>
     <pre id="result"></pre>
 
     <fieldset>
@@ -121,6 +123,12 @@
         <legend>Page(1)</legend>
         <table>
           <tr>
+            <td>Source</td>
+            <td>
+              <input type="text" name="url" />
+            </td>
+          </tr>
+          <tr>
             <td>Title</td>
             <td>
               <input type="text" name="title" />
@@ -184,6 +192,12 @@
       <fieldset class="post">
         <legend>Post(1)</legend>
         <table>
+          <tr>
+            <td>Source</td>
+            <td>
+              <input type="text" name="url" />
+            </td>
+          </tr>
           <tr>
             <td>Title</td>
             <td>
