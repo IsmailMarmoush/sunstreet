@@ -5,100 +5,36 @@
   <meta charset="utf-8">
   <meta name="description" content="Ismail Marmoush personal blog">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <title>Marmoush.com</title>
+  <title>Sunstreet CMS</title>
 
-  <!-- build:js scripts/CMS.js -->
-  <script src="scripts/CMS.js"></script>
+  <!-- build:css styles/cms.css -->
+  <link rel="stylesheet" href="styles/cms.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/jquery.js -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/jsonlint.js -->
+  <script src="../bower_components/jsonlint/lib/jsonlint.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/cms.js -->
+  <script src="scripts/cms.js"></script>
   <!-- endbuild -->
 </head>
 
 <body>
-  <fieldset>
-    <legend>Global</legend>
-    <table>
-      <tr>
-        <td>Title</td>
-        <td>
-          <input type="text" name="title" />
-        </td>
-        <td>Font Size</td>
-        <td>
-          <input type="number" name="titleSize" /> em
-        </td>
-      </tr>
-      <tr>
-        <td>Tag</td>
-        <td>
-          <input type="text" name="tag" />
-        </td>
+  <div id="content">
+    <fieldset>
+      <legend>JSON File</legend>
+      <textarea id="source" rows="20"></textarea>
+    </fieldset>
+    <button id="validateBtn"> Validate</button>
+    <pre id="result"></pre>
 
-        <td>Font Size</td>
-        <td>
-          <input type="number" name="tagSize" /> em
-        </td>
-      </tr>
-      <tr>
-        <td>Header Image</td>
-        <td>
-          <input type="text" name="img" />
-        </td>
-      </tr>
-      <tr>
-        <td>Add Gradient</td>
-        <td>
-          <input type="checkbox" name="addGradient" />
-        </td>
-      </tr>
-      <tr>
-        <td>Add Header Title</td>
-        <td>
-          <input type="checkbox" name="addHeaderTitle" />
-        </td>
-      </tr>
-      <tr>
-        <td>Add Header Tag</td>
-        <td>
-          <input type="checkbox" name="addHeaderTag" />
-        </td>
-      </tr>
-
-      <tr>
-        <td>Disqus Shortname</td>
-        <td>
-          <input type="text" name="disqusShortname" />
-        </td>
-      </tr>
-      <tr>
-        <td>Google Analytics ID</td>
-        <td>
-          <input type="text" name="googleAnalyticsId" />
-        </td>
-      </tr>
-    </table>
-  </fieldset>
-
-  <fieldset>
-    <legend>Side Bar</legend>
-    <table>
-      <tr>
-        <td>Logo</td>
-        <td>
-          <input type="text" name="logoPath" />
-        </td>
-      </tr>
-      <tr>
-        <td>Information</td>
-        <td>
-          <input type="text" name="information" />
-        </td>
-      </tr>
-    </table>
-  </fieldset>
-
-  <fieldset>
-    <legend>Pages</legend>
-    <fieldset class="default-page">
-      <legend>Page(1)</legend>
+    <fieldset>
+      <legend>Global Settings</legend>
       <table>
         <tr>
           <td>Title</td>
@@ -147,100 +83,182 @@
         </tr>
 
         <tr>
-          <td>Enable Disqus</td>
+          <td>Disqus Shortname</td>
           <td>
-            <input type="checkbox" name="disqus.enable" />
+            <input type="text" name="disqusShortname" />
           </td>
         </tr>
-
+        <tr>
+          <td>Google Analytics ID</td>
+          <td>
+            <input type="text" name="googleAnalyticsId" />
+          </td>
+        </tr>
       </table>
-      <button name="remove">Remove</button>
     </fieldset>
-    <button id="newPage">New Page</button>
-  </fieldset>
 
-  <fieldset>
-    <legend>Posts</legend>
-    <fieldset class="post" >
-      <legend>Post(1)</legend>
+    <fieldset>
+      <legend>Side Bar</legend>
       <table>
         <tr>
-          <td>Title</td>
+          <td>Logo</td>
           <td>
-            <input type="text" name="title" />
-          </td>
-          <td>Font Size</td>
-          <td>
-            <input type="number" name="titleSize" /> em
+            <input type="text" name="logoPath" />
           </td>
         </tr>
         <tr>
-          <td>Tag</td>
+          <td>Information</td>
           <td>
-            <input type="text" name="tag" />
-          </td>
-
-          <td>Font Size</td>
-          <td>
-            <input type="number" name="tagSize" /> em
-          </td>
-        </tr>
-        <tr>
-          <td>Header Image</td>
-          <td>
-            <input type="text" name="img" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Gradient</td>
-          <td>
-            <input type="checkbox" name="addGradient" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Header Title</td>
-          <td>
-            <input type="checkbox" name="addHeaderTitle" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Header Tag</td>
-          <td>
-            <input type="checkbox" name="addHeaderTag" />
-          </td>
-        </tr>
-
-        <tr>
-          <td>Enable Disqus</td>
-          <td>
-            <input type="checkbox" name="disqus.enable" checked="true"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Disqus Identifier</td>
-          <td>
-            <input type="text" name="disqus.identifier" />
-          </td>
-        </tr>
-        <tr>
-          <td>Disqus Lang</td>
-          <td>
-            <input type="text" name="disqus.lang" value="en"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Date</td>
-          <td>
-            <input type="date" name="date" />
+            <input type="text" name="information" />
           </td>
         </tr>
       </table>
-      <button name="remove">Remove</button>
     </fieldset>
-    <button name="newPost">New Post</button>
-  </fieldset>
 
-  <button id="Generate">Generate</button>
+    <fieldset>
+      <legend>Pages</legend>
+      <fieldset class="default-page">
+        <legend>Page(1)</legend>
+        <table>
+          <tr>
+            <td>Title</td>
+            <td>
+              <input type="text" name="title" />
+            </td>
+            <td>Font Size</td>
+            <td>
+              <input type="number" name="titleSize" /> em
+            </td>
+          </tr>
+          <tr>
+            <td>Tag</td>
+            <td>
+              <input type="text" name="tag" />
+            </td>
+
+            <td>Font Size</td>
+            <td>
+              <input type="number" name="tagSize" /> em
+            </td>
+          </tr>
+          <tr>
+            <td>Header Image</td>
+            <td>
+              <input type="text" name="img" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Gradient</td>
+            <td>
+              <input type="checkbox" name="addGradient" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Header Title</td>
+            <td>
+              <input type="checkbox" name="addHeaderTitle" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Header Tag</td>
+            <td>
+              <input type="checkbox" name="addHeaderTag" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enable Disqus</td>
+            <td>
+              <input type="checkbox" name="disqus.enable" />
+            </td>
+          </tr>
+
+        </table>
+        <button name="remove">Remove</button>
+      </fieldset>
+      <button id="newPage">New Page</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Posts</legend>
+      <fieldset class="post">
+        <legend>Post(1)</legend>
+        <table>
+          <tr>
+            <td>Title</td>
+            <td>
+              <input type="text" name="title" />
+            </td>
+            <td>Font Size</td>
+            <td>
+              <input type="number" name="titleSize" /> em
+            </td>
+          </tr>
+          <tr>
+            <td>Tag</td>
+            <td>
+              <input type="text" name="tag" />
+            </td>
+            <td>Font Size</td>
+            <td>
+              <input type="number" name="tagSize" /> em
+            </td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>
+              <input type="date" name="date" value="1986-12-21" />
+            </td>
+          </tr>
+          <tr>
+            <td>Header Image</td>
+            <td>
+              <input type="text" name="img" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Gradient</td>
+            <td>
+              <input type="checkbox" name="addGradient" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Header Title</td>
+            <td>
+              <input type="checkbox" name="addHeaderTitle" />
+            </td>
+          </tr>
+          <tr>
+            <td>Add Header Tag</td>
+            <td>
+              <input type="checkbox" name="addHeaderTag" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>Enable Disqus</td>
+            <td>
+              <input type="checkbox" name="disqus.enable" checked="true" />
+            </td>
+          </tr>
+          <tr>
+            <td>Disqus Identifier</td>
+            <td>
+              <input type="text" name="disqus.identifier" />
+            </td>
+          </tr>
+          <tr>
+            <td>Disqus Lang</td>
+            <td>
+              <input type="text" name="disqus.lang" value="en" />
+            </td>
+          </tr>
+        </table>
+        <button name="remove">Remove</button>
+      </fieldset>
+      <button name="newPost">New Post</button>
+    </fieldset>
+  </div>
 </body>
 
 </html>
