@@ -1,5 +1,5 @@
 node_modules
-dest
+dist
 .tmp
 .sass-cache
 bower_components
