@@ -8,8 +8,7 @@
     "highlight": "~7.0.1",
     "toc": "~0.3.2",
     "jsonlint": "~1.6.0",
-    "marked": "~0.3.3",
-    "bootstrap": "~3.3.5"
+    "marked": "~0.3.3"
   },
   "devDependencies": {
     "Lorem.js": "~1.0.2"

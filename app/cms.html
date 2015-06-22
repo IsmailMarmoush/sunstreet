@@ -5,27 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
   <title>Sunstreet CMS</title>
-
-  <!-- build:css styles/bootstrap.css -->
-  <script src="../bower_components/bootstrap/dist/css/bootstrap.css"></script>
-  <!-- endbuild -->
-
-  <!-- build:js scripts/jquery.js -->
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <!-- endbuild -->
-
   <!-- build:js scripts/jquery.js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <!-- endbuild -->
-
   <!-- build:js scripts/jsonlint.js -->
   <script src="../bower_components/jsonlint/lib/jsonlint.js"></script>
   <!-- endbuild -->
-
   <!-- build:css styles/cms.css -->
   <link rel="stylesheet" href="styles/cms.css">
   <!-- endbuild -->
-
   <!-- build:js scripts/cms.js -->
   <script src="scripts/cms.js"></script>
   <!-- endbuild -->
@@ -33,261 +21,176 @@
 
 <body>
   <div id="content">
-    <div id="source">
+    <div id="source" class="section">
+      <h2>Configurations in JSON</h2>
       <textarea rows="20"></textarea>
+      <button id="validateBtn"> Validate JSON</button>
+      <button id="updateSettingsBtn"> JSON -> Settings</button>
+      <button id="updateJsonBtn"> Settings -> JSON</button>
+      <pre id="result"></pre>
     </div>
-    <button id="validateBtn"> Validate JSON</button>
-    <button id="updateSettingsBtn"> JSON -> Settings</button>
-    <button id="updateJsonBtn"> Settings -> JSON</button>
-    <pre id="result"></pre>
-
-    <fieldset>
-      <legend>Global Settings</legend>
-      <table>
-        <tr>
-          <td>Title</td>
-          <td>
-            <input type="text" name="title" />
-          </td>
-        </tr>
-        <tr>
-          <td>Font Size</td>
-          <td>
-            <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
-          </td>
-        </tr>
-        <tr>
-          <td>Tag</td>
-          <td>
-            <input type="text" name="tag" />
-          </td>
-        </tr>
-        <tr>
-          <td>Font Size</td>
-          <td>
-            <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
-          </td>
-        </tr>
-        <tr>
-          <td>Header Image</td>
-          <td>
-            <input type="text" name="img" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Gradient</td>
-          <td>
-            <input type="checkbox" name="addGradient" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Header Title</td>
-          <td>
-            <input type="checkbox" name="addHeaderTitle" />
-          </td>
-        </tr>
-        <tr>
-          <td>Add Header Tag</td>
-          <td>
-            <input type="checkbox" name="addHeaderTag" />
-          </td>
-        </tr>
-
-        <tr>
-          <td>Disqus Shortname</td>
-          <td>
-            <input type="text" name="disqusShortname" />
-          </td>
-        </tr>
-        <tr>
-          <td>Google Analytics ID</td>
-          <td>
-            <input type="text" name="googleAnalyticsId" />
-          </td>
-        </tr>
-      </table>
-    </fieldset>
-
-    <fieldset>
-      <legend>Side Bar</legend>
-      <table>
-        <tr>
-          <td>Logo</td>
-          <td>
-            <input type="text" name="logoPath" />
-          </td>
-        </tr>
-        <tr>
-          <td>Information</td>
-          <td>
-            <input type="text" name="information" />
-          </td>
-        </tr>
-      </table>
-    </fieldset>
-
-    <fieldset>
-      <legend>Pages</legend>
-      <fieldset class="default-page">
-        <legend>Page(1)</legend>
-        <table>
-          <tr>
-            <td>Source</td>
-            <td>
-              <input type="text" name="url" />
-            </td>
-          </tr>
-          <tr>
-            <td>Title</td>
-            <td>
-              <input type="text" name="title" />
-            </td>
-          </tr>
-          <tr>
-            <td>Font Size</td>
-            <td>
-              <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
-            </td>
-          </tr>
-          <tr>
-            <td>Tag</td>
-            <td>
-              <input type="text" name="tag" />
-            </td>
-          </tr>
-          <tr>
-            <td>Font Size</td>
-            <td>
-              <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
-            </td>
-          </tr>
-          <tr>
-            <td>Header Image</td>
-            <td>
-              <input type="text" name="img" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Gradient</td>
-            <td>
-              <input type="checkbox" name="addGradient" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Header Title</td>
-            <td>
-              <input type="checkbox" name="addHeaderTitle" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Header Tag</td>
-            <td>
-              <input type="checkbox" name="addHeaderTag" />
-            </td>
-          </tr>
-
-          <tr>
-            <td>Enable Disqus</td>
-            <td>
-              <input type="checkbox" name="disqus.enable" />
-            </td>
-          </tr>
-
-        </table>
+    <div class="section">
+      <h2>Global Settings</h2>
+      <span class="cmsLabel">Title</span>
+      <span class="cmsInput">
+        <input type="text" name="title" />
+      </span>
+      <span class="cmsLabel">Font Size</span>
+      <span class="cmsInput">
+        <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
+      </span>
+      <span class="cmsLabel">Tag</span>
+      <span class="cmsInput">
+        <input type="text" name="tag" />
+      </span>
+      <span class="cmsLabel">Font Size</span>
+      <span class="cmsInput">
+        <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
+      </span>
+      <span class="cmsLabel">Header Image</span>
+      <span class="cmsInput">
+        <input type="text" name="img" />
+      </span>
+      <span class="cmsLabel">Add Gradient</span>
+      <span class="cmsInput">
+        <input type="checkbox" name="addGradient" />
+      </span>
+      <span class="cmsLabel">Add Header Title</span>
+      <span class="cmsInput">
+        <input type="checkbox" name="addHeaderTitle" />
+      </span>
+      <span class="cmsLabel">Add Header Tag</span>
+      <span class="cmsInput">
+        <input type="checkbox" name="addHeaderTag" />
+      </span>
+      <span class="cmsLabel">Disqus Shortname</span>
+      <span class="cmsInput">
+        <input type="text" name="disqusShortname" />
+      </span>
+      <span class="cmsLabel">Google Analytics ID</span>
+      <span class="cmsInput">
+        <input type="text" name="googleAnalyticsId" />
+      </span>
+    </div>
+    <div class="section">
+      <h2>Side Bar</h2>
+      <span class="cmsLabel">Logo</span>
+      <span class="cmsInput">
+        <input type="text" name="logoPath" />
+      </span>
+      <span class="cmsLabel">Information</span>
+      <span class="cmsInput">
+        <input type="text" name="information" />
+      </span>
+    </div>
+    <div class="section">
+      <h2>Pages</h2>
+      <div>
+        <h3>Page(1)</h3>
+        <span class="cmsLabel">Source</span>
+        <span class="cmsInput">
+          <input type="text" name="url" />
+        </span>
+        <span class="cmsLabel">Title</span>
+        <span class="cmsInput">
+          <input type="text" name="title" />
+        </span>
+        <span class="cmsLabel">Font Size</span>
+        <span class="cmsInput">
+          <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
+        </span>
+        <span class="cmsLabel">Tag</span>
+        <span class="cmsInput">
+          <input type="text" name="tag" />
+        </span>
+        <span class="cmsLabel">Font Size</span>
+        <span class="cmsInput">
+          <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
+        </span>
+        <span class="cmsLabel">Header Image</span>
+        <span class="cmsInput">
+          <input type="text" name="img" />
+        </span>
+        <span class="cmsLabel">Add Gradient</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addGradient" />
+        </span>
+        <span class="cmsLabel">Add Header Title</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addHeaderTitle" />
+        </span>
+        <span class="cmsLabel">Add Header Tag</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addHeaderTag" />
+        </span>
+        <span class="cmsLabel">Enable Disqus</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="disqus.enable" />
+        </span>
         <button name="remove">Remove</button>
-      </fieldset>
+      </div>
       <button id="newPage">New Page</button>
-    </fieldset>
-
-    <fieldset>
-      <legend>Posts</legend>
-      <fieldset class="post">
-        <legend>Post(1)</legend>
-        <table>
-          <tr>
-            <td>Source</td>
-            <td>
-              <input type="text" name="url" />
-            </td>
-          </tr>
-          <tr>
-            <td>Title</td>
-            <td>
-              <input type="text" name="title" />
-            </td>
-          </tr>
-          <tr>
-            <td>Font Size</td>
-            <td>
-              <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
-            </td>
-          </tr>
-          <tr>
-            <td>Tag</td>
-            <td>
-              <input type="text" name="tag" />
-            </td>
-          </tr>
-          <tr>
-            <td>Font Size</td>
-            <td>
-              <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
-            </td>
-          </tr>
-          <tr>
-            <td>Date</td>
-            <td>
-              <input type="date" name="date" value="1986-12-21" />
-            </td>
-          </tr>
-          <tr>
-            <td>Header Image</td>
-            <td>
-              <input type="text" name="img" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Gradient</td>
-            <td>
-              <input type="checkbox" name="addGradient" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Header Title</td>
-            <td>
-              <input type="checkbox" name="addHeaderTitle" />
-            </td>
-          </tr>
-          <tr>
-            <td>Add Header Tag</td>
-            <td>
-              <input type="checkbox" name="addHeaderTag" />
-            </td>
-          </tr>
-
-          <tr>
-            <td>Enable Disqus</td>
-            <td>
-              <input type="checkbox" name="disqus.enable" checked="true" />
-            </td>
-          </tr>
-          <tr>
-            <td>Disqus Identifier</td>
-            <td>
-              <input type="text" name="disqus.identifier" />
-            </td>
-          </tr>
-          <tr>
-            <td>Disqus Lang</td>
-            <td>
-              <input type="text" name="disqus.lang" value="en" />
-            </td>
-          </tr>
-        </table>
+    </div>
+    <div class="section">
+      <h2>Posts</h2>
+      <div>
+        <h3>Post (1)</h3>
+        <span class="cmsLabel">Source</span>
+        <span class="cmsInput">
+          <input type="text" name="url" />
+        </span>
+        <span class="cmsLabel">Title</span>
+        <span class="cmsInput">
+          <input type="text" name="title" />
+        </span>
+        <span class="cmsLabel">Font Size</span>
+        <span class="cmsInput">
+          <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
+        </span>
+        <span class="cmsLabel">Tag</span>
+        <span class="cmsInput">
+          <input type="text" name="tag" />
+        </span>
+        <span class="cmsLabel">Font Size</span>
+        <span class="cmsInput">
+          <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
+        </span>
+        <span class="cmsLabel">Date</span>
+        <span class="cmsInput">
+          <input type="date" name="date" value="1986-12-21" />
+        </span>
+        <span class="cmsLabel">Header Image</span>
+        <span class="cmsInput">
+          <input type="text" name="img" />
+        </span>
+        <span class="cmsLabel">Add Gradient</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addGradient" />
+        </span>
+        <span class="cmsLabel">Add Header Title</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addHeaderTitle" />
+        </span>
+        <span class="cmsLabel">Add Header Tag</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="addHeaderTag" />
+        </span>
+        <span class="cmsLabel">Enable Disqus</span>
+        <span class="cmsInput">
+          <input type="checkbox" name="disqus.enable" checked="true" />
+        </span>
+        <span class="cmsLabel">Disqus Identifier</span>
+        <span class="cmsInput">
+          <input type="text" name="disqus.identifier" />
+        </span>
+        <span class="cmsLabel">Disqus Lang</span>
+        <span class="cmsInput">
+          <input type="text" name="disqus.lang" value="en" />
+        </span>
         <button name="remove">Remove</button>
-      </fieldset>
+      </div>
       <button name="newPost">New Post</button>
-    </fieldset>
+    </div>
   </div>
 </body>
 

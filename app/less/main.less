@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata|Droid+Serif|Open+Sans|Sacramento|Indie+Flower|Lato);
+@import 'fonts.less';
 
 /****Colors *****/
 @yellow: #b58900;
@@ -8,8 +8,6 @@
 @violet: #6c71c4;
 @blue: #268bd2;
 @cyan: #2aa198;
-
-//@green: #859900;
 @golden: #bca474;
 /********** Background *********/
 @bgColor0: #002a35;
@@ -17,38 +15,7 @@
 @bgColor2: #586e75;
 @bgColor3: #657b83;
 @bgBorderColor: #073642;
-/********** Fonts **********/
-@fColor0: #b5c5c5;
-@fColor1: #333332;
-@fColor3: #93a1a1;
-@fColor4: #eee8d5;
-@fColor5: #fdf6e3;
-@hColor: #cb4b16;
-@aColor: #2aa198;
-/********* Current choices ********/
-@fc: rgba(0, 0, 0, 0.8);
 
-//@sfc: rgba(226,0,26,0.6);
-@sfc: rgba(0, 0, 0, .5);
-
-// @sfcDarkBG: #E83165;
-@sfcDarkBG: white;
-
-// @fcNavigation: #f2f2f2;
-@fcNavigation: #666;
-@bgColor: white;
-
-// @font-face {
-//   font-family: "Inconsolata";
-//   /*a name to be used later*/
-//   src: url("http://fonts.googleapis.com/css?family=Inconsolata");
-//   /*URL to font*/
-// }
-@fontFamily: 'Open Sans',Georgia;
-@titleFontFamily: 'Droid Serif',Georgia;
-@quoteFontFamily: 'Sacramento',monospace;
-@codeFontFamily: monospace !important;
-@codeFontColor: #839496;
 /******* combinations **********/
 .markupAnchor {
   text-decoration: none;
@@ -415,8 +382,8 @@ a {
   color: @fcNavigation;
   font-size: 0.6em;
   position: absolute;
-  bottom:20px;
-  width:90%;
+  bottom: 20px;
+  width: 90%;
   text-align: center;
 }
 #lsb img {
@@ -516,19 +483,20 @@ a {
   font-family: @titleFontFamily;
   text-align: left;
   color: rgba(255, 255, 255, .8);
+
   // position
   position: absolute;
   bottom: 10px;
   display: block;
   margin: 0 0 5px 20px;
-  width:90%;
+  width: 90%;
   span {
     text-transform: uppercase;
     line-height: 1.1em;
   }
   p {
     font-family: @titleFontFamily;
-    margin-bottom:5px;
+    margin-bottom: 5px;
   }
 }
 #blog {
