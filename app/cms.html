@@ -26,10 +26,9 @@
 
 <body>
   <div id="content">
-    <fieldset>
-      <legend>JSON File</legend>
-      <textarea id="source" rows="20"></textarea>
-    </fieldset>
+    <div id="source">
+      <textarea rows="20"></textarea>
+    </div>
     <button id="validateBtn"> Validate JSON</button>
     <button id="updateSettingsBtn"> JSON -> Settings</button>
     <button id="updateJsonBtn"> Settings -> JSON</button>
@@ -43,9 +42,11 @@
           <td>
             <input type="text" name="title" />
           </td>
+        </tr>
+        <tr>
           <td>Font Size</td>
           <td>
-            <input type="number" name="titleSize" /> em
+            <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
           </td>
         </tr>
         <tr>
@@ -53,10 +54,11 @@
           <td>
             <input type="text" name="tag" />
           </td>
-
+        </tr>
+        <tr>
           <td>Font Size</td>
           <td>
-            <input type="number" name="tagSize" /> em
+            <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
           </td>
         </tr>
         <tr>
@@ -133,9 +135,11 @@
             <td>
               <input type="text" name="title" />
             </td>
+          </tr>
+          <tr>
             <td>Font Size</td>
             <td>
-              <input type="number" name="titleSize" /> em
+              <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
             </td>
           </tr>
           <tr>
@@ -143,10 +147,11 @@
             <td>
               <input type="text" name="tag" />
             </td>
-
+          </tr>
+          <tr>
             <td>Font Size</td>
             <td>
-              <input type="number" name="tagSize" /> em
+              <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
             </td>
           </tr>
           <tr>
@@ -203,9 +208,11 @@
             <td>
               <input type="text" name="title" />
             </td>
+          </tr>
+          <tr>
             <td>Font Size</td>
             <td>
-              <input type="number" name="titleSize" /> em
+              <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
             </td>
           </tr>
           <tr>
@@ -213,9 +220,11 @@
             <td>
               <input type="text" name="tag" />
             </td>
+          </tr>
+          <tr>
             <td>Font Size</td>
             <td>
-              <input type="number" name="tagSize" /> em
+              <input type="number" min="0" max="20" step="0.2" name="tagSize" /> em
             </td>
           </tr>
           <tr>

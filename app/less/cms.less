@@ -1,35 +1,124 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata|Droid+Serif|Open+Sans|Sacramento|Indie+Flower|Lato);
+@blue:#4d90fe;
+@fontColor: #333;
 @fontFamily: 'Open Sans',Georgia;
 @titleFontFamily: 'Droid Serif',Georgia;
+@mainBgColor: white;
+@inputBgColor: #eee;
 html,
 body {
+  background-color: @mainBgColor;
+  color: @fontColor;
   font-family: monospace;
   font-size: 12px;
+}
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
 }
 #content {
   width: 50%;
   margin: 0 auto;
   fieldset {
+    .border-radius(3px);
+    border: 1px solid #999;
     margin-top: 10px;
     padding: 10px;
-  }
-  button {
-    margin-top: 10px;
+    fieldset {
+      border: none;
+      .border-radius(0);
+      border-bottom: 1px solid #999;
+    }
   }
 }
+
 #source {
+  background-color: @inputBgColor;
+  width:99%;
+}
+#source > textarea {
+  display: block;
   width: 100%;
 }
+/*************** JSON Ouput **************/
 #result {
   padding: 1em;
 }
 .pass {
+  .border-radius(3px);
   background-color: #efe;
   color: #393;
   border: 2px solid #393;
 }
 .fail {
+  .border-radius(3px);
   background-color: #fee;
   color: #933;
   border: 2px solid #933;
+}
+
+/************ classes *************/
+input,
+textarea {
+  color: @fontColor;
+  .border-radius(3px);
+  padding: 5px;
+  border: none;
+  background-color: @inputBgColor;
+  resize: vertical;
+}
+[type=number]{
+  width:40px;
+}
+[type=text]{
+  width:100%;
+}
+table{
+  width:90%;
+}
+/*************** Buttons ******************/
+.gradient (@orient:top, @bgColor:white, @startColor: #eee, @endColor: white) {
+  background-color: @bgColor;
+  background-image: -webkit-linear-gradient(@orient, @startColor, @endColor);
+  background-image: -moz-linear-gradient(@orient, @startColor, @endColor);
+  background-image: -ms-linear-gradient(@orient, @startColor, @endColor);
+  background-image: -o-linear-gradient(@orient, @startColor, @endColor);
+}
+button {
+  .gradient(top,#4d90fe,#4d90fe,#4787ed);
+
+  // font
+  color: white;
+  font-size: 11px;
+  line-height: 27px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+
+  // display
+  cursor: default;
+  display: inline-block;
+  margin-top:10px;
+  padding: 0 8px;
+  height: 27px;
+  min-width: 54px;
+
+  // Border
+  border: 1px solid #3079ed;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+}
+button:hover {
+  border: 1px solid #2f5bb7;
+  .gradient(top,#357ae8,#4d90fe,#357ae8);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+button:active {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
 }

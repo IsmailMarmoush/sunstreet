@@ -4,7 +4,7 @@
 var configApp = {};
 configApp.globalId = '#global';
 configApp.resultId = '#result';
-configApp.sourceId = '#source';
+configApp.sourceTxtareaSel = '#source > textarea';
 /******************* Initialization ****************/
 var Jsn = {};
 Jsn.validate = function() {
@@ -12,7 +12,7 @@ Jsn.validate = function() {
   $('#validateBtn').click(function() {
     console.log('hello world');
     try {
-      var result = jsonlint.parse($(configApp.sourceId).val());
+      var result = jsonlint.parse($(configApp.sourceTxtareaSel).val());
       if (result) {
         $(configApp.resultId).html('JSON is valid!');
         $(configApp.resultId).attr('class', 'pass');
@@ -28,6 +28,6 @@ Jsn.validate = function() {
 $(document).ready(function() {
   'use strict';
   Jsn.validate();
-
+  
 
 });
