@@ -390,15 +390,17 @@ GoogleApi.analytics = function() {
 /* * * Disqus Reset Function * * */
 DisqusApi.disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
   'use strict';
-  DISQUS.reset({
-    reload: true,
-    config: function() {
-      this.page.identifier = newIdentifier;
-      this.page.url = newUrl;
-      this.page.title = newTitle;
-      this.language = newLanguage;
-    }
-  });
+  if (this.DISQUS) {
+    DISQUS.reset({
+      reload: true,
+      config: function() {
+        this.page.identifier = newIdentifier;
+        this.page.url = newUrl;
+        this.page.title = newTitle;
+        this.language = newLanguage;
+      }
+    });
+  }
 };
 
 DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, title) {
@@ -448,10 +450,12 @@ $(document).ready(function() {
       Animation.toggleLeftSidebar();
       Animation.toggleRightSidebar();
       Animation.smoothScrolling();
-      if (configContent.googleAnalyticsId) {
+      if (configContent.global.googleAnalyticsId) {
+        console.log('Loading Google Analytics');
         GoogleApi.analytics();
       }
-      if (configContent.disqusShortname) {
+      if (configContent.global.disqusShortname) {
+        console.log('Loading Disqus');
         DisqusApi.init();
       }
       Utils.gradientListener();
