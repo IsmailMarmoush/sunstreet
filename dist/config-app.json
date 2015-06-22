@@ -1,0 +1,22 @@
+{
+  "contentId": "#content",
+
+  "headerImgId": "#headerImg",
+  "headerTextId": "#headerText",
+  "gradientContainerId": "#gradientContainer",
+  "gradientClass": "gradient",
+
+  "barId": "#bar",
+  "rsbId": "#rsb",
+  "lsbId": "#lsb",
+  "menuIconId": "#menuIcon",
+  "contentIconId": "#contentIcon",
+
+  "slidesId": "#slides",
+  "blogId": "#blog",
+  "postId": "#post",
+
+  "disqusThreadId": "#disqus_thread",
+
+  "errorId": "#error"
+}

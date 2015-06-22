@@ -1,0 +1,184 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.38
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/home/heisenberg/git/sunstreet',
+6 verbose install   [ 'gulp-less',
+6 verbose install     'apache-server-configs',
+6 verbose install     'connect',
+6 verbose install     'connect-livereload',
+6 verbose install     'del',
+6 verbose install     'gulp',
+6 verbose install     'gulp-autoprefixer',
+6 verbose install     'gulp-cache',
+6 verbose install     'gulp-csso',
+6 verbose install     'gulp-filter',
+6 verbose install     'gulp-flatten',
+6 verbose install     'gulp-if',
+6 verbose install     'gulp-imagemin',
+6 verbose install     'gulp-jshint',
+6 verbose install     'gulp-livereload',
+6 verbose install     'gulp-load-plugins',
+6 verbose install     'gulp-minify-html',
+6 verbose install     'gulp-size',
+6 verbose install     'gulp-uglify',
+6 verbose install     'gulp-useref',
+6 verbose install     'gulp-util',
+6 verbose install     'jshint-stylish',
+6 verbose install     'less',
+6 verbose install     'less-plugin-autoprefix',
+6 verbose install     'main-bower-files',
+6 verbose install     'opn',
+6 verbose install     'serve-index',
+6 verbose install     'serve-static',
+6 verbose install     'wiredep' ] ]
+7 info preinstall @
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping apache-server-configs@^2.7.1 /home/heisenberg/git/sunstreet
+10 verbose already installed skipping connect@^3.0.1 /home/heisenberg/git/sunstreet
+11 verbose already installed skipping connect-livereload@^0.5.0 /home/heisenberg/git/sunstreet
+12 verbose already installed skipping del@^0.1.0 /home/heisenberg/git/sunstreet
+13 verbose already installed skipping gulp@^3.8.10 /home/heisenberg/git/sunstreet
+14 verbose already installed skipping gulp-autoprefixer@^1.0.1 /home/heisenberg/git/sunstreet
+15 verbose already installed skipping gulp-cache@^0.2.2 /home/heisenberg/git/sunstreet
+16 verbose already installed skipping gulp-csso@^0.2.6 /home/heisenberg/git/sunstreet
+17 verbose already installed skipping gulp-filter@^1.0.2 /home/heisenberg/git/sunstreet
+18 verbose already installed skipping gulp-flatten@^0.0.4 /home/heisenberg/git/sunstreet
+19 verbose already installed skipping gulp-if@^1.2.1 /home/heisenberg/git/sunstreet
+20 verbose already installed skipping gulp-imagemin@^1.2.1 /home/heisenberg/git/sunstreet
+21 verbose already installed skipping gulp-jshint@^1.5.3 /home/heisenberg/git/sunstreet
+22 verbose already installed skipping gulp-livereload@^2.0.0 /home/heisenberg/git/sunstreet
+23 verbose already installed skipping gulp-load-plugins@^0.7.1 /home/heisenberg/git/sunstreet
+24 verbose already installed skipping gulp-minify-html@^0.1.6 /home/heisenberg/git/sunstreet
+25 verbose already installed skipping gulp-size@^1.1.0 /home/heisenberg/git/sunstreet
+26 verbose already installed skipping gulp-uglify@^1.0.1 /home/heisenberg/git/sunstreet
+27 verbose already installed skipping gulp-useref@^1.0.2 /home/heisenberg/git/sunstreet
+28 verbose cache add [ 'gulp-util@^0.9', null ]
+29 verbose cache add name=undefined spec="gulp-util@^0.9" args=["gulp-util@^0.9",null]
+30 verbose parsed url { protocol: null,
+30 verbose parsed url   slashes: null,
+30 verbose parsed url   auth: null,
+30 verbose parsed url   host: null,
+30 verbose parsed url   port: null,
+30 verbose parsed url   hostname: null,
+30 verbose parsed url   hash: null,
+30 verbose parsed url   search: null,
+30 verbose parsed url   query: null,
+30 verbose parsed url   pathname: 'gulp-util@^0.9',
+30 verbose parsed url   path: 'gulp-util@^0.9',
+30 verbose parsed url   href: 'gulp-util@^0.9' }
+31 verbose already installed skipping jshint-stylish@^1.0.0 /home/heisenberg/git/sunstreet
+32 verbose already installed skipping less@^2.4.0 /home/heisenberg/git/sunstreet
+33 verbose cache add name="gulp-util" spec="^0.9" args=["gulp-util","^0.9"]
+34 verbose parsed url { protocol: null,
+34 verbose parsed url   slashes: null,
+34 verbose parsed url   auth: null,
+34 verbose parsed url   host: null,
+34 verbose parsed url   port: null,
+34 verbose parsed url   hostname: null,
+34 verbose parsed url   hash: null,
+34 verbose parsed url   search: null,
+34 verbose parsed url   query: null,
+34 verbose parsed url   pathname: '^0.9',
+34 verbose parsed url   path: '^0.9',
+34 verbose parsed url   href: '^0.9' }
+35 verbose addNamed [ 'gulp-util', '^0.9' ]
+36 verbose addNamed [ null, '>=0.9.0-0 <0.10.0-0' ]
+37 verbose already installed skipping less-plugin-autoprefix@^1.3.0 /home/heisenberg/git/sunstreet
+38 silly lockFile b7912dda-gulp-util-0-9 gulp-util@^0.9
+39 verbose lock gulp-util@^0.9 /home/heisenberg/.npm/b7912dda-gulp-util-0-9.lock
+40 verbose already installed skipping main-bower-files@^2.1.0 /home/heisenberg/git/sunstreet
+41 verbose already installed skipping opn@^1.0.0 /home/heisenberg/git/sunstreet
+42 silly addNameRange { name: 'gulp-util',
+42 silly addNameRange   range: '>=0.9.0-0 <0.10.0-0',
+42 silly addNameRange   hasData: false }
+43 verbose already installed skipping serve-index@^1.1.4 /home/heisenberg/git/sunstreet
+44 verbose already installed skipping serve-static@^1.4.0 /home/heisenberg/git/sunstreet
+45 verbose already installed skipping wiredep@^2.0.0 /home/heisenberg/git/sunstreet
+46 verbose already installed skipping gulp-less@^2.0.1 /home/heisenberg/git/sunstreet
+47 verbose request where is /gulp-util
+48 verbose request registry https://registry.npmjs.org/
+49 verbose request id dd1e7eedc42e5aaa
+50 verbose url raw /gulp-util
+51 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-util' ]
+52 verbose url resolved https://registry.npmjs.org/gulp-util
+53 verbose request where is https://registry.npmjs.org/gulp-util
+54 info trying registry request attempt 1 at 02:47:05
+55 verbose etag "27GR20R0Z0MPIIJM348LSA9E8"
+56 http GET https://registry.npmjs.org/gulp-util
+57 http 200 https://registry.npmjs.org/gulp-util
+58 silly registry.get cb [ 200,
+58 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+58 silly registry.get     etag: '"ZFVQEDJVDTBWS1R0UC9VPUIQ"',
+58 silly registry.get     'content-type': 'application/json',
+58 silly registry.get     'cache-control': 'max-age=60',
+58 silly registry.get     'content-length': '57306',
+58 silly registry.get     'accept-ranges': 'bytes',
+58 silly registry.get     date: 'Mon, 22 Jun 2015 00:47:05 GMT',
+58 silly registry.get     via: '1.1 varnish',
+58 silly registry.get     age: '0',
+58 silly registry.get     connection: 'keep-alive',
+58 silly registry.get     'x-served-by': 'cache-fra1226-FRA',
+58 silly registry.get     'x-cache': 'HIT',
+58 silly registry.get     'x-cache-hits': '1',
+58 silly registry.get     'x-timer': 'S1434934024.571237,VS0,VE716',
+58 silly registry.get     vary: 'Accept' } ]
+59 silly addNameRange number 2 { name: 'gulp-util',
+59 silly addNameRange   range: '>=0.9.0-0 <0.10.0-0',
+59 silly addNameRange   hasData: true }
+60 silly addNameRange versions [ 'gulp-util',
+60 silly addNameRange   [ '0.0.1',
+60 silly addNameRange     '1.0.0',
+60 silly addNameRange     '1.1.0',
+60 silly addNameRange     '1.1.1',
+60 silly addNameRange     '1.2.0',
+60 silly addNameRange     '1.3.0',
+60 silly addNameRange     '2.0.0',
+60 silly addNameRange     '2.1.1',
+60 silly addNameRange     '2.1.2',
+60 silly addNameRange     '2.1.3',
+60 silly addNameRange     '2.1.4',
+60 silly addNameRange     '2.2.0',
+60 silly addNameRange     '2.2.1',
+60 silly addNameRange     '2.2.2',
+60 silly addNameRange     '2.2.3',
+60 silly addNameRange     '2.2.5',
+60 silly addNameRange     '2.2.6',
+60 silly addNameRange     '2.2.7',
+60 silly addNameRange     '2.2.8',
+60 silly addNameRange     '2.2.9',
+60 silly addNameRange     '2.2.10',
+60 silly addNameRange     '2.2.11',
+60 silly addNameRange     '2.2.12',
+60 silly addNameRange     '2.2.13',
+60 silly addNameRange     '2.2.14',
+60 silly addNameRange     '2.2.15',
+60 silly addNameRange     '2.2.16',
+60 silly addNameRange     '2.2.17',
+60 silly addNameRange     '2.2.18',
+60 silly addNameRange     '2.2.19',
+60 silly addNameRange     '2.2.20',
+60 silly addNameRange     '3.0.0',
+60 silly addNameRange     '3.0.1',
+60 silly addNameRange     '3.0.2',
+60 silly addNameRange     '3.0.3',
+60 silly addNameRange     '3.0.4',
+60 silly addNameRange     '3.0.5' ] ]
+61 silly lockFile b7912dda-gulp-util-0-9 gulp-util@^0.9
+62 silly lockFile b7912dda-gulp-util-0-9 gulp-util@^0.9
+63 error notarget No compatible version found: gulp-util@'>=0.9.0-0 <0.10.0-0'
+63 error notarget Valid install targets:
+63 error notarget ["0.0.1","1.0.0","1.1.0","1.1.1","1.2.0","1.3.0","2.0.0","2.1.1","2.1.2","2.1.3","2.1.4","2.2.0","2.2.1","2.2.2","2.2.3","2.2.5","2.2.6","2.2.7","2.2.8","2.2.9","2.2.10","2.2.11","2.2.12","2.2.13","2.2.14","2.2.15","2.2.16","2.2.17","2.2.18","2.2.19","2.2.20","3.0.0","3.0.1","3.0.2","3.0.3","3.0.4","3.0.5"]
+63 error notarget
+63 error notarget This is most likely not a problem with npm itself.
+63 error notarget In most cases you or one of your dependencies are requesting
+63 error notarget a package version that doesn't exist.
+64 error System Linux 3.16.0-4-amd64
+65 error command "/usr/bin/node" "/usr/bin/npm" "install"
+66 error cwd /home/heisenberg/git/sunstreet
+67 error node -v v0.10.38
+68 error npm -v 1.4.28
+69 error code ETARGET
+70 verbose exit [ 1, true ]
