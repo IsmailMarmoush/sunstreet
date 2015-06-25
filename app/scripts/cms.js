@@ -109,6 +109,9 @@ Jsn.toSettings = function() {
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
   Jsn.import(d.bar, configApp.barSlc);
+
+  $(configApp.postsSlc).html('');
+  $(configApp.pagesSlc).html('');
   $.each(d.posts, function(k, v) {
     Actions.addNewPost();
     Jsn.import(v, configApp.postsSlc);
@@ -153,7 +156,6 @@ $(document).ready(function() {
   });
 
   $.getJSON('config-content.json', function(data) {
-    console.log('hello');
     $(configApp.sourceTxtareaSel).val(JSON.stringify(data));
     Jsn.toSettings();
   });
