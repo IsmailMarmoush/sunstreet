@@ -114,14 +114,16 @@ Jsn.toSettings = function() {
   $(configApp.pagesSlc).html('');
   $.each(d.posts, function(k, v) {
     Actions.addNewPost();
-    Jsn.import(v, configApp.postsSlc);
+    Jsn.import(v, $(configApp.postsSlc)[k]);
   });
 
   $.each(d.pages, function(k, v) {
     Actions.addNewPage();
-    Jsn.import(v, configApp.pagesSlc);
+    Jsn.import(v, $(configApp.pagesSlc)[k]);
   });
   Actions.removeBtnAction();
+  Actions.failsafe();
+  Actions.failsafeLstn();
 };
 
 Actions.removeBtnAction = function() {
@@ -140,6 +142,25 @@ Actions.addNewPost = function() {
   'use strict';
   $(configApp.postsId).append($(configApp.postTempId).html());
   Actions.removeBtnAction();
+};
+Actions.failsafe = function() {
+  'use strict';
+  $('input[type=checkbox].failsafe').each(function() {
+    if (!this.checked) {
+      $(this).parent().next().next().children().prop('disabled', true);
+    }
+  });
+};
+
+Actions.failsafeLstn = function() {
+  'use strict';
+  $('input[type=checkbox].failsafe').click(function() {
+    if (this.checked) {
+      $(this).parent().next().next().children().prop('disabled', false);
+    }else{
+      $(this).parent().next().next().children().prop('disabled', true);
+    }
+  });
 };
 
 $(document).ready(function() {

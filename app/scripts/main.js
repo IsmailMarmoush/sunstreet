@@ -223,12 +223,12 @@ Content.setHeaderImg = function(val) {
 
   // TODO Update Header Title
   if (val.addHeaderTitle) {
-    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize);
+    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize+'em');
   } else {
     $(configApp.headerTextId + ' > span').html('');
   }
   if (val.addHeaderTag) {
-    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize);
+    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize+'em');
   } else {
     $(configApp.headerTextId + ' > p').html('');
   }
