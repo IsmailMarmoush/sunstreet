@@ -2,6 +2,9 @@
 /* jshint -W098 */
 /* global jsonlint */
 var configApp = {};
+var Jsn = {};
+var Actions = {};
+
 configApp.resultId = '#result';
 configApp.globalId = '#global';
 configApp.barId = '#bar';
@@ -26,7 +29,7 @@ configApp.toJSONBtnId = '#toJSONBtn';
 
 
 /******************* Initialization ****************/
-var Jsn = {};
+
 Jsn.validate = function() {
   'use strict';
   try {
@@ -102,34 +105,57 @@ Jsn.import = function(dataSrc, destSlc) {
 };
 Jsn.toSettings = function() {
   'use strict';
+  Jsn.validate();
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
   Jsn.import(d.bar, configApp.barSlc);
+  $.each(d.posts, function(k, v) {
+    Actions.addNewPost();
+    Jsn.import(v, configApp.postsSlc);
+  });
+
+  $.each(d.pages, function(k, v) {
+    Actions.addNewPage();
+    Jsn.import(v, configApp.pagesSlc);
+  });
+  Actions.removeBtnAction();
 };
 
-var removeBtnAction = function() {
+Actions.removeBtnAction = function() {
   'use strict';
   $('button[name=remove]').click(function() {
     $(this).parent().parent().remove();
   });
 };
 
+Actions.addNewPage = function() {
+  'use strict';
+  $(configApp.pagesId).append($(configApp.pageTempId).html());
+  Actions.removeBtnAction();
+};
+Actions.addNewPost = function() {
+  'use strict';
+  $(configApp.postsId).append($(configApp.postTempId).html());
+  Actions.removeBtnAction();
+};
+
 $(document).ready(function() {
   'use strict';
+  // init button listeners
   $(configApp.validateBtnId).click(Jsn.validate);
   $(configApp.toJSONBtnId).click(Jsn.toJSON);
   $(configApp.toSettingsBtnId).click(Jsn.toSettings);
-
-  $(configApp.postsId).append($(configApp.postTempId).html());
-  $(configApp.pagesId).append($(configApp.pageTempId).html());
-  removeBtnAction();
-
   $(configApp.newPageId + ' > button').click(function() {
-    $(configApp.pagesId).append($(configApp.pageTempId).html());
-    removeBtnAction();
+    Actions.addNewPage();
   });
   $(configApp.newPostId + ' > button').click(function() {
-    $(configApp.postsId).append($(configApp.postTempId).html());
-    removeBtnAction();
+    Actions.addNewPost();
   });
+
+  $.getJSON('config-content.json', function(data) {
+    console.log('hello');
+    $(configApp.sourceTxtareaSel).val(JSON.stringify(data));
+    Jsn.toSettings();
+  });
+
 });
