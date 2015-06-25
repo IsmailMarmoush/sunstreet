@@ -3,7 +3,12 @@
 @import 'fonts.less';
 
 /********* Vars ***************/
+
 @total-width: 100%;
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
 @blue: #4d90fe;
 @mainBgColor: white;
 @inputBgColor: #eee;
@@ -38,13 +43,36 @@ input[type=text] {
   width: 100%;
 }
 #content {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  div {
+  section {
     .column(12);
+    margin-bottom: 10px;
+  }
+  h2{
+    .column(12);
+    margin-top:20px;
   }
 }
 
+section > div > div {
+  .column(12);
+  width:99.5%;
+
+  h3{
+    float:left;
+  }
+  button{
+    float:right;
+  }
+}
+hr{
+  .column(12);
+  margin-top: 30px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 /*************** JSON Ouput **************/
 #source {
   textarea {

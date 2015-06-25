@@ -246,7 +246,7 @@ Content.reloadPage = function(val) {
       Content.setHeaderImg(val);
       Content.runToc();
       Animation.smoothScrolling();
-      DisqusApi.disqusReload(val.disqus.enable, val.disqus.identifier, val.disqus.lang, document.title);
+      DisqusApi.disqusReload(val.disqusEnable, val.disqusIdentifier, val.disqusLang, document.title);
     });
   });
 

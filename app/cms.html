@@ -21,16 +21,16 @@
 
 <body>
   <div id="content">
-    <div id="source" class="section">
-      <h2>Configurations in JSON</h2>
+    <h2>Configurations in JSON</h2>
+    <section id="source">
       <textarea rows="20"></textarea>
       <button id="validateBtn"> Validate JSON</button>
-      <button id="updateSettingsBtn"> JSON -> Settings</button>
-      <button id="updateJsonBtn"> Settings -> JSON</button>
+      <button id="toSettingsBtn"> JSON -> Settings</button>
+      <button id="toJSONBtn"> Settings -> JSON</button>
       <pre id="result"></pre>
-    </div>
-    <div class="section">
-      <h2>Global Settings</h2>
+    </section>
+    <h2>Global Settings</h2>
+    <section id="global">
       <span class="cmsLabel">Title</span>
       <span class="cmsInput">
         <input type="text" name="title" />
@@ -39,7 +39,7 @@
       <span class="cmsInput">
         <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
       </span>
-      <span class="cmsLabel">Tag</span>
+      <span class="cmsLabel">Tag(s)</span>
       <span class="cmsInput">
         <input type="text" name="tag" />
       </span>
@@ -71,9 +71,9 @@
       <span class="cmsInput">
         <input type="text" name="googleAnalyticsId" />
       </span>
-    </div>
-    <div class="section">
-      <h2>Side Bar</h2>
+    </section>
+    <h2>Side Bar</h2>
+    <section id="bar">
       <span class="cmsLabel">Logo</span>
       <span class="cmsInput">
         <input type="text" name="logoPath" />
@@ -82,11 +82,28 @@
       <span class="cmsInput">
         <input type="text" name="information" />
       </span>
+    </section>
+    <h2>Pages</h2>
+    <section id="pages">
+
+    </section>
+    <div id="newPage">
+      <button>New Page</button>
     </div>
-    <div class="section">
-      <h2>Pages</h2>
+    <h2>Posts</h2>
+    <section id="posts">
+
+    </section>
+    <div id="newPost">
+      <button>New Post</button>
+    </div>
+
+    <div id="pageTemp" style="display:none">
       <div>
-        <h3>Page(1)</h3>
+        <div>
+          <h3>Page</h3>
+          <button name="remove">&#10006;</button>
+        </div>
         <span class="cmsLabel">Source</span>
         <span class="cmsInput">
           <input type="text" name="url" />
@@ -99,7 +116,7 @@
         <span class="cmsInput">
           <input type="number" min="0" max="20" step="0.2" name="titleSize" /> em
         </span>
-        <span class="cmsLabel">Tag</span>
+        <span class="cmsLabel">Tag(s)</span>
         <span class="cmsInput">
           <input type="text" name="tag" />
         </span>
@@ -125,16 +142,18 @@
         </span>
         <span class="cmsLabel">Enable Disqus</span>
         <span class="cmsInput">
-          <input type="checkbox" name="disqus.enable" />
+          <input type="checkbox" name="disqusEnable" />
         </span>
-        <button name="remove">Remove</button>
+        <hr/>
       </div>
-      <button id="newPage">New Page</button>
     </div>
-    <div class="section">
-      <h2>Posts</h2>
+
+    <div id="postTemp" style="display:none">
       <div>
-        <h3>Post (1)</h3>
+        <div>
+          <h3>Post</h3>
+          <button name="remove">&#10006;</button>
+        </div>
         <span class="cmsLabel">Source</span>
         <span class="cmsInput">
           <input type="text" name="url" />
@@ -177,21 +196,19 @@
         </span>
         <span class="cmsLabel">Enable Disqus</span>
         <span class="cmsInput">
-          <input type="checkbox" name="disqus.enable" checked="true" />
+          <input type="checkbox" name="disqusEnable" checked="true" />
         </span>
         <span class="cmsLabel">Disqus Identifier</span>
         <span class="cmsInput">
-          <input type="text" name="disqus.identifier" />
+          <input type="text" name="disqusIdentifier" />
         </span>
         <span class="cmsLabel">Disqus Lang</span>
         <span class="cmsInput">
-          <input type="text" name="disqus.lang" value="en" />
+          <input type="text" name="disqusLang" value="en" />
         </span>
-        <button name="remove">Remove</button>
+        <hr/>
       </div>
-      <button name="newPost">New Post</button>
     </div>
-  </div>
 </body>
 
 </html>

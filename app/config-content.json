@@ -26,9 +26,7 @@
       "addGradient": true,
       "addHeaderTitle": false,
       "addHeaderTag": false,
-      "disqus": {
-        "enable": false
-      }
+      "disqusEnable": false
     }
   },
   "posts": {
@@ -44,11 +42,10 @@
       "date": "02/03/2014",
       "thumb": "content/images/eclipse.png",
       "img": "content/images/eclipse.png",
-      "disqus": {
-        "enable": true,
-        "identifier": "/12345",
-        "lang": "en"
-      }
+      "disqusEnable": true,
+      "disqusIdentifier": "/12345",
+      "diquesLang": "en"
+
     },
     "2": {
       "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
@@ -62,11 +59,9 @@
       "date": "01/01/2014",
       "thumb": "content/images/debian-wallpaper.jpg",
       "img": "content/images/debian-wallpaper.jpg",
-      "disqus": {
-        "enable": true,
-        "identifier": "/0000001",
-        "lang": "en"
-      }
+      "disqusEnable": true,
+      "disqusIdentifier": "/2323",
+      "diquesLang": "en"
     }
   }
 }
