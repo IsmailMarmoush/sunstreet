@@ -137,11 +137,13 @@ Actions.addNewPage = function() {
   'use strict';
   $(configApp.pagesId).append($(configApp.pageTempId).html());
   Actions.removeBtnAction();
+  Actions.failsafeLstn();
 };
 Actions.addNewPost = function() {
   'use strict';
   $(configApp.postsId).append($(configApp.postTempId).html());
   Actions.removeBtnAction();
+  Actions.failsafeLstn();
 };
 Actions.failsafe = function() {
   'use strict';

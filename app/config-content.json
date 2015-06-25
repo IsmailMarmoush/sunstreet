@@ -5,10 +5,10 @@
     "img": "content/images/sunset.jpg",
     "disqusShortname": "",
     "googleAnalyticsId": "",
-    "titleSize": "",
+    "titleSize": "3",
     "tagSize": "",
     "addGradient": false,
-    "addHeaderTitle": false,
+    "addHeaderTitle": true,
     "addHeaderTag": false
   },
   "bar": {
