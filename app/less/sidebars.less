@@ -42,13 +42,14 @@
   transition: transform 0.7s ease;
 }
 #rsb li a {
+  color: @brown0;
+  font-size: 1em;
+  text-decoration: none;
+  // display
   width: 100%;
   display: inline-block;
-  font-size: 1em;
   padding: 10px;
-  color: @brown0;
   transition: none;
-  text-decoration: none;
 }
 #rsb a:hover {
   color: white;
@@ -122,6 +123,9 @@
   transform: translate(100%, 0);
 }
 #lsb {
+  font-size: 1.5em;
+  font-family: @opensans;
+  // display
   overflow-x: hidden;
   overflow-y: auto;
   display: block;
@@ -131,8 +135,6 @@
   z-index: 99;
   margin-top: 0;
   margin-left: 0;
-  font-size: 1.5em;
-  font-family: @opensans;
   background: #222;
   ul {
     list-style-type: none;
@@ -150,13 +152,14 @@
   transition: transform 0.7s ease;
 }
 #lsb span {
-  margin-left: 15px;
   color: @brown0;
   font-size: 0.6em;
+  text-align: center;
+  // display
+  margin-left: 15px;
   position: absolute;
   bottom: 20px;
   width: 90%;
-  text-align: center;
 }
 #lsb img {
   margin-top: 10px;
@@ -164,13 +167,15 @@
   width: 100%;
 }
 #lsb li a {
+  color: @brown0;
+  font-family: @droidserif;
+  font-size: 0.9em;
+  text-decoration: none;
+  // display
   width: 100%;
   display: inline-block;
-  font-size: 0.9em;
   padding: 10px;
-  color: @brown0;
   transition: none;
-  text-decoration: none;
   border-left: 3px solid transparent;
 }
 #lsb a:hover {

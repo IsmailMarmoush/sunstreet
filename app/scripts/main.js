@@ -36,6 +36,7 @@ var configApp = {
   gradientClass: 'gradient',
   menuIconId: '#menuIcon',
   contentIconId: '#contentIcon',
+  sliderId:'#slider',
   slidesId: '#slides',
   blogId: '#blog',
   postId: '#post',
@@ -279,7 +280,7 @@ Content.routes = function() {
     // Routing listener
     urls[Utils.titleToLink(val.title)] = function() {
       $(configApp.postId).html('');
-      $(configApp.slidesId).fadeOut(500, function() {
+      $(configApp.sliderId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
           Content.reloadPage(val);
         });
@@ -290,7 +291,7 @@ Content.routes = function() {
   $.each(configContent.pages, function(key, val) {
     urls[Utils.titleToLink(val.title)] = function() {
       $(configApp.postId).html('');
-      $(configApp.slidesId).fadeOut(500, function() {
+      $(configApp.sliderId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
           Content.reloadPage(val);
         });
@@ -304,7 +305,7 @@ Content.routes = function() {
     $(configApp.contentIconId).hide();
     Content.updateBrowserTitle(configContent.global.title);
     $(configApp.blogId).fadeOut(500, function() {
-      $(configApp.slidesId).fadeIn(500, function() {
+      $(configApp.sliderId).fadeIn(500, function() {
         Content.setHeaderImg(configContent.global);
       });
     });
