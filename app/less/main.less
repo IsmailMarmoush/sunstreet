@@ -1,37 +1,15 @@
 @import 'fonts.less';
-
-/****Colors *****/
-@yellow: #b58900;
-@orange: #cb4b16;
-@red: #dc322f;
-@magenta: #d33682;
-@violet: #6c71c4;
-@blue: #268bd2;
-@cyan: #2aa198;
-@golden: #bca474;
-/********** Background *********/
-@bgColor0: #002a35;
-@bgColor1: #002b36;
-@bgColor2: #586e75;
-@bgColor3: #657b83;
-@bgBorderColor: #073642;
-
+@import 'responsive.less';
+@import 'colors.less';
+@import 'sidebars.less';
+@import 'footer.less';
+@import 'general.less';
 /******* combinations **********/
-.markupAnchor {
-  text-decoration: none;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 50%);
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  background-position: 0 1.1em;
-}
 .fontCombo {
-  font-family: @fontFamily;
+  font-family: @opensans;
   letter-spacing: 0.01rem;
   font-weight: 400;
   font-style: normal;
-
-  // Fontsize Replaced by media queries
-  // font-size: 14px;
   line-height: 1.5;
 }
 /*************** CSS **********/
@@ -40,72 +18,12 @@ body {
   .fontCombo;
   width: 100%;
   margin: 0 auto;
-  color: @fc;
-
-  //background-color: @bgColor;
-  background-color: #f6f6f6;
+  color: fade(black,80%);
+  background-color: white;
   -webkit-font-smoothing: antialiased;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: @titleFontFamily;
-  text-transform: none;
-}
-h1 {
-  font-size: 4em;
-  letter-spacing: 3px;
-}
-h2 {
-  font-size: 3em;
-  letter-spacing: 3px;
-}
-h3 {
-  font-size: 2em;
-  letter-spacing: 2px;
-}
-h4 {
-  font-size: 1.8em;
-  letter-spacing: 2px;
-}
-h5 {
-  font-size: 1.6em;
-  letter-spacing: 2px;
-}
-h6 {
-  font-size: 1.4em;
-  letter-spacing: 2px;
-}
-hr {
-  border: 1px solid @sfc;
-}
-a {
-  transition: all 0.7s ease;
-  color: @fc;
-}
-
 /********** Menu ************/
-#bar {
-  position: fixed;
-  top: 0;
-  display: block;
-  width: 100%;
-  height: 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 10;
-  -webkit-backface-visibility: hidden;
-  transition: all 0.7s ease;
-}
 #menuIcon {
-  /*    text-decoration: none;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0)80%, rgba(226, 0, 26, 0.6)50%);
-    background-repeat: repeat;
-    background-size: 2px 6px;
-    background-position: 0 24px; */
   margin-top: 5px;
   margin-left: 10px;
   width: 32px;
@@ -114,311 +32,16 @@ a {
   cursor: pointer;
   opacity: 0.8;
 }
-#menuLogo {
-  position: fixed;
-  margin-left: 200px;
-  img {
-    padding: 0;
-    width: 70px;
-    display: block;
-  }
-}
 #contentIcon {
-  /*    text-decoration: none;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0)80%, rgba(226, 0, 26, 0.6)50%);
-    background-repeat: repeat;
-    background-size: 2px 6px;
-    background-position: 0 24px;
-*/
   opacity: 0.8;
   z-index: 20;
   margin-top: 3px;
   margin-left: 10px;
-
-  //    width: 32px;
   height: 32px;
   right: 10px;
   position: fixed;
   cursor: pointer;
 }
-/****************** Responsive Sidebars ************/
-@rsbWidth: 30%;
-@lsbWidth: 20%;
-@media all and (min-width: 801px) {
-  body {
-    font-size: 14px;
-  }
-  #blog {
-    font-size: 1.5em;
-    width: 75%;
-  }
-  #rsb {
-    width: @rsbWidth;
-    right: @rsbWidth*-1;
-  }
-  .moveContentLeft {
-    transform: translate(@rsbWidth*-1, 0);
-  }
-
-  // Left Sidebar
-  #lsb {
-    width: @lsbWidth;
-    left: @lsbWidth*-1;
-  }
-  .moveContentRight {
-    transform: translate(@lsbWidth, 0);
-  }
-}
-@media all and (max-width: 800px) and (min-width: 601px) {
-  body {
-    font-size: 12px;
-  }
-  #blog {
-    font-size: 1.2em;
-    width: 85%;
-  }
-  #rsb {
-    width: @rsbWidth;
-    right: @rsbWidth*-1;
-  }
-  .moveContentLeft {
-    transform: translate(@rsbWidth*-1, 0);
-  }
-
-  // Left Sidebar
-  #lsb {
-    width: @lsbWidth;
-    left: @lsbWidth*-1;
-  }
-  .moveContentRight {
-    transform: translate(@lsbWidth, 0);
-  }
-}
-@media all and (max-width: 600px) and (min-width: 301px) {
-  body {
-    font-size: 10px;
-  }
-  #blog {
-    font-size: 1em;
-    width: 90%;
-  }
-  #rsb {
-    width: @rsbWidth*3;
-    right: @rsbWidth*-3;
-  }
-  .moveContentLeft {
-    transform: translate(@rsbWidth*-3, 0);
-  }
-
-  // Left Sidebar
-  #lsb {
-    width: @lsbWidth*2.5;
-    left: @lsbWidth*-2.5;
-  }
-  .moveContentRight {
-    transform: translate(@lsbWidth*2.5, 0);
-  }
-}
-@media all and (max-width: 300px) {
-  body {
-    font-size: 10px;
-  }
-  #blog {
-    font-size: 1em;
-    width: 95%;
-  }
-  #rsb {
-    width: @rsbWidth*3;
-    right: @rsbWidth*-3;
-  }
-  .moveContentLeft {
-    transform: translate(@rsbWidth*-3, 0);
-  }
-
-  // Left Sidebar
-  #lsb {
-    width: @lsbWidth*2.5;
-    left: @lsbWidth*-2.5;
-  }
-  .moveContentRight {
-    transform: translate(@lsbWidth*2.5, 0);
-  }
-}
-/************** Right Sidebar ***************/
-.moveRSB {
-  transform: translate(-100%, 0);
-}
-#rsb {
-  z-index: 30;
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: block;
-  position: fixed;
-  top: 0;
-  height: 100%;
-  font-size: 1.3em;
-  background: #222;
-  ul {
-    text-align: left;
-    padding: 0;
-    margin: 5px 0;
-    li {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      display: block;
-    }
-  }
-  -webkit-backface-visibility: hidden;
-  transition: transform 0.7s ease;
-}
-#rsb li a {
-  width: 100%;
-  display: inline-block;
-  font-size: 1em;
-  padding: 10px;
-  color: @fcNavigation;
-  transition: none;
-  text-decoration: none;
-}
-#rsb a:hover {
-  color: @sfcDarkBG;
-}
-#rsb li:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-#rsb li.selected {
-  color: @sfcDarkBG;
-  padding-top: 5px;
-}
-#rsb .toc-h1 {
-  font-size: 1em;
-  line-height: 1.1em;
-}
-#rsb .toc-h2 {
-  list-style: square;
-  font-size: 1em;
-  line-height: 1.1em;
-  padding-left: 10px;
-}
-#rsb .toc-h3 {
-  font-size: 0.9em;
-  line-height: 0.9em;
-  padding-left: 20px;
-  :before {
-    content: "-";
-    position: relative;
-    margin-right: 3px;
-  }
-}
-#rsb .toc-h4 {
-  font-size: 0.8em;
-  line-height: 1.1em;
-  padding-left: 40px;
-  :before {
-    content: "-";
-    position: relative;
-    margin-right: 3px;
-  }
-}
-#rsb .toc-h5 {
-  font-size: 0.7em;
-  line-height: 1.1em;
-  padding-left: 70px;
-  :before {
-    content: "-";
-    position: relative;
-    margin-right: 3px;
-  }
-}
-#rsb .toc-h6 {
-  font-size: 0.6em;
-  line-height: 1.1em;
-  padding-left: 100px;
-  :before {
-    content: "-";
-    position: relative;
-    margin-right: 3px;
-  }
-}
-#rsb .toc-active {
-  a {
-    color: @sfcDarkBG;
-  }
-  background-color: rgba(255, 255, 255, 0.05);
-}
-/************ Left side bar *************/
-.moveLSB {
-  transform: translate(100%, 0);
-}
-#lsb {
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: block;
-  position: fixed;
-  top: 0;
-  height: 100%;
-  z-index: 99;
-  margin-top: 0;
-  margin-left: 0;
-  font-size: 1.5em;
-  font-family: @fontFamily;
-  background: #222;
-  ul {
-    list-style-type: none;
-    text-align: left;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 10px 0;
-    li {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      display: block;
-    }
-  }
-  -webkit-backface-visibility: hidden;
-  transition: transform 0.7s ease;
-}
-#lsb span {
-  margin-left: 15px;
-  color: @fcNavigation;
-  font-size: 0.6em;
-  position: absolute;
-  bottom: 20px;
-  width: 90%;
-  text-align: center;
-}
-#lsb img {
-  margin-top: 10px;
-  margin-left: 15px;
-  width: 100%;
-}
-#lsb li a {
-  width: 100%;
-  display: inline-block;
-  font-size: 0.9em;
-  padding: 10px;
-  color: @fcNavigation;
-  transition: none;
-  text-decoration: none;
-  border-left: 3px solid transparent;
-}
-#lsb a:hover {
-  color: @sfcDarkBG;
-  border-left: 3px solid @sfcDarkBG;
-}
-#lsb li:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-#lsb li.selected {
-  background-color: rgba(255, 255, 255, 0.05);
-  a {
-    color: @sfcDarkBG;
-    border-left: 3px solid @sfcDarkBG;
-  }
-}
-/************* Content ****************/
 #content {
   position: relative;
   z-index: 1;
@@ -432,45 +55,6 @@ a {
   width: 80%;
   margin: 0 auto;
   transition: all 0.7s ease;
-}
-#footer {
-  width: 100%;
-  height: 200px;
-  display: block;
-}
-.fGrey {
-  height: 200px;
-  display: block;
-  background-color: #eeeded;
-  border-top: 1px solid #e2e0e0;
-}
-.v-align{
-  position: relative;
-  top: 25%;
-  display:block;
-}
-.fBlack {
-  color: #999;
-  text-align: center;
-  font-family: @ptSerif;
-  font-style: italic;
-  height: 100px;
-  background-color: #1b1d1e;
-  span {
-    .v-align;
-    a {
-      color: #999;
-      text-decoration: none;
-    }
-  }
-  p {
-    .v-align;
-    font-size: 0.8em;
-    a {
-      color: #666;
-      text-decoration: none;
-    }
-  }
 }
 #header {
   position: relative;
@@ -500,7 +84,7 @@ a {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 1)));
 }
 #headerText {
-  font-family: @titleFontFamily;
+  font-family: @droidserif;
   text-align: left;
   color: rgba(255, 255, 255, .8);
 
@@ -515,17 +99,21 @@ a {
     line-height: 1.1em;
   }
   p {
-    font-family: @titleFontFamily;
+    font-family: @droidserif;
     margin-bottom: 5px;
   }
 }
 #blog {
   margin: 0 auto;
   a {
-    .markupAnchor;
+    text-decoration: none;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 50%);
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 1.1em;
   }
   img {
-    border-top: 1s solid @sfc;
+    border-top: 1s solid fade(black,50%);
     padding: 0;
     margin: 25px auto;
     max-width: 100% !important;
@@ -538,9 +126,9 @@ a {
 }
 /************* Slider ****************/
 #slider {
-  font-family: @titleFontFamily;
+  font-family: @droidserif;
   font-size: 1em;
-  color: @fc;
+  color: fade(black,80%);
   text-align: center;
   width: 100%;
   margin-top: 100px;
@@ -550,7 +138,7 @@ a {
     display: inline-block;
     margin: 0 auto;
     li {
-      border-top: 1px solid @sfc;
+      border-top: 1px solid fade(black,50%);
       display: inline-block;
       margin: 20px 20px 0;
       padding: 20px 10px 10px;
@@ -561,7 +149,7 @@ a {
   }
 }
 #slider a {
-  color: @fc;
+  color: fade(black,80%);
   text-decoration: none;
 }
 #slider a > img {
@@ -573,98 +161,4 @@ a {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.05);
   transition: all 0.5s ease;
-}
-/*********** code *************/
-pre.hljs {
-  font-family: @codeFontFamily;
-  font-size: 0.6em;
-  overflow-y: hidden;
-  overflow-x: auto;
-  display: block;
-  padding: 0.8em !important;
-  background: @bgColor1 url("/images/noise.png") top left !important;
-
-  /*Borders - (Optional)*/
-  border-left: 15px solid @bgBorderColor;
-  border-right: 2px solid @bgBorderColor;
-
-  /*Box Shadow - (Optional)*/
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
-  box-shadow: 2px 2px 15px #ccc;
-}
-.gist {
-  font-size: 0.9em;
-}
-code {
-  color: @codeFontColor;
-}
-::selection {
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  text-shadow: none;
-}
-
-/******************* BlockQuote ***************/
-blockquote {
-  font-family: @codeFontFamily;
-  font-size: 0.7em;
-  line-height: 1.2;
-  text-align: justify;
-  overflow-y: hidden;
-  overflow-x: auto;
-  background: @bgColor1 url("/images/noise.png") top left !important;
-  padding: 15px 20px 15px 45px;
-  margin: 0 0 20px;
-  position: relative;
-  display: block;
-
-  /*Borders - (Optional)*/
-  border-left: 15px solid @bgBorderColor;
-  border-right: 2px solid @bgBorderColor;
-
-  /*Box Shadow - (Optional)*/
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
-  box-shadow: 2px 2px 15px #ccc;
-  p {
-    color: white;
-    a {
-      text-decoration: none;
-      background-image: linear-gradient(to bottom, white, white) !important;
-      background-repeat: repeat-x;
-      background-size: 2px 2px;
-      background-position: 0 1.1em;
-    }
-  }
-}
-blockquote::before {
-  content: "\201C";
-  /*Unicode for Left Double Quote*/
-  /*Font*/
-  font-family: Georgia, serif;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-
-  /*Positioning*/
-  position: absolute;
-  left: 10px;
-  top: 5px;
-}
-blockquote::after {
-  /*Reset to make sure*/
-  content: "";
-}
-blockquote em {
-  font-style: italic;
-}
-blockquote cite {
-  color: #999;
-  font-size: 14px;
-  display: block;
-  margin-top: 5px;
-}
-blockquote cite:before {
-  content: "\2014 \2009";
 }

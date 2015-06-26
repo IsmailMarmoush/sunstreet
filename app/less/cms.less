@@ -1,18 +1,12 @@
 @import 'grid.less';
 @import 'buttons.less';
 @import 'fonts.less';
-
-/********* Vars ***************/
-
+@import 'colors.less';
+/********* Grid ***************/
 @total-width: 100%;
 @column-width: 60;
 @gutter-width: 20;
 @columns: 12;
-
-@blue: #4d90fe;
-@mainBgColor: white;
-@inputBgColor: #eee;
-
 /************ Mixins ************/
 .border-radius (@radius: 5px) {
   -webkit-border-radius: @radius;
@@ -23,9 +17,9 @@
 /************** Content ***********/
 html,
 body {
-  background-color: @mainBgColor;
-  color: @fontColor;
-  font-family: @titleFontFamily;
+  background-color: white;
+  color: @brown1;
+  font-family: @droidserif;
   font-size: 14px;
 }
 input,
@@ -35,8 +29,8 @@ textarea {
   border: 1px solid grey;
 
   // font
-  color: @fontColor;
-  font-family: @titleFontFamily;
+  color: @brown1;
+  font-family: @droidserif;
   font-size: 14px;
 }
 input[type=text] {
@@ -72,7 +66,7 @@ hr{
   margin-top: 30px;
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to right, black, fade(black,75%), black);
 }
 /*************** JSON Ouput **************/
 #source {
@@ -86,15 +80,15 @@ hr{
 }
 .pass {
   .border-radius(3px);
-  background-color: #efe;
-  color: #393;
-  border: 2px solid #393;
+  background-color: @lightGreen;
+  color: @green;
+  border: 2px solid @green;
 }
 .fail {
   .border-radius(3px);
-  background-color: #fee;
-  color: #933;
-  border: 2px solid #933;
+  background-color: @pink;
+  color: @red;
+  border: 2px solid @red;
 }
 .cmsLabel {
   .column(3);

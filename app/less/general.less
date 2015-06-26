@@ -1,0 +1,138 @@
+@import (reference) 'colors.less';
+@import (reference) 'fonts.less';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: @droidserif;
+  text-transform: none;
+}
+h1 {
+  font-size: 4em;
+  letter-spacing: 3px;
+}
+h2 {
+  font-size: 3em;
+  letter-spacing: 3px;
+}
+h3 {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+h4 {
+  font-size: 1.8em;
+  letter-spacing: 2px;
+}
+h5 {
+  font-size: 1.6em;
+  letter-spacing: 2px;
+}
+h6 {
+  font-size: 1.4em;
+  letter-spacing: 2px;
+}
+hr {
+  border: 1px solid fade(black,50%);
+}
+a {
+  transition: all 0.7s ease;
+  color: fade(black,80%);
+}
+
+/*********** code *************/
+pre.hljs {
+  font-family: @monospace;
+  font-size: 0.6em;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: block;
+  padding: 0.8em !important;
+  background: @tiber1 url("/images/noise.png") top left !important;
+
+  /*Borders - (Optional)*/
+  border-left: 15px solid @tiber;
+  border-right: 2px solid @tiber;
+
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+}
+.gist {
+  font-size: 0.9em;
+}
+code {
+  color: fade(black, 50%);
+}
+::selection {
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-shadow: none;
+}
+
+/******************* BlockQuote ***************/
+blockquote {
+  font-family: @monospace;
+  font-size: 0.7em;
+  line-height: 1.2;
+  text-align: justify;
+  overflow-y: hidden;
+  overflow-x: auto;
+  background: @tiber1 url("/images/noise.png") top left !important;
+  padding: 15px 20px 15px 45px;
+  margin: 0 0 20px;
+  position: relative;
+  display: block;
+
+  /*Borders - (Optional)*/
+  border-left: 15px solid @tiber;
+  border-right: 2px solid @tiber;
+
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+  p {
+    color: white;
+    a {
+      text-decoration: none;
+      background-image: linear-gradient(to bottom, white, white) !important;
+      background-repeat: repeat-x;
+      background-size: 2px 2px;
+      background-position: 0 1.1em;
+    }
+  }
+}
+blockquote::before {
+  content: "\201C";
+  /*Unicode for Left Double Quote*/
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+
+  /*Positioning*/
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+blockquote::after {
+  /*Reset to make sure*/
+  content: "";
+}
+blockquote em {
+  font-style: italic;
+}
+blockquote cite {
+  color: #999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+blockquote cite:before {
+  content: "\2014 \2009";
+}
