@@ -36,7 +36,7 @@ var configApp = {
   gradientClass: 'gradient',
   menuIconId: '#menuIcon',
   contentIconId: '#contentIcon',
-  sliderId:'#slider',
+  sliderId: '#slider',
   slidesId: '#slides',
   blogId: '#blog',
   postId: '#post',
@@ -324,8 +324,8 @@ Content.leftSideBarInit = function() {
 };
 Content.footerInit = function() {
   'use strict';
-  $(configApp.fBlack + '> p').html(configContent.footer.copyright);
-  var pageNames = '';
+  $(configApp.fBlack + '> p').html(configContent.footer.copyright + '<br/>' + configContent.footer.poweredBy);
+  var pageNames = '<a href=#>Home</a>' + ' / ';
   $.each(configContent.pages, function(k, v) {
     pageNames += '<a href=#/' + this.title + '>' + this.title + '</a>' + ' / ';
   });
