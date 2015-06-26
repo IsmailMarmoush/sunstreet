@@ -63,6 +63,10 @@ var GithubApi = {};
 var GoogleApi = {};
 var DisqusApi = {};
 /******************** Utilities **************************/
+String.prototype.endsWith = function(suffix) {
+  'use strict';
+  return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
 
 Utils.getHash = function() {
   'use strict';
@@ -320,6 +324,15 @@ Content.leftSideBarInit = function() {
   $.each(configContent.pages, function(index, val) {
     var a = '<li> <a href="#' + Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
     $(configApp.lsbId + ' > ul').append(a);
+  });
+};
+Content.contactInit = function() {
+  'use strict';
+  $.each(configContent.contact, function(k, v) {
+    var url, img;
+    var imgEl = '<img src="' + img + '"/>';
+    var anchorEl = '<a href="' + url + '">' + img + '"/>';
+    $(configApp.fGrey).append();
   });
 };
 Content.footerInit = function() {

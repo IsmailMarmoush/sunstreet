@@ -1,33 +1,41 @@
 /* jshint devel:true */
 /* jshint -W098 */
 /* global jsonlint */
-var configApp = {};
+var configApp = {
+  resultId: '#result',
+  globalId: '#global',
+  barId: '#bar',
+  footerId: '#footer',
+  postsId: '#posts',
+  pagesId: '#pages',
+  contactsId: '#contacts',
+
+  postTempId: '#postTemp',
+  pageTempId: '#pageTemp',
+  contactTempId:'#contactTemp',
+
+  // Selectors
+  sourceTxtareaSel: '#source > textarea',
+  globalSlc: 'section[id=global]',
+  barSlc: 'section[id=bar]',
+  footerSlc: 'section[id=footer]',
+  // multi selectors
+  pagesSlc: 'section[id=pages] > div',
+  postsSlc: 'section[id=posts] > div',
+  contactsSlc: 'section[id=contacts] > div',
+
+  // Buttons
+  validateBtnId: '#validateBtn',
+  toSettingsBtnId: '#toSettingsBtn',
+  toJSONBtnId: '#toJSONBtn',
+  newPageId: '#newPage',
+  newPostId: '#newPost',
+  newContactId:'#newContact'
+};
 var Jsn = {};
 var Actions = {};
 
-configApp.resultId = '#result';
-configApp.globalId = '#global';
-configApp.barId = '#bar';
-configApp.footerId='#footer';
-configApp.postsId = '#posts';
-configApp.pagesId = '#pages';
 
-configApp.postTempId = '#postTemp';
-configApp.pageTempId = '#pageTemp';
-configApp.newPageId = '#newPage';
-configApp.newPostId = '#newPost';
-// Selectors
-configApp.sourceTxtareaSel = '#source > textarea';
-configApp.globalSlc = 'section[id=global]';
-configApp.barSlc = 'section[id=bar]';
-configApp.footerSlc = 'section[id=footer]';
-configApp.pagesSlc = 'section[id=pages] > div';
-configApp.postsSlc = 'section[id=posts] > div';
-
-// Buttons
-configApp.validateBtnId = '#validateBtn';
-configApp.toSettingsBtnId = '#toSettingsBtn';
-configApp.toJSONBtnId = '#toJSONBtn';
 
 
 /******************* Initialization ****************/
@@ -52,10 +60,14 @@ Jsn.extract = function(slc) {
   'use strict';
   var divData = {};
   var inputs = $(slc).find('span > input[type=text]');
+  var textareas = $(slc).find('span > textarea');
   var numbers = $(slc).find('span > input[type=number]');
   var checkboxes = $(slc).find('span > input[type=checkbox]');
   var dates = $(slc).find('span > input[type=date]');
   inputs.each(function() {
+    divData[$(this).attr('name')] = $(this).val();
+  });
+  textareas.each(function() {
     divData[$(this).attr('name')] = $(this).val();
   });
   numbers.each(function() {
@@ -86,7 +98,9 @@ Jsn.toJSON = function() {
 
   jsonData.global = Jsn.extract(configApp.globalSlc);
   jsonData.bar = Jsn.extract(configApp.barSlc);
-  jsonData.footer=Jsn.extract(configApp.footerSlc);
+  jsonData.footer = Jsn.extract(configApp.footerSlc);
+
+  jsonData.contacts = Jsn.extractN(configApp.contactsSlc);
   jsonData.pages = Jsn.extractN(configApp.pagesSlc);
   jsonData.posts = Jsn.extractN(configApp.postsSlc);
   $(configApp.sourceTxtareaSel).val(JSON.stringify(jsonData));
@@ -104,6 +118,13 @@ Jsn.import = function(dataSrc, destSlc) {
         $(this).val(value);
       }
     });
+    $(destSlc).find('span > textarea[name=' + index + ']').each(function() {
+      if ($(this).attr('type') === 'checkbox') {
+        this.checked = value;
+      } else {
+        $(this).val(value);
+      }
+    });
   });
 };
 Jsn.toSettings = function() {
@@ -112,10 +133,17 @@ Jsn.toSettings = function() {
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
   Jsn.import(d.bar, configApp.barSlc);
-  Jsn.import(d.footer,configApp.footerSlc);
+  Jsn.import(d.footer, configApp.footerSlc);
 
-  $(configApp.postsSlc).html('');
-  $(configApp.pagesSlc).html('');
+  $(configApp.postsId).empty();
+  $(configApp.pagesId).empty();
+  $(configApp.contactsId).empty();
+
+  $.each(d.contacts, function(k, v) {
+    Actions.addNewContact();
+    Jsn.import(v, $(configApp.contactsSlc)[k]);
+  });
+
   $.each(d.posts, function(k, v) {
     Actions.addNewPost();
     Jsn.import(v, $(configApp.postsSlc)[k]);
@@ -128,6 +156,7 @@ Jsn.toSettings = function() {
   Actions.removeBtnAction();
   Actions.failsafe();
   Actions.failsafeLstn();
+  return d;
 };
 
 Actions.removeBtnAction = function() {
@@ -135,6 +164,12 @@ Actions.removeBtnAction = function() {
   $('button[name=remove]').click(function() {
     $(this).parent().parent().remove();
   });
+};
+
+Actions.addNewContact = function() {
+  'use strict';
+  $(configApp.contactsId).append($(configApp.contactTempId).html());
+  Actions.removeBtnAction();
 };
 
 Actions.addNewPage = function() {
@@ -163,7 +198,7 @@ Actions.failsafeLstn = function() {
   $('input[type=checkbox].failsafe').click(function() {
     if (this.checked) {
       $(this).parent().next().next().children().prop('disabled', false);
-    }else{
+    } else {
       $(this).parent().next().next().children().prop('disabled', true);
     }
   });
@@ -175,6 +210,9 @@ $(document).ready(function() {
   $(configApp.validateBtnId).click(Jsn.validate);
   $(configApp.toJSONBtnId).click(Jsn.toJSON);
   $(configApp.toSettingsBtnId).click(Jsn.toSettings);
+  $(configApp.newContactId + ' > button').click(function() {
+    Actions.addNewContact();
+  });
   $(configApp.newPageId + ' > button').click(function() {
     Actions.addNewPage();
   });
