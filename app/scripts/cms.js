@@ -8,17 +8,19 @@ var Actions = {};
 configApp.resultId = '#result';
 configApp.globalId = '#global';
 configApp.barId = '#bar';
+configApp.footerId='#footer';
 configApp.postsId = '#posts';
-configApp.postTempId = '#postTemp';
 configApp.pagesId = '#pages';
+
+configApp.postTempId = '#postTemp';
 configApp.pageTempId = '#pageTemp';
 configApp.newPageId = '#newPage';
 configApp.newPostId = '#newPost';
-
 // Selectors
 configApp.sourceTxtareaSel = '#source > textarea';
 configApp.globalSlc = 'section[id=global]';
 configApp.barSlc = 'section[id=bar]';
+configApp.footerSlc = 'section[id=footer]';
 configApp.pagesSlc = 'section[id=pages] > div';
 configApp.postsSlc = 'section[id=posts] > div';
 
@@ -35,7 +37,7 @@ Jsn.validate = function() {
   try {
     var result = jsonlint.parse($(configApp.sourceTxtareaSel).val());
     if (result) {
-      $(configApp.resultId).html('JSON is valid!, you can copy it to your config-content.json file');
+      $(configApp.resultId).html('JSON is valid!, you can copy it to your content.json file');
       $(configApp.resultId).attr('class', 'pass');
       $(configApp.sourceTxtareaSel).val(JSON.stringify(result, null, '  '));
 
@@ -84,6 +86,7 @@ Jsn.toJSON = function() {
 
   jsonData.global = Jsn.extract(configApp.globalSlc);
   jsonData.bar = Jsn.extract(configApp.barSlc);
+  jsonData.footer=Jsn.extract(configApp.footerSlc);
   jsonData.pages = Jsn.extractN(configApp.pagesSlc);
   jsonData.posts = Jsn.extractN(configApp.postsSlc);
   $(configApp.sourceTxtareaSel).val(JSON.stringify(jsonData));
@@ -109,6 +112,7 @@ Jsn.toSettings = function() {
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
   Jsn.import(d.bar, configApp.barSlc);
+  Jsn.import(d.footer,configApp.footerSlc);
 
   $(configApp.postsSlc).html('');
   $(configApp.pagesSlc).html('');
@@ -178,7 +182,7 @@ $(document).ready(function() {
     Actions.addNewPost();
   });
 
-  $.getJSON('config-content.json', function(data) {
+  $.getJSON('content.json', function(data) {
     $(configApp.sourceTxtareaSel).val(JSON.stringify(data));
     Jsn.toSettings();
   });

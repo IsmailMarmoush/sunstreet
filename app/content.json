@@ -8,12 +8,15 @@
     "titleSize": "3",
     "tagSize": "",
     "addGradient": false,
-    "addHeaderTitle": true,
+    "addHeaderTitle": false,
     "addHeaderTag": false
   },
   "bar": {
     "logoPath": "content/images/logo.png",
     "information": "Marmoush.com © 2015 <br/> Ismail Marmoush"
+  },
+  "footer": {
+    "copyright": "<a href=\"http://marmoush.com/\">Marmoush.com</a> © 2015. All rights reserved unless stated. Designed & built with love, coffee and biscuits."
   },
   "pages": {
     "0": {

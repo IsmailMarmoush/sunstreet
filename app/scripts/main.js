@@ -28,8 +28,32 @@
 /********* Objects *********/
 // Selectors take normal name
 // Classes take trailing 'Class', e.g gradientClass
+var configApp = {
+  contentId: '#content',
+  headerImgId: '#headerImg',
+  headerTextId: '#headerText',
+  gradientContainerId: '#gradientContainer',
+  gradientClass: 'gradient',
+  menuIconId: '#menuIcon',
+  contentIconId: '#contentIcon',
+  slidesId: '#slides',
+  blogId: '#blog',
+  postId: '#post',
+
+  // Bars
+  barId: '#bar',
+  rsbId: '#rsb',
+  lsbId: '#lsb',
+
+  disqusThreadId: '#disqus_thread',
+  // Footer
+  footerId: '#footer',
+  fBlack: '.fBlack',
+  fGrey: '.fGrey',
+  // Misc
+  errorId: '#error'
+};
 var configContent = {};
-var configApp = {};
 var Backend = {};
 var Utils = {};
 var Animation = {};
@@ -174,23 +198,18 @@ Content.markdown = function(md, callback) {
 Content.runToc = function(container) {
   'use strict';
   container = typeof container !== 'undefined' ? container : configApp.postId;
-  $(configApp.rsbId).toc({
-    'selectors': 'h1,h2,h3,h4,h5,h6',
-    'container': container,
-    'smoothScrolling': false,
-    'prefix': 'toc',
-    'onHighlight': function(el) {},
-    'highlightOnScroll': true,
-    'highlightOffset': 100,
-    'anchorName': function(i, heading, prefix) {
-      return prefix + i;
-    },
-    'headerText': function(i, heading, $heading) {
-      return $heading.text();
-    }
+  var list = $(configApp.rsbId + ' > ul');
+  $(list).html('');
+  $(container + ' :header').each(function(i) {
+    $(this).prepend('<span id="toc' + i + '"></span>');
+    var tagName = $(this).prop('tagName').toLowerCase();
+    var k = '<li class="toc-' + tagName + '"><a href="#toc' + i + '">' + $(this).text() + '</a></li>';
+    $(list).append(k);
   });
+  $(configApp.rsbId).html(list);
   $(configApp.rsbId).show();
 };
+
 
 Content.fillSlider = function() {
   'use strict';
@@ -223,12 +242,12 @@ Content.setHeaderImg = function(val) {
 
   // TODO Update Header Title
   if (val.addHeaderTitle) {
-    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize+'em');
+    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize + 'em');
   } else {
     $(configApp.headerTextId + ' > span').html('');
   }
   if (val.addHeaderTag) {
-    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize+'em');
+    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize + 'em');
   } else {
     $(configApp.headerTextId + ' > p').html('');
   }
@@ -302,7 +321,16 @@ Content.leftSideBarInit = function() {
     $(configApp.lsbId + ' > ul').append(a);
   });
 };
-
+Content.footerInit = function() {
+  'use strict';
+  $(configApp.fBlack + '> p').html(configContent.footer.copyright);
+  var pageNames = '';
+  $.each(configContent.pages, function(k, v) {
+    pageNames += '<a href=#/' + this.title + '>' + this.title + '</a>' + ' / ';
+  });
+  pageNames = pageNames.substring(0, pageNames.length - 3);
+  $(configApp.fBlack + '> span').html(pageNames);
+};
 /******************* Backend ********************/
 
 Backend.loadJson = function(path, callback) {
@@ -438,28 +466,23 @@ DisqusApi.init = function() {
 /******************* Initialization ****************/
 $(document).ready(function() {
   'use strict';
-
-  Backend.loadJson('config-app.json', function(data) {
-    configApp = data;
-
-    Backend.loadJson('config-content.json', function(data) {
-      configContent = data;
-      Content.routes();
-      Content.fillSlider();
-      Content.leftSideBarInit();
-      Animation.toggleLeftSidebar();
-      Animation.toggleRightSidebar();
-      Animation.smoothScrolling();
-      if (configContent.global.googleAnalyticsId) {
-        console.log('Loading Google Analytics');
-        GoogleApi.analytics();
-      }
-      if (configContent.global.disqusShortname) {
-        console.log('Loading Disqus');
-        DisqusApi.init();
-      }
-      Utils.gradientListener();
-    });
+  Backend.loadJson('content.json', function(data) {
+    configContent = data;
+    Content.routes();
+    Content.fillSlider();
+    Content.leftSideBarInit();
+    Content.footerInit();
+    Animation.toggleLeftSidebar();
+    Animation.toggleRightSidebar();
+    Animation.smoothScrolling();
+    if (configContent.global.googleAnalyticsId) {
+      console.log('Loading Google Analytics');
+      GoogleApi.analytics();
+    }
+    if (configContent.global.disqusShortname) {
+      console.log('Loading Disqus');
+      DisqusApi.init();
+    }
+    Utils.gradientListener();
   });
-
 });

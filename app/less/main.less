@@ -41,7 +41,9 @@ body {
   width: 100%;
   margin: 0 auto;
   color: @fc;
-  background-color: @bgColor;
+
+  //background-color: @bgColor;
+  background-color: #f6f6f6;
   -webkit-font-smoothing: antialiased;
 }
 h1,
@@ -420,7 +422,6 @@ a {
 #content {
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
   margin: 0 auto;
   padding-top: 40px;
   width: 100%;
@@ -433,22 +434,45 @@ a {
   transition: all 0.7s ease;
 }
 #footer {
-  border-top: 1px solid @sfc;
   width: 100%;
-  padding-top: 20px;
-  margin: 20px auto;
+  height: 200px;
+  display: block;
+}
+.fGrey {
+  height: 200px;
+  display: block;
+  background-color: #eeeded;
+  border-top: 1px solid #e2e0e0;
+}
+.v-align{
+  position: relative;
+  top: 25%;
+  display:block;
+}
+.fBlack {
+  color: #999;
   text-align: center;
-  font-size: 0.8em;
-  display: inline-block;
+  font-family: @ptSerif;
+  font-style: italic;
+  height: 100px;
+  background-color: #1b1d1e;
+  span {
+    .v-align;
+    a {
+      color: #999;
+      text-decoration: none;
+    }
+  }
+  p {
+    .v-align;
+    font-size: 0.8em;
+    a {
+      color: #666;
+      text-decoration: none;
+    }
+  }
 }
-#footer > a {
-  text-decoration: none;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 50%);
-  background-repeat: repeat-x;
-  background-size: 2px 2px;
-  background-position: 0 1.1em;
-}
-#headeer {
+#header {
   position: relative;
 }
 #headerImgContainer {
@@ -471,10 +495,6 @@ a {
   margin: auto;
   position: relative;
   z-index: 20;
-
-  // The height and width is set using Javascript
-  //   height: 100px;
-  //   width: 100px;
 }
 .gradient {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 1)));
@@ -519,10 +539,12 @@ a {
 /************* Slider ****************/
 #slider {
   font-family: @titleFontFamily;
-  width: 100%;
-  text-align: center;
   font-size: 1em;
   color: @fc;
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
   ul {
     padding: 0;
     display: inline-block;
