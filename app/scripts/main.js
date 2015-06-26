@@ -328,11 +328,12 @@ Content.leftSideBarInit = function() {
 };
 Content.contactInit = function() {
   'use strict';
-  $.each(configContent.contact, function(k, v) {
-    var url, img;
-    var imgEl = '<img src="' + img + '"/>';
-    var anchorEl = '<a href="' + url + '">' + img + '"/>';
-    $(configApp.fGrey).append();
+  $.each(configContent.contacts, function(k, v) {
+    if (v.url) {
+      var imgEl = '<img src="' + v.img + '"/>';
+      var anchorEl = '<li><a href="' + v.url + '">' + imgEl + '</a></li>';
+      $(configApp.fGrey+' > ul').append(anchorEl);
+    }
   });
 };
 Content.footerInit = function() {
@@ -485,6 +486,7 @@ $(document).ready(function() {
     Content.routes();
     Content.fillSlider();
     Content.leftSideBarInit();
+    Content.contactInit();
     Content.footerInit();
     Animation.toggleLeftSidebar();
     Animation.toggleRightSidebar();

@@ -13,16 +13,15 @@
    id="Layer_1"
    x="0px"
    y="0px"
-   width="512px"
-   height="512px"
-   viewBox="0 0 512 512"
-   style="enable-background:new 0 0 512 512;"
+   width="464"
+   height="510"
+   viewBox="0 0 464 510"
    xml:space="preserve"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="social-linkedin-outline.svg"><metadata
+   sodipodi:docname="linkedin.svg"><metadata
      id="metadata19"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs17" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -47,11 +46,17 @@
      id="style3">
 	.st0{fill-rule:evenodd;clip-rule:evenodd;}
 </style><g
-     id="g5"><g
-       id="g7"><path
+     id="g5"
+     transform="translate(0,-2)"><g
+       id="g7"
+       transform="matrix(1.7539427,0,0,1.9576271,-220.39538,-241.8983)"><path
          class="st0"
-         d="M182.8,384V212.9h-54.9V384H182.8L182.8,384z M157.4,187c18.3,0,29.7-13.1,29.7-29.5    c-0.3-16.7-11.4-29.5-29.4-29.5c-18,0-29.7,12.8-29.7,29.5c0,16.4,11.4,29.5,29,29.5H157.4L157.4,187z"
-         id="path9" /><path
+         d="M 182.8,384 V 212.9 H 127.9 V 384 h 54.9 l 0,0 z M 157.4,187 c 18.3,0 29.7,-13.1 29.7,-29.5 -0.3,-16.7 -11.4,-29.5 -29.4,-29.5 -18,0 -29.7,12.8 -29.7,29.5 0,16.4 11.4,29.5 29,29.5 h 0.4 l 0,0 z"
+         id="path9"
+         inkscape:connector-curvature="0"
+         style="fill-rule:evenodd" /><path
          class="st0"
-         d="M320.6,209c-29.1,0-41.6,16.4-49.6,27.8V213h-55v171h55v-97.4c0-5,0.4-10,1.9-13.5c4-10,13-20.3,28.2-20.3    c19.9,0,27.9,15.3,27.9,37.7V384h55v-99.9C384,232.8,356.8,209,320.6,209z"
-         id="path11" /></g></g></svg>
+         d="M 320.6,209 C 291.5,209 279,225.4 271,236.8 V 213 h -55 v 171 h 55 v -97.4 c 0,-5 0.4,-10 1.9,-13.5 4,-10 13,-20.3 28.2,-20.3 19.9,0 27.9,15.3 27.9,37.7 V 384 h 55 V 284.1 C 384,232.8 356.8,209 320.6,209 z"
+         id="path11"
+         inkscape:connector-curvature="0"
+         style="fill-rule:evenodd" /></g></g></svg>

@@ -15,16 +15,36 @@
     "logoPath": "content/images/logo.png",
     "information": "Marmoush.com © 2015 <br/> Ismail Marmoush"
   },
-  "contacts": {
-    "0":{
-      "url":"http://github.com/ismailmarmoush",
-      "img":"images/github.svg"
-    }
-  },
   "footer": {
     "copyright": "<a href=\"http://marmoush.com/\">Marmoush.com</a> © 2015. All rights reserved unless stated. Designed & built with love, coffee and biscuits.",
     "poweredBy": "Powered By <a href=\"https://github.com/m-io/sunstreet/\">Sunstreet</a>",
     "shortAbout": "Who's Behind it"
+  },
+  "contacts": {
+    "0": {
+      "url": "http://github.com/ismailmarmoush",
+      "img": "images/github.svg"
+    },
+    "1": {
+      "url": "https://plus.google.com/+IsmailMarmoush/",
+      "img": "images/googleplus.svg"
+    },
+    "2": {
+      "url": "https://www.linkedin.com/profile/view?id=235757224",
+      "img": "images/linkedin.svg"
+    },
+    "3": {
+      "url": "http://stackoverflow.com/users/263215/ismail-marmoush",
+      "img": "images/stackoverflow.svg"
+    },
+    "4": {
+      "url": "https://behance.net/marmoush",
+      "img": "images/behance.svg"
+    },
+    "5": {
+      "url": "https://hackerrank.com/ismailmarmoush",
+      "img": "images/hackerrank.png"
+    }
   },
   "pages": {
     "0": {
