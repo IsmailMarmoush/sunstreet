@@ -1,4 +1,5 @@
 @import (reference) 'fonts.less';
+@import (reference) 'colors.less';
 
 #footer {
   width: 100%;
@@ -8,8 +9,8 @@
 .fGrey {
   height: 200px;
   display: block;
-  background-color: rgb(238, 237, 237);
-  border-top: 1px solid rgb(226, 224, 224);
+  background-color: @grey5;
+  border-top: 1px solid @grey4;
 }
 .v-align{
   position: relative;
@@ -22,11 +23,11 @@
   font-family: @ptSerif;
   font-style: italic;
   height: 100px;
-  background-color: #1b1d1e;
+  background-color: @grey0;
   span {
     .v-align;
     a {
-      color: #999;
+      color: @grey2;
       text-decoration: none;
     }
   }
@@ -34,7 +35,7 @@
     .v-align;
     font-size: 0.8em;
     a {
-      color: #666;
+      color: @grey1;
       text-decoration: none;
     }
   }

@@ -57,9 +57,9 @@ pre.hljs {
   border-right: 2px solid @tiber;
 
   /*Box Shadow - (Optional)*/
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
-  box-shadow: 2px 2px 15px #ccc;
+  -moz-box-shadow: 2px 2px 15px @grey3;
+  -webkit-box-shadow: 2px 2px 15px @grey3;
+  box-shadow: 2px 2px 15px @grey3;
 }
 .gist {
   font-size: 0.9em;
@@ -68,8 +68,8 @@ code {
   color: fade(black, 50%);
 }
 ::selection {
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  background: fade(black,20%);
+  color: white;
   text-shadow: none;
 }
 
@@ -92,9 +92,9 @@ blockquote {
   border-right: 2px solid @tiber;
 
   /*Box Shadow - (Optional)*/
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
-  box-shadow: 2px 2px 15px #ccc;
+  -moz-box-shadow: 2px 2px 15px @grey3;
+  -webkit-box-shadow: 2px 2px 15px @grey3;
+  box-shadow: 2px 2px 15px @grey3;
   p {
     color: white;
     a {
@@ -128,7 +128,7 @@ blockquote em {
   font-style: italic;
 }
 blockquote cite {
-  color: #999;
+  color: @grey2;
   font-size: 14px;
   display: block;
   margin-top: 5px;
