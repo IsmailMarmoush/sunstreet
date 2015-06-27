@@ -13,9 +13,9 @@
    id="Layer_1"
    x="0px"
    y="0px"
-   width="464"
-   height="510"
-   viewBox="0 0 464 510"
+   width="268"
+   height="268"
+   viewBox="0 0 268 268"
    xml:space="preserve"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="linkedin.svg"><metadata
@@ -35,9 +35,9 @@
      inkscape:window-height="730"
      id="namedview15"
      showgrid="false"
-     inkscape:zoom="0.4609375"
-     inkscape:cx="256"
-     inkscape:cy="256"
+     inkscape:zoom="0.65186406"
+     inkscape:cx="81.784825"
+     inkscape:cy="218.92799"
      inkscape:window-x="0"
      inkscape:window-y="18"
      inkscape:window-maximized="0"
@@ -47,16 +47,17 @@
 	.st0{fill-rule:evenodd;clip-rule:evenodd;}
 </style><g
      id="g5"
-     transform="translate(0,-2)"><g
+     transform="translate(0,-244)"><g
        id="g7"
-       transform="matrix(1.7539427,0,0,1.9576271,-220.39538,-241.8983)"><path
+       style="fill:#007bb6;fill-opacity:1"
+       transform="translate(-123.66102,123.83051)"><path
          class="st0"
          d="M 182.8,384 V 212.9 H 127.9 V 384 h 54.9 l 0,0 z M 157.4,187 c 18.3,0 29.7,-13.1 29.7,-29.5 -0.3,-16.7 -11.4,-29.5 -29.4,-29.5 -18,0 -29.7,12.8 -29.7,29.5 0,16.4 11.4,29.5 29,29.5 h 0.4 l 0,0 z"
          id="path9"
-         inkscape:connector-curvature="0"
-         style="fill-rule:evenodd" /><path
+         style="fill:#007bb6;fill-opacity:1;fill-rule:evenodd"
+         inkscape:connector-curvature="0" /><path
          class="st0"
          d="M 320.6,209 C 291.5,209 279,225.4 271,236.8 V 213 h -55 v 171 h 55 v -97.4 c 0,-5 0.4,-10 1.9,-13.5 4,-10 13,-20.3 28.2,-20.3 19.9,0 27.9,15.3 27.9,37.7 V 384 h 55 V 284.1 C 384,232.8 356.8,209 320.6,209 z"
          id="path11"
-         inkscape:connector-curvature="0"
-         style="fill-rule:evenodd" /></g></g></svg>
+         style="fill:#007bb6;fill-opacity:1;fill-rule:evenodd"
+         inkscape:connector-curvature="0" /></g></g></svg>
