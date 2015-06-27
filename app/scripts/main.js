@@ -49,8 +49,9 @@ var configApp = {
   disqusThreadId: '#disqus_thread',
   // Footer
   footerId: '#footer',
-  fBlack: '.fBlack',
-  fGrey: '.fGrey',
+  fPages: '.fPages',
+  fContacts:'.fContacts',
+  fCopyright: '.fCopyright',
   // Misc
   errorId: '#error'
 };
@@ -332,19 +333,19 @@ Content.contactInit = function() {
     if (v.url) {
       var imgEl = '<img src="' + v.img + '"/>';
       var anchorEl = '<li><a href="' + v.url + '">' + imgEl + '</a></li>';
-      $(configApp.fGrey+' > ul').append(anchorEl);
+      $(configApp.fContacts+' > ul').append(anchorEl);
     }
   });
 };
 Content.footerInit = function() {
   'use strict';
-  $(configApp.fBlack + '> p').html(configContent.footer.copyright + '<br/>' + configContent.footer.poweredBy);
+  $(configApp.fCopyright + '> p').html(configContent.footer.copyright + '<br/>' + configContent.footer.poweredBy);
   var pageNames = '<a href=#>Home</a>' + ' / ';
   $.each(configContent.pages, function(k, v) {
     pageNames += '<a href=#/' + this.title + '>' + this.title + '</a>' + ' / ';
   });
   pageNames = pageNames.substring(0, pageNames.length - 3);
-  $(configApp.fBlack + '> span').html(pageNames);
+  $(configApp.fPages + '> span').html(pageNames);
 };
 /******************* Backend ********************/
 
