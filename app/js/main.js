@@ -148,7 +148,12 @@ Content.fillSlider = function() {
   'use strict';
   $.each(configContent.posts, function(key, val) {
     // fill slides
-    var img = '<img src="' + val.thumb + '" />';
+    var img ='';
+    if (val.thumb) {
+      img = '<img src="' + val.thumb + '" />';
+    } else {
+      img = '<img src="' + configContent.global.thumb + '" />';
+    }
     var p = '<p>' + val.title + '</p>';
     var p2 = '<p>' + val.date + '</p>';
     var li = '<li><a href="#' + Utils.titleToLink(val.title) + '">' + img + p + p2 + '</a></li>';
@@ -401,7 +406,7 @@ $(document).ready(function() {
     Content.fillMenu();
     Content.contactInit();
     Content.footerInit();
-    $('nav > ul > li > a').click(function(){
+    $('nav > ul > li > a').click(function() {
       $('#toggle').toggleClass('active');
       $('#overlay').toggleClass('open');
     });
