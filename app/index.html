@@ -25,47 +25,31 @@
          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
          <![endif]-->
 
-  <div id="bar">
-    <img id="menuIcon" src="img/menu.png" />
-    <img id="contentIcon" src="img/info.png" />
+  <div id="menu"></div>
+
+  <div id="header"></div>
+  <div id="slider">
+    <ul id="slides"></ul>
   </div>
 
-  <div id="content">
-    <div id="header">
-      
+  <div id="blog" style="display:none">
+    <div id="post"></div>
+    <div id="disqus_thread"></div>
+  </div>
+
+  <div id="footer">
+    <div class="fPages">
+      <span></span>
     </div>
-    <div id="container">
-      <div id="slider">
-        <ul id="slides">
-        </ul>
-      </div>
-      <div id="blog" style="display:none">
-        <div id="post">
-        </div>
-        <div id="disqus_thread"></div>
-      </div>
+    <div class="fContacts">
+      <ul></ul>
     </div>
-    <div id="footer">
-      <div class="fPages">
-        <span></span>
-      </div>
-      <div class="fContacts">
-        <ul></ul>
-      </div>
-      <div class="fCopyright">
-        <p></p>
-      </div>
+    <div class="fCopyright">
+      <p></p>
     </div>
   </div>
-  <div id="rsb">
+  <div id="rsb" style="display:none">
     <ul></ul>
-  </div>
-  <div id="lsb">
-    <img src="" />
-    <ul>
-      <li class="blogLink"> <a href="#" onclick="Animation.scrollTo('#slider')">Blog</a> </li>
-    </ul>
-    <span> </span>
   </div>
 </body>
 

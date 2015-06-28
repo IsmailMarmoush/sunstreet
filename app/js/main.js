@@ -27,22 +27,16 @@
 
 /********* Objects *********/
 var configApp = {
-  contentId: '#content',
-  headerId:'#header',
+  menuId: '#menu',
+  headerId: '#header',
 
-  menuIconId: '#menuIcon',
-  contentIconId: '#contentIcon',
   sliderId: '#slider',
   slidesId: '#slides',
+
   blogId: '#blog',
   postId: '#post',
-
-  // Bars
-  barId: '#bar',
-  rsbId: '#rsb',
-  lsbId: '#lsb',
-
   disqusThreadId: '#disqus_thread',
+
   // Footer
   footerId: '#footer',
   fPages: '.fPages',
@@ -70,19 +64,6 @@ Utils.getHash = function() {
   var url = window.location.hash;
   var hash = url.substring(url.indexOf('#') + 1);
   return hash;
-};
-
-// TODO
-Utils.selectMenu = function() {
-  'use strict';
-  //$(configApp.lsbId + ' li').removeClass('selected');
-  //$(configApp.lsbId + ' a[href^="#' + val.url + '"]').parent().addClass('selected');
-};
-
-Utils.fitSize = function(src, dest) {
-  'use strict';
-  $(dest).height($(src).height());
-  $(dest).width($(src).width());
 };
 
 Utils.showErrorMsg = function(msg) {
@@ -129,47 +110,6 @@ Animation.scrollTo = function(element) {
     scrollTop: $(element).offset().top - 200
   }, 900);
 };
-
-Animation.toggleLeftSidebar = function() {
-  'use strict';
-  var bc = 'moveContentRight';
-  var lsb = 'moveLSB';
-
-  $.each([configApp.menuIconId, configApp.lsbId], function(key, val) {
-    $(val).click(function() {
-      $(configApp.barId).toggleClass(bc);
-      $(configApp.contentId).toggleClass(bc);
-      $(configApp.lsbId).toggleClass(lsb);
-      if ($(configApp.contentId).hasClass(bc)) {
-        $(configApp.contentId).one('click', function() {
-          $(configApp.barId).removeClass(bc);
-          $(configApp.contentId).removeClass(bc);
-          $(configApp.lsbId).removeClass(lsb);
-        });
-      }
-    });
-  });
-};
-
-Animation.toggleRightSidebar = function() {
-  'use strict';
-  var bc = 'moveContentLeft';
-  var rsb = 'moveRSB';
-  $.each([configApp.contentIconId, configApp.rsbId], function(key, val) {
-    $(val).click(function() {
-      $(configApp.barId).toggleClass(bc);
-      $(configApp.rsbId).toggleClass(rsb);
-      if ($(configApp.rsbId).hasClass(rsb)) {
-        $(configApp.contentId).one('click', function() {
-          $(configApp.barId).removeClass(bc);
-          $(configApp.rsbId).removeClass(rsb);
-        });
-      }
-    });
-  });
-};
-
-
 
 
 /******************** Content Manipulation **************************/
@@ -223,9 +163,9 @@ Content.updateBrowserTitle = function(title) {
 
 Content.setHeaderImg = function(val) {
   'use strict';
-  if(val.img){
-    $(configApp.headerId).html('<img src="'+val.img+'"/>');
-  }else{
+  if (val.img) {
+    $(configApp.headerId).html('<img src="' + val.img + '"/>');
+  } else {
     $(configApp.headerId).empty();
   }
 };
@@ -289,15 +229,14 @@ Content.routes = function() {
   routie(urls);
 };
 
-Content.leftSideBarInit = function() {
+Content.fillMenu = function() {
   'use strict';
-  $(configApp.lsbId + ' > img').attr('src', configContent.bar.logoPath);
-  $(configApp.lsbId + ' > span').html(configContent.bar.information);
   $.each(configContent.pages, function(index, val) {
     var a = '<li> <a href="#' + Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
-    $(configApp.lsbId + ' > ul').append(a);
+    $(configApp.menuId).html('<ul>' + a + '</ul>');
   });
 };
+
 Content.contactInit = function() {
   'use strict';
   $.each(configContent.contacts, function(k, v) {
@@ -308,6 +247,7 @@ Content.contactInit = function() {
     }
   });
 };
+
 Content.footerInit = function() {
   'use strict';
   $(configApp.fCopyright + '> p').html(configContent.footer.copyright + '<br/>' + configContent.footer.poweredBy);
@@ -457,11 +397,10 @@ $(document).ready(function() {
     configContent = data;
     Content.routes();
     Content.fillSlider();
-    Content.leftSideBarInit();
+    Content.fillMenu();
     Content.contactInit();
     Content.footerInit();
-    Animation.toggleLeftSidebar();
-    Animation.toggleRightSidebar();
+
     Animation.smoothScrolling();
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');

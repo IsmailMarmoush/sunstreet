@@ -4,7 +4,6 @@
 var configApp = {
   resultId: '#result',
   globalId: '#global',
-  barId: '#bar',
   footerId: '#footer',
   postsId: '#posts',
   pagesId: '#pages',
@@ -17,7 +16,6 @@ var configApp = {
   // Selectors
   sourceTxtareaSel: '#source > textarea',
   globalSlc: 'section[id=global]',
-  barSlc: 'section[id=bar]',
   footerSlc: 'section[id=footer]',
   // multi selectors
   pagesSlc: 'section[id=pages] > div',
@@ -97,7 +95,7 @@ Jsn.toJSON = function() {
   var jsonData = {};
 
   jsonData.global = Jsn.extract(configApp.globalSlc);
-  jsonData.bar = Jsn.extract(configApp.barSlc);
+
   jsonData.footer = Jsn.extract(configApp.footerSlc);
 
   jsonData.contacts = Jsn.extractN(configApp.contactsSlc);
@@ -132,7 +130,7 @@ Jsn.toSettings = function() {
   Jsn.validate();
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
-  Jsn.import(d.bar, configApp.barSlc);
+  
   Jsn.import(d.footer, configApp.footerSlc);
 
   $(configApp.postsId).empty();
