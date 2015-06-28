@@ -1,8 +1,8 @@
 @import 'includes/fonts.less';
-@import 'includes/responsive.less';
 @import 'includes/colors.less';
 @import 'includes/footer.less';
 @import 'includes/general.less';
+@import 'includes/menu.less';
 /******* combinations **********/
 .fontCombo {
   font-size: 16px;
@@ -17,26 +17,23 @@ html,
 body {
   .fontCombo;
   width: 100%;
+  height:100%;
+  min-height: 100%;
   margin: 0 auto;
   color: fade(black,80%);
   background-color: white;
   -webkit-font-smoothing: antialiased;
 }
 /********** Menu ************/
-#menu {
-  position: fixed;
-  top: 0;
-  display: block;
+.container {
+  position: absolute;
   width: 100%;
-  height: 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 10;
-  -webkit-backface-visibility: hidden;
-  transition: all 0.7s ease;
+  heigh: 100%;
+  left: 0;
+  margin: 0 auto;
 }
 #header {
-  margin-top: 40px;
+  margin:0;
   width: 100%;
   display: block;
   img {
@@ -52,6 +49,7 @@ body {
   margin: 0 auto;
   width:80%;
   max-width: 800px;
+
   a {
     text-decoration: none;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.6) 50%);
@@ -69,7 +67,9 @@ body {
   }
 }
 #post {
+  margin-top: 30px;
   width: 100%;
+  min-height: 80%;
 }
 /************* Slider ****************/
 #slider {

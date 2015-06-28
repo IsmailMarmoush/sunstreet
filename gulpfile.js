@@ -153,7 +153,7 @@ Gulp.task('watch', ['connect'], function() {
   Gulp.watch(src.extras, ['extras']);
   Gulp.watch(src.content, ['content']);
   Gulp.watch(src.images, ['images']);
-  Gulp.watch(src.less, ['less']);
+  Gulp.watch('app/less/**/*.less', ['less']);
   Gulp.watch(src.css, ['css']);
   Gulp.watch(src.fonts, ['fonts']);
 

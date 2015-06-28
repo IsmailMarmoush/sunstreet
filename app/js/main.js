@@ -231,10 +231,11 @@ Content.routes = function() {
 
 Content.fillMenu = function() {
   'use strict';
+  var a = '';
   $.each(configContent.pages, function(index, val) {
-    var a = '<li> <a href="#' + Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
-    $(configApp.menuId).html('<ul>' + a + '</ul>');
+    a += '<li> <a href="#' + Utils.titleToLink(val.title) + '" >' + val.title + '</a> </li>';
   });
+  $('nav > ul').append(a);
 };
 
 Content.contactInit = function() {
@@ -400,7 +401,14 @@ $(document).ready(function() {
     Content.fillMenu();
     Content.contactInit();
     Content.footerInit();
-
+    $('nav > ul > li > a').click(function(){
+      $('#toggle').toggleClass('active');
+      $('#overlay').toggleClass('open');
+    });
+    $('#toggle').click(function() {
+      $(this).toggleClass('active');
+      $('#overlay').toggleClass('open');
+    });
     Animation.smoothScrolling();
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
