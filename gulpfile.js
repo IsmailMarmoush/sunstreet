@@ -1,9 +1,9 @@
 /* jshint node:true */
 'use strict';
 var src = {
-  less: 'app/less/**/*.less',
+  less: 'app/less/*.less',
   css: 'app/css/**/*.css',
-  js: 'app/js/**/*.js',
+  js: 'app/js/*.js',
   fonts: 'app/fonts/**/*',
   html: 'app/*.html',
 
@@ -11,8 +11,8 @@ var src = {
   content: 'app/content/**/*',
   extras: [
     'app/content.json',
-    'favicon.ico',
-    'apple-touch-icon-precomposed.png',
+    'app/favicon.ico',
+    'app/apple-touch-icon-precomposed.png',
     'app/README.md',
     'app/robots.txt',
     'node_modules/apache-server-configs/dest/.htaccess'
@@ -20,10 +20,11 @@ var src = {
   jsVendor: [
     // vendor scripts, no operations done on them
     'bower_components/jquery/dist/jquery.js',
+    'bower_components/jsonlint/lib/jsonlint.js',
     'bower_components/marked/marked.min.js',
     'bower_components/pace/pace.min.js',
     'bower_components/routie/dist/routie.min.js',
-    'app/js/highlight.pack.js',
+    'app/js/vendor/*.js',
   ]
 };
 
@@ -51,68 +52,54 @@ GP.csso = require('gulp-csso');
 GP.autoprefixer = require('gulp-autoprefixer');
 // Run
 GP.livereload = require('gulp-livereload');
+
+
+// var autoprefixerConf = GP.autoprefixer({
+//   browsers: ['last 1 version']
+// });
+
 /******************** MAIN TASKS ***********************/
 Gulp.task('default', function() {
-  var tasks = ['html', 'images', 'fonts', 'justcopy', 'content'];
-  GP.runSequence('clean', tasks);
-  return Gulp.src('dist/**/*').pipe(GP.size({
-    title: 'build',
-    gzip: true
-  }));
+  var tasks = ['html', 'fonts', 'js', 'less', 'css', 'content', 'jsVendor', 'images', 'extras'];
+  return GP.runSequence('clean', tasks);
 });
 
 Gulp.task('serve', ['connect', 'watch'], function() {
   require('opn')('http://localhost:9000');
 });
 
-
 /************* Build Tasks ***********/
 Gulp.task('clean', require('del').bind(null, ['dist']));
 
-
-Gulp.task('html', ['styles'], function() {
-  var assets = GP.useref.assets({
-    searchPath: '{app,styles}'
+Gulp.task('html', function() {
+  var minify = GP.minifyHtml({
+    conditionals: true,
+    loose: true
   });
-  return Gulp.src(src.html)
-    .pipe(assets)
-    //        .pipe(GP.if('*.js', GP.uglify()))
-    .pipe(assets.restore())
-    .pipe(GP.if('*.html', GP.minifyHtml({
-      conditionals: true,
-      loose: true
-    })))
-    .pipe(Gulp.dest('dist'));
+  return Gulp.src(src.html).pipe(minify).pipe(Gulp.dest('dist'));
 });
 
-Gulp.task('styles', function() {
-  var autoprefixer = GP.autoprefixer({
-    browsers: ['last 1 version']
-  });
-  var less = GP.less({
+Gulp.task('less', function() {
+  var lessConf = GP.less({
     paths: [GP.path.join(__dirname, 'less', 'includes')]
   });
-
-  var lessFiles = Gulp.src(src.less)
-    .pipe(less).pipe(GP.csso());
-
-  var cssFiles = Gulp.src(src.css).pipe(autoprefixer).pipe(GP.csso());
-  return GP.es.merge(lessFiles, cssFiles).pipe(Gulp.dest('dist/styles'));
+  return Gulp.src(src.less).pipe(lessConf).pipe(Gulp.dest('dist/css'));
 });
 
-
+Gulp.task('css', function() {
+  return Gulp.src(src.css).pipe(Gulp.dest('dist/css'));
+});
 
 Gulp.task('fonts', function() {
-  // gutil.log(folders);
-  var result = Gulp.src('app/fonts/**/*')
+  var result = Gulp.src(src.fonts)
     .pipe(GP.filter('**/*.{eot,svg,ttf,woff}'))
     .pipe(GP.flatten())
     .pipe(Gulp.dest('dist/fonts'));
   return result;
 });
 
-Gulp.task('scripts', ['jshint'], function() {
-  return Gulp.src(src.js).pipe(GP.uglify).pipe(GP.dest('dist/scripts'));
+Gulp.task('js', ['jshint'], function() {
+  return Gulp.src(src.js).pipe(GP.uglify()).pipe(Gulp.dest('dist/js'));
 });
 
 Gulp.task('jshint', function() {
@@ -123,26 +110,20 @@ Gulp.task('jshint', function() {
 });
 
 /*********** Copy Tasks *********************/
+Gulp.task('extras', function() {
+  return Gulp.src(src.extras).pipe(Gulp.dest('dist'));
+});
+
 Gulp.task('jsVendor', function() {
-  return Gulp.src(src.jsVendor)
-    .pipe(Gulp.dest('dist/js'));
+  return Gulp.src(src.jsVendor).pipe(Gulp.dest('dist/js'));
 });
 
 Gulp.task('images', function() {
-  return Gulp.src(src.images)
-    .pipe(Gulp.dest('dist/img'));
-});
-
-Gulp.task('extras', function() {
-  return Gulp.src(src.extras, {
-    dot: true
-  }).pipe(Gulp.dest('dist'));
+  return Gulp.src(src.images).pipe(Gulp.dest('dist/img'));
 });
 
 Gulp.task('content', function() {
-  return Gulp.src(src.content, {
-    dot: true
-  }).pipe(Gulp.dest('dist/content'));
+  return Gulp.src(src.content).pipe(Gulp.dest('dist/content'));
 });
 
 /*********************** Runtime Tasks **************************/
@@ -155,9 +136,6 @@ Gulp.task('connect', function() {
       port: 35729
     }))
     .use(serveStatic('dist'))
-    // paths to bower_components should be relative to the current file
-    // e.g. in app/index.html you should use ../bower_components
-    .use('/bower_components', serveStatic('bower_components'))
     .use(serveIndex('dist'));
   require('http').createServer(app)
     .listen(9000)
@@ -169,16 +147,16 @@ Gulp.task('connect', function() {
 Gulp.task('watch', ['connect'], function() {
   GP.livereload.listen();
   // specified build instead of build all
+  Gulp.watch(src.js, ['js']);
+  Gulp.watch(src.html, ['html']);
+
   Gulp.watch(src.extras, ['extras']);
   Gulp.watch(src.content, ['content']);
   Gulp.watch(src.images, ['images']);
-  Gulp.watch(src.less, ['html']);
-  Gulp.watch(src.css, ['html']);
+  Gulp.watch(src.less, ['less']);
+  Gulp.watch(src.css, ['css']);
   Gulp.watch(src.fonts, ['fonts']);
-  Gulp.watch(src.js, ['html']);
-  Gulp.watch(src.html, ['html']);
-  // if bower changes wiredependencies
-  Gulp.watch('bower.json', ['wiredep']);
+
   // watch for changes
   Gulp.watch('dist/**/*.*').on('change', GP.livereload.changed);
 });
