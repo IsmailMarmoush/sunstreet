@@ -3,6 +3,9 @@
 @import 'includes/footer.less';
 @import 'includes/general.less';
 @import 'includes/menu.less';
+*{
+  margin:0;
+}
 /******* combinations **********/
 .fontCombo {
   font-size: 16px;
@@ -24,13 +27,15 @@ body {
   background-color: white;
   -webkit-font-smoothing: antialiased;
 }
-/********** Menu ************/
-.container {
-  position: absolute;
+
+#container {
+  min-height: 100%;
+	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+}
+#footer,.push {
+  display: block;
   width: 100%;
-  heigh: 100%;
-  left: 0;
-  margin: 0 auto;
+  height: 155px; /* '.push' must be the same height as 'footer' */
 }
 #header {
   margin:0;

@@ -53,6 +53,7 @@ var Content = {};
 var GithubApi = {};
 var GoogleApi = {};
 var DisqusApi = {};
+var offset = 300;
 /******************** Utilities **************************/
 String.prototype.endsWith = function(suffix) {
   'use strict';
@@ -148,7 +149,7 @@ Content.fillSlider = function() {
   'use strict';
   $.each(configContent.posts, function(key, val) {
     // fill slides
-    var img ='';
+    var img = '';
     if (val.thumb) {
       img = '<img src="' + val.thumb + '" />';
     } else {
@@ -396,6 +397,7 @@ DisqusApi.init = function() {
 };
 /* jshint ignore:end */
 
+
 /******************* Initialization ****************/
 $(document).ready(function() {
   'use strict';
@@ -414,6 +416,7 @@ $(document).ready(function() {
       $(this).toggleClass('active');
       $('#overlay').toggleClass('open');
     });
+
     Animation.smoothScrolling();
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
