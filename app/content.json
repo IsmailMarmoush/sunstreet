@@ -4,12 +4,7 @@
     "tag": "Web and Big Data",
     "img": "content/img/sunset.jpg",
     "disqusShortname": "",
-    "googleAnalyticsId": "",
-    "titleSize": "3",
-    "tagSize": "",
-    "addGradient": false,
-    "addHeaderTitle": false,
-    "addHeaderTag": false
+    "googleAnalyticsId": ""
   },
   "bar": {
     "logoPath": "content/img/logo.png",
@@ -51,24 +46,14 @@
       "url": "content/pages/about.md",
       "title": "About",
       "tag": "",
-      "img": "content/img/sunset.jpg",
-      "titleSize": "3",
-      "tagSize": "2",
-      "addGradient": true,
-      "addHeaderTitle": true,
-      "addHeaderTag": true,
+      "img": "",
       "disqusEnable": false
     },
     "1": {
       "url": "content/pages/portfolio.md",
       "title": "Portfolio",
       "tag": "",
-      "img": "content/img/office.jpg",
-      "titleSize": "4",
-      "tagSize": "",
-      "addGradient": true,
-      "addHeaderTitle": true,
-      "addHeaderTag": false,
+      "img": "",
       "disqusEnable": false
     }
   },
@@ -79,15 +64,10 @@
       "tag": "Linux",
       "img": "content/img/debian-wallpaper.jpg",
       "thumb": "content/img/debian-wallpaper.jpg",
-      "disqusIdentifier": "/2323",
+      "disqusIdentifier": "/0000001",
       "disqusLang": "en",
-      "titleSize": "4",
-      "tagSize": "2",
-      "addGradient": false,
-      "addHeaderTitle": true,
-      "addHeaderTag": false,
       "disqusEnable": true,
-      "date": "2015-06-25"
+      "date": "2015-06-28"
     },
     "1": {
       "url": "content/posts/Papyrus-Java-to-UML-Reverse-Engineering.md",
@@ -95,15 +75,21 @@
       "tag": "Linux",
       "img": "content/img/eclipse.png",
       "thumb": "content/img/eclipse.png",
-      "disqusIdentifier": "/2323",
+      "disqusIdentifier": "/12345",
       "disqusLang": "en",
-      "titleSize": "2",
-      "tagSize": "2",
-      "addGradient": false,
-      "addHeaderTitle": true,
-      "addHeaderTag": true,
       "disqusEnable": true,
-      "date": "2014-06-25"
+      "date": "2015-06-28"
+    },
+    "2": {
+      "url": "content/posts/Native-Guide-To-Egyptian-Software-and-IT-Industry-From-Developers-To-Companies.md",
+      "title": "Native Guide To Egyptian Software Industry",
+      "tag": "Software Development",
+      "img": "content/img/office.jpg",
+      "thumb": "content/img/office.jpg",
+      "disqusIdentifier": "/123456",
+      "disqusLang": "en",
+      "disqusEnable": true,
+      "date": "2015-06-28"
     }
   }
 }

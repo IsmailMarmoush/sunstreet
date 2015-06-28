@@ -26,14 +26,10 @@
 
 
 /********* Objects *********/
-// Selectors take normal name
-// Classes take trailing 'Class', e.g gradientClass
 var configApp = {
   contentId: '#content',
-  headerImgId: '#headerImg',
-  headerTextId: '#headerText',
-  gradientContainerId: '#gradientContainer',
-  gradientClass: 'gradient',
+  headerId:'#header',
+
   menuIconId: '#menuIcon',
   contentIconId: '#contentIcon',
   sliderId: '#slider',
@@ -50,7 +46,7 @@ var configApp = {
   // Footer
   footerId: '#footer',
   fPages: '.fPages',
-  fContacts:'.fContacts',
+  fContacts: '.fContacts',
   fCopyright: '.fCopyright',
   // Misc
   errorId: '#error'
@@ -109,15 +105,6 @@ Utils.titleToLink = function(str) {
   return '/' + str.replace(/\s+/g, '-');
 };
 
-// Listener for window and headerImgId to resize the gradient if they changed
-Utils.gradientListener = function() {
-  'use strict';
-  $.each([configApp.headerImgId, window], function(k, v) {
-    $(v).resize(function() {
-      Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
-    });
-  });
-};
 /******************** App Animation **************************/
 
 
@@ -205,7 +192,7 @@ Content.runToc = function(container) {
   'use strict';
   container = typeof container !== 'undefined' ? container : configApp.postId;
   var list = $(configApp.rsbId + ' > ul');
-  $(list).html('');
+  $(list).empty();
   $(container + ' :header').each(function(i) {
     $(this).prepend('<span id="toc' + i + '"></span>');
     var tagName = $(this).prop('tagName').toLowerCase();
@@ -236,26 +223,10 @@ Content.updateBrowserTitle = function(title) {
 
 Content.setHeaderImg = function(val) {
   'use strict';
-  // imgSrc, addGradient, title, tag
-  $(configApp.headerImgId).load(function() {
-    if (configApp.headerImgId && val.addGradient) {
-      $(configApp.gradientContainerId).addClass(configApp.gradientClass);
-    } else {
-      $(configApp.gradientContainerId).removeClass(configApp.gradientClass);
-    }
-    Utils.fitSize(configApp.headerImgId, configApp.gradientContainerId);
-  }).attr('src', val.img);
-
-  // TODO Update Header Title
-  if (val.addHeaderTitle) {
-    $(configApp.headerTextId + ' > span').html(val.title).css('font-size', val.titleSize + 'em');
-  } else {
-    $(configApp.headerTextId + ' > span').html('');
-  }
-  if (val.addHeaderTag) {
-    $(configApp.headerTextId + ' > p').html(val.tag).css('font-size', val.tagSize + 'em');
-  } else {
-    $(configApp.headerTextId + ' > p').html('');
+  if(val.img){
+    $(configApp.headerId).html('<img src="'+val.img+'"/>');
+  }else{
+    $(configApp.headerId).empty();
   }
 };
 
@@ -284,7 +255,7 @@ Content.routes = function() {
   $.each(configContent.posts, function(key, val) {
     // Routing listener
     urls[Utils.titleToLink(val.title)] = function() {
-      $(configApp.postId).html('');
+      $(configApp.postId).empty();
       $(configApp.sliderId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
           Content.reloadPage(val);
@@ -295,7 +266,7 @@ Content.routes = function() {
 
   $.each(configContent.pages, function(key, val) {
     urls[Utils.titleToLink(val.title)] = function() {
-      $(configApp.postId).html('');
+      $(configApp.postId).empty();
       $(configApp.sliderId).fadeOut(500, function() {
         $(configApp.blogId).fadeIn(500, function() {
           Content.reloadPage(val);
@@ -305,7 +276,7 @@ Content.routes = function() {
   });
 
   urls[''] = function() {
-    $(configApp.postId).html('');
+    $(configApp.postId).empty();
     $(configApp.rsbId).hide();
     $(configApp.contentIconId).hide();
     Content.updateBrowserTitle(configContent.global.title);
@@ -333,7 +304,7 @@ Content.contactInit = function() {
     if (v.url) {
       var imgEl = '<img src="' + v.img + '"/>';
       var anchorEl = '<li><a href="' + v.url + '">' + imgEl + '</a></li>';
-      $(configApp.fContacts+' > ul').append(anchorEl);
+      $(configApp.fContacts + ' > ul').append(anchorEl);
     }
   });
 };
@@ -500,6 +471,6 @@ $(document).ready(function() {
       console.log('Loading Disqus');
       DisqusApi.init();
     }
-    Utils.gradientListener();
+
   });
 });

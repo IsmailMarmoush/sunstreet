@@ -176,22 +176,15 @@ Actions.addNewPage = function() {
   'use strict';
   $(configApp.pagesId).append($(configApp.pageTempId).html());
   Actions.removeBtnAction();
-  Actions.failsafeLstn();
+
 };
 Actions.addNewPost = function() {
   'use strict';
   $(configApp.postsId).append($(configApp.postTempId).html());
   Actions.removeBtnAction();
-  Actions.failsafeLstn();
+
 };
-Actions.failsafe = function() {
-  'use strict';
-  $('input[type=checkbox].failsafe').each(function() {
-    if (!this.checked) {
-      $(this).parent().next().next().children().prop('disabled', true);
-    }
-  });
-};
+
 
 Actions.failsafeLstn = function() {
   'use strict';
