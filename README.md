@@ -4,7 +4,7 @@
 
 Sunstreet is a minimalistic blog template, specially made for Github pages and can be statically/dynamically served anywhere else too. You can view the demo from [here](http://marmoush.com) which is my personal blog.
 
-![Screenshot Am I Responsive](https://raw.githubusercontent.com/IsmailMarmoush/sunstreet/master/screentshot.png?token=ABBz_QBwzrrKHP1IjkbKSBdDQgwYcskoks5VAvd0wA%3D%3D)
+![Screenshot Am I Responsive](https://raw.githubusercontent.com/m-io/sunstreet/master/screentshot.png)
 
 
 ### Usage Features

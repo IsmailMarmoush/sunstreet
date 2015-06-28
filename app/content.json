@@ -2,7 +2,7 @@
   "global": {
     "title": "Marmoush.com",
     "tag": "Web and Big Data",
-    "img": "content/images/sunset.jpg",
+    "img": "content/img/sunset.jpg",
     "disqusShortname": "",
     "googleAnalyticsId": "",
     "titleSize": "3",
@@ -12,7 +12,7 @@
     "addHeaderTag": false
   },
   "bar": {
-    "logoPath": "content/images/logo.png",
+    "logoPath": "content/img/logo.png",
     "information": "Marmoush.com © 2015 <br/> Ismail Marmoush"
   },
   "footer": {
@@ -23,27 +23,27 @@
   "contacts": {
     "0": {
       "url": "http://github.com/ismailmarmoush",
-      "img": "images/github.png"
+      "img": "img/github.png"
     },
     "1": {
       "url": "https://plus.google.com/+IsmailMarmoush/",
-      "img": "images/googleplus.svg"
+      "img": "img/googleplus.svg"
     },
     "2": {
       "url": "https://www.linkedin.com/profile/view?id=235757224",
-      "img": "images/linkedin.png"
+      "img": "img/linkedin.png"
     },
     "3": {
       "url": "http://stackoverflow.com/users/263215/ismail-marmoush",
-      "img": "images/stackoverflow.svg"
+      "img": "img/stackoverflow.svg"
     },
     "4": {
       "url": "https://behance.net/marmoush",
-      "img": "images/behance.png"
+      "img": "img/behance.png"
     },
     "5": {
       "url": "https://hackerrank.com/ismailmarmoush",
-      "img": "images/hackerrank.png"
+      "img": "img/hackerrank.png"
     }
   },
   "pages": {
@@ -51,7 +51,7 @@
       "url": "content/pages/about.md",
       "title": "About",
       "tag": "",
-      "img": "content/images/sunset.jpg",
+      "img": "content/img/sunset.jpg",
       "titleSize": "3",
       "tagSize": "2",
       "addGradient": true,
@@ -63,7 +63,7 @@
       "url": "content/pages/portfolio.md",
       "title": "Portfolio",
       "tag": "",
-      "img": "content/images/office.jpg",
+      "img": "content/img/office.jpg",
       "titleSize": "4",
       "tagSize": "",
       "addGradient": true,
@@ -77,8 +77,8 @@
       "url": "https://api.github.com/repos/ismailmarmoush/debian/readme",
       "title": "Minimal Debian Installation",
       "tag": "Linux",
-      "img": "content/images/debian-wallpaper.jpg",
-      "thumb": "content/images/debian-wallpaper.jpg",
+      "img": "content/img/debian-wallpaper.jpg",
+      "thumb": "content/img/debian-wallpaper.jpg",
       "disqusIdentifier": "/2323",
       "disqusLang": "en",
       "titleSize": "4",
@@ -93,8 +93,8 @@
       "url": "content/posts/Papyrus-Java-to-UML-Reverse-Engineering.md",
       "title": "Papyrus Java To UML Reverse Engineering",
       "tag": "Linux",
-      "img": "content/images/eclipse.png",
-      "thumb": "content/images/eclipse.png",
+      "img": "content/img/eclipse.png",
+      "thumb": "content/img/eclipse.png",
       "disqusIdentifier": "/2323",
       "disqusLang": "en",
       "titleSize": "2",
