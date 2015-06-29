@@ -3,9 +3,7 @@
 @import 'includes/footer.less';
 @import 'includes/general.less';
 @import 'includes/menu.less';
-*{
-  margin:0;
-}
+
 /******* combinations **********/
 .fontCombo {
   font-size: 16px;
@@ -29,13 +27,14 @@ body {
 }
 
 #container {
+  width:100%;
   min-height: 100%;
 	margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
 }
 #footer,.push {
   display: block;
   width: 100%;
-  height: 155px; /* '.push' must be the same height as 'footer' */
+  height: 155px;
 }
 #header {
   margin:0;
@@ -72,9 +71,11 @@ body {
   }
 }
 #post {
+  word-wrap: break-word;
   margin-top: 30px;
   width: 100%;
   min-height: 80%;
+
 }
 /************* Slider ****************/
 #slider {

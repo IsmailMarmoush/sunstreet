@@ -53,7 +53,9 @@ var Content = {};
 var GithubApi = {};
 var GoogleApi = {};
 var DisqusApi = {};
+
 var offset = 300;
+var escapeKey = 27;
 /******************** Utilities **************************/
 String.prototype.endsWith = function(suffix) {
   'use strict';
@@ -112,6 +114,23 @@ Animation.scrollTo = function(element) {
   }, 900);
 };
 
+Animation.menu = function() {
+  'use strict';
+  $('nav > ul > li > a').click(function() {
+    $('#toggle').toggleClass('active');
+    $('#overlay').toggleClass('open');
+  });
+  $('#toggle').click(function() {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+  });
+  $(document).keyup(function(e) {
+    if (e.keyCode === escapeKey) {
+      $('#toggle').removeClass('active');
+      $('#overlay').removeClass('open');
+    }
+  });
+}
 
 /******************** Content Manipulation **************************/
 Content.markdown = function(md, callback) {
@@ -408,16 +427,8 @@ $(document).ready(function() {
     Content.fillMenu();
     Content.contactInit();
     Content.footerInit();
-    $('nav > ul > li > a').click(function() {
-      $('#toggle').toggleClass('active');
-      $('#overlay').toggleClass('open');
-    });
-    $('#toggle').click(function() {
-      $(this).toggleClass('active');
-      $('#overlay').toggleClass('open');
-    });
-
     Animation.smoothScrolling();
+    Animation.menu();
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
       GoogleApi.analytics();
