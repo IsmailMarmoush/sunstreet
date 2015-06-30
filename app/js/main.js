@@ -27,9 +27,8 @@
 
 /********* Objects *********/
 var configApp = {
-  menuId: '#menu',
   headerId: '#header',
-
+  tocId:'#toc',
   sliderId: '#slider',
   slidesId: '#slides',
 
@@ -94,7 +93,7 @@ Utils.titleToLink = function(str) {
 
 Animation.smoothScrolling = function() {
   'use strict';
-  $(configApp.rsbId + ' a[href^="#"]').on('click', function(e) {
+  $(configApp.tocId + ' a[href^="#"]').on('click', function(e) {
     e.preventDefault();
     var target = this.hash;
     var $target = $(target);
@@ -132,6 +131,21 @@ Animation.menu = function() {
   });
 };
 
+Animation.toc = function() {
+  'use strict';
+  $(configApp.tocId).click(function() {
+    $('#toc').toggleClass('open');
+  });
+  $(configApp.tocId+' > a').click(function() {
+    $(configApp.tocId).toggleClass('open');
+  });
+  $(document).keyup(function(e) {
+    if (e.keyCode === escapeKey) {
+      $(configApp.tocId).removeClass('open');
+    }
+  });
+};
+
 /******************** Content Manipulation **************************/
 Content.markdown = function(md, callback) {
   'use strict';
@@ -151,16 +165,18 @@ Content.markdown = function(md, callback) {
 Content.runToc = function(container) {
   'use strict';
   container = typeof container !== 'undefined' ? container : configApp.postId;
-  var list = $(configApp.rsbId + ' > ul');
+  var list = $(configApp.tocId + ' > ul');
   $(list).empty();
+  // searching for headers
   $(container + ' :header').each(function(i) {
+    // add span to each header
     $(this).prepend('<span id="toc' + i + '"></span>');
     var tagName = $(this).prop('tagName').toLowerCase();
-    var k = '<li class="toc-' + tagName + '"><a href="#toc' + i + '">' + $(this).text() + '</a></li>';
+    var k = '<li class="toc-' + tagName + '"><a href="#toc' + i + '">' +$(this).text() + '</a></li>';
     $(list).append(k);
   });
-  $(configApp.rsbId).html(list);
-  $(configApp.rsbId).show();
+  $(configApp.tocId+' > ul').append(list);
+  $(configApp.tocId).show();
 };
 
 
@@ -242,7 +258,7 @@ Content.routes = function() {
 
   urls[''] = function() {
     $(configApp.postId).empty();
-    $(configApp.rsbId).hide();
+    $(configApp.tocId).hide();
     $(configApp.contentIconId).hide();
     Content.updateBrowserTitle(configContent.global.title);
     $(configApp.blogId).fadeOut(500, function() {
@@ -429,7 +445,7 @@ $(document).ready(function() {
     Content.footerInit();
     Animation.smoothScrolling();
     Animation.menu();
-
+    Animation.toc();
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
       GoogleApi.analytics();
