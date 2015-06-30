@@ -117,20 +117,20 @@ Animation.scrollTo = function(element) {
 Animation.menu = function() {
   'use strict';
   $('nav > ul > li > a').click(function() {
-    $('#toggle').toggleClass('active');
+    $('.menuIcon').toggleClass('menuIconOpen');
     $('#overlay').toggleClass('open');
   });
-  $('#toggle').click(function() {
-    $(this).toggleClass('active');
+  $('.menuIcon').click(function() {
+    $(this).toggleClass('menuIconOpen');
     $('#overlay').toggleClass('open');
   });
   $(document).keyup(function(e) {
     if (e.keyCode === escapeKey) {
-      $('#toggle').removeClass('active');
+      $('.menuIcon').removeClass('menuIconOpen');
       $('#overlay').removeClass('open');
     }
   });
-}
+};
 
 /******************** Content Manipulation **************************/
 Content.markdown = function(md, callback) {
@@ -429,6 +429,7 @@ $(document).ready(function() {
     Content.footerInit();
     Animation.smoothScrolling();
     Animation.menu();
+
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
       GoogleApi.analytics();
