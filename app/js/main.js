@@ -28,7 +28,8 @@
 /********* Objects *********/
 var configApp = {
   headerId: '#header',
-  tocId:'#toc',
+  tocId: '#toc',
+  tocIconId: '#tocIcon',
   sliderId: '#slider',
   slidesId: '#slides',
 
@@ -95,6 +96,10 @@ Animation.smoothScrolling = function() {
   'use strict';
   $(configApp.tocId + ' a[href^="#"]').on('click', function(e) {
     e.preventDefault();
+    // icons and toc toggle
+    // $(configApp.tocId).toggleClass('open');
+    // $(configApp.tocIconId).toggleClass('open');
+
     var target = this.hash;
     var $target = $(target);
     $('html, body').stop().animate({
@@ -133,18 +138,22 @@ Animation.menu = function() {
 
 Animation.toc = function() {
   'use strict';
-  $(configApp.tocId).click(function() {
-    $('#toc').toggleClass('open');
-  });
-  $(configApp.tocId+' > a').click(function() {
+  $(configApp.tocIconId).click(function() {
     $(configApp.tocId).toggleClass('open');
+    $(configApp.tocIconId).toggleClass('open');
+  });
+  $('#container').click(function() {
+    $(configApp.tocId).removeClass('open');
+    $(configApp.tocIconId).removeClass('open');
   });
   $(document).keyup(function(e) {
     if (e.keyCode === escapeKey) {
       $(configApp.tocId).removeClass('open');
+      $(configApp.tocIconId).removeClass('open');
     }
   });
 };
+
 
 /******************** Content Manipulation **************************/
 Content.markdown = function(md, callback) {
@@ -172,11 +181,13 @@ Content.runToc = function(container) {
     // add span to each header
     $(this).prepend('<span id="toc' + i + '"></span>');
     var tagName = $(this).prop('tagName').toLowerCase();
-    var k = '<li class="toc-' + tagName + '"><a href="#toc' + i + '">' +$(this).text() + '</a></li>';
+    var s = $(this).text();
+    var k = '<li class="toc-' + tagName + '"><a href="#toc' + i + '">' + s + '</a></li>';
     $(list).append(k);
   });
-  $(configApp.tocId+' > ul').append(list);
+  $(configApp.tocId + ' > ul').append(list);
   $(configApp.tocId).show();
+  $(configApp.tocIconId).show();
 };
 
 
@@ -259,7 +270,7 @@ Content.routes = function() {
   urls[''] = function() {
     $(configApp.postId).empty();
     $(configApp.tocId).hide();
-    $(configApp.contentIconId).hide();
+    $(configApp.tocIconId).hide();
     Content.updateBrowserTitle(configContent.global.title);
     $(configApp.blogId).fadeOut(500, function() {
       $(configApp.sliderId).fadeIn(500, function() {
@@ -446,6 +457,7 @@ $(document).ready(function() {
     Animation.smoothScrolling();
     Animation.menu();
     Animation.toc();
+
     if (configContent.global.googleAnalyticsId) {
       console.log('Loading Google Analytics');
       GoogleApi.analytics();
