@@ -53,7 +53,6 @@ var GithubApi = {};
 var GoogleApi = {};
 var DisqusApi = {};
 
-var offset = 300;
 var escapeKey = 27;
 /******************** Utilities **************************/
 String.prototype.endsWith = function(suffix) {
@@ -95,9 +94,6 @@ Animation.smoothScrolling = function() {
   'use strict';
   $(configApp.tocId + ' a[href^="#"]').on('click', function(e) {
     e.preventDefault();
-    // icons and toc toggle
-    // $(configApp.tocId).toggleClass('open');
-    // $(configApp.tocIconId).toggleClass('open');
 
     var target = this.hash;
     var $target = $(target);
@@ -113,7 +109,7 @@ Animation.smoothScrolling = function() {
 Animation.scrollTo = function(element) {
   'use strict';
   $('html, body').animate({
-    scrollTop: $(element).offset().top - 200
+    scrollTop: $(element).offset().top - 50
   }, 900);
 };
 
@@ -156,9 +152,9 @@ Animation.toc = function() {
     $('#post :header').each(function() {
       var t = $(this);
       var activeSection = $('#toc a[href="#' + $(t).find('span').attr('id') + '"]');
-      var k1 = t.offset().top - $(window).height() / 2 < $(window).scrollTop();
-      var k2 = t.offset().top + t.height() - $(window).height() / 2 > $(window).scrollTop();
-      if (k1 && k2) {
+      var k1 = t.offset().top - 60 <= $(window).scrollTop();
+      //var k2 = t.offset().top + t.height() - 100 > $(window).scrollTop();
+      if (k1) {
         $('#toc a').removeClass('selected');
         $('#toc a[href="#' + $(t).find('span').attr('id') + '"]').addClass('selected');
       }
