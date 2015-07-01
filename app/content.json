@@ -62,7 +62,7 @@
       "tag": "Linux",
       "img": "content/img/debian-wallpaper.jpg",
       "thumb": "content/img/debian-wallpaper.jpg",
-      "disqusIdentifier": "/0000001",
+      "disqusIdentifier": "/000001",
       "disqusLang": "en",
       "disqusEnable": true,
       "date": "2015-06-28"
@@ -73,7 +73,7 @@
       "tag": "Linux",
       "img": "content/img/eclipse.png",
       "thumb": "content/img/eclipse.png",
-      "disqusIdentifier": "/12345",
+      "disqusIdentifier": "/000003",
       "disqusLang": "en",
       "disqusEnable": true,
       "date": "2015-06-28"
@@ -84,7 +84,7 @@
       "tag": "Software Development",
       "img": "content/img/office.jpg",
       "thumb": "",
-      "disqusIdentifier": "/123456",
+      "disqusIdentifier": "/000002",
       "disqusLang": "en",
       "disqusEnable": true,
       "date": "2015-06-28"

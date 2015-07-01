@@ -130,7 +130,7 @@ Jsn.toSettings = function() {
   Jsn.validate();
   var d = jQuery.parseJSON($(configApp.sourceTxtareaSel).val());
   Jsn.import(d.global, configApp.globalSlc);
-  
+
   Jsn.import(d.footer, configApp.footerSlc);
 
   $(configApp.postsId).empty();
@@ -152,8 +152,8 @@ Jsn.toSettings = function() {
     Jsn.import(v, $(configApp.pagesSlc)[k]);
   });
   Actions.removeBtnAction();
-  Actions.failsafe();
-  Actions.failsafeLstn();
+
+
   return d;
 };
 
@@ -181,18 +181,6 @@ Actions.addNewPost = function() {
   $(configApp.postsId).append($(configApp.postTempId).html());
   Actions.removeBtnAction();
 
-};
-
-
-Actions.failsafeLstn = function() {
-  'use strict';
-  $('input[type=checkbox].failsafe').click(function() {
-    if (this.checked) {
-      $(this).parent().next().next().children().prop('disabled', false);
-    } else {
-      $(this).parent().next().next().children().prop('disabled', true);
-    }
-  });
 };
 
 $(document).ready(function() {
