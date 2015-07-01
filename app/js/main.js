@@ -421,7 +421,6 @@ DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language) {
   if (enableDisqus) {
     $(configApp.disqusThreadId).show();
     if (window.DISQUS) {
-      console.log(disqusIdentifier + ':' + location.origin + disqusIdentifier + ':' + document.title + ':' + language);
       DISQUS.reset({
         reload: true,
         config: function() {
