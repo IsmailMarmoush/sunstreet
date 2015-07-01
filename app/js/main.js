@@ -22,7 +22,6 @@
 /* global routie */
 /* global hljs */
 /* global DISQUS */
-/* global disqusReset */
 
 
 /********* Objects *********/
@@ -251,7 +250,7 @@ Content.reloadPage = function(val) {
       Content.setHeaderImg(val);
       Content.runToc();
       Animation.smoothScrolling();
-      DisqusApi.disqusReload(val.disqusEnable, val.disqusIdentifier, val.disqusLang, document.title);
+      DisqusApi.disqusReload(val.disqusEnable, val.disqusIdentifier, val.disqusLang);
     });
   });
 
@@ -412,23 +411,8 @@ GoogleApi.analytics = function() {
 /* jshint ignore:end */
 
 /******************* Disqus API ****************/
-/* * * Disqus Reset Function * * */
-DisqusApi.disqusReset = function(newIdentifier, newUrl, newTitle, newLanguage) {
-  'use strict';
-  if (this.DISQUS) {
-    DISQUS.reset({
-      reload: true,
-      config: function() {
-        this.page.identifier = newIdentifier;
-        this.page.url = newUrl;
-        this.page.title = newTitle;
-        this.language = newLanguage;
-      }
-    });
-  }
-};
 
-DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, title) {
+DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language) {
   'use strict';
   if (language === undefined) {
     language = 'en';
@@ -436,7 +420,18 @@ DisqusApi.disqusReload = function(enableDisqus, disqusIdentifier, language, titl
 
   if (enableDisqus) {
     $(configApp.disqusThreadId).show();
-    DisqusApi.disqusReset(disqusIdentifier, location.origin + disqusIdentifier, title, language);
+    if (window.DISQUS) {
+      console.log(disqusIdentifier + ':' + location.origin + disqusIdentifier + ':' + document.title + ':' + language);
+      DISQUS.reset({
+        reload: true,
+        config: function() {
+          this.page.identifier = disqusIdentifier;
+          this.page.url = location.origin + disqusIdentifier;
+          this.page.title = document.title;
+          this.language = language;
+        }
+      });
+    }
   } else {
     $(configApp.disqusThreadId).hide();
   }
