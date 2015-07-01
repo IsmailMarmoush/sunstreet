@@ -152,6 +152,23 @@ Animation.toc = function() {
       $(configApp.tocIconId).removeClass('open');
     }
   });
+
+  function updateNavigation() {
+    $('#post :header').each(function() {
+      var t = $(this);
+      var activeSection = $('#toc a[href="#' + $(t).find('span').attr('id') + '"]');
+      var k1 = t.offset().top - $(window).height() / 2 < $(window).scrollTop();
+      var k2 = t.offset().top + t.height() - $(window).height() / 2 > $(window).scrollTop();
+      if (k1 && k2) {
+        $('#toc a').removeClass('selected');
+        $('#toc a[href="#' + $(t).find('span').attr('id') + '"]').addClass('selected');
+      }
+    });
+  }
+  updateNavigation();
+  $(window).on('scroll', function() {
+    updateNavigation();
+  });
 };
 
 
