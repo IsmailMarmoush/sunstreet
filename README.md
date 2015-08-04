@@ -1,6 +1,6 @@
 # Sunstreet
 [![License](https://img.shields.io/badge/license-AGPLV3-blue.svg?style=flat)](https://raw.githubusercontent.com/m-io/sunstreet/master/LICENSE)
-[![Build Status](https://travis-ci.org/ismailmarmoush/francisco.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
+[![Build Status](https://travis-ci.org/m-io/francisco.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
 
 <small>By Ismail Marmoush and [Contributers](https://github.com/m-io/sunstreet/graphs/contributors) are much welcome to join. </small>
 
