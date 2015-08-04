@@ -1,4 +1,6 @@
 # Sunstreet
+[![License](https://img.shields.io/badge/license-AGPLV3-blue.svg?style=flat)](https://raw.githubusercontent.com/m-io/sunstreet/master/LICENSE)
+[![Build Status](https://travis-ci.org/ismailmarmoush/francisco.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
 
 <small>By Ismail Marmoush and [Contributers](https://github.com/m-io/sunstreet/graphs/contributors) are much welcome to join. </small>
 
@@ -17,7 +19,7 @@ Sunstreet is a minimalistic blog template, specially made for Github pages and c
 6. **Github API** ---  Since contents compiled on the fly this made it possible to also load any document found on github, such as projects' README.md, examples are in demo version.
 7. **Disqus** --- Disqus comments plugin, wish SPA hash support.
 8. **Analytics** --- Google Analytics with SPA hash support.
-9. **Gradient** Option to add a gradient layer over the header image of any post or page, so that we can add title over the header image.
+9. **CMS** check http://project/cms.html
 
 ### Development Features
 1. **Architecture** ---  We try to follow 12Factor app guidlines.
