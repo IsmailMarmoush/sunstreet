@@ -41,7 +41,6 @@ GP.filter = require('gulp-filter');
 GP.flatten = require('gulp-flatten');
 GP.gutil = require('gulp-util');
 // HTML
-GP.useref = require('gulp-useref');
 GP.minifyHtml = require('gulp-minify-html');
 // Scripts
 GP.jshint = require('gulp-jshint');
