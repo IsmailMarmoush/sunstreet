@@ -45,11 +45,10 @@ Small Pull Requrests are much welcome, just don't forget to comment them, as for
 As for future plan here's a humble brain storm:
 
 1. JS code modularity and pluggability.
-2. More reliance on `content.json` file instead of hardcoding any content, e.g disqus configurations
-3. [yeoman.io](http://yeoman.io) scaffolding it.
-4. More improvements on tests and Continuous integration if necessary.
-5. CSSLint
-6. `content.json` validation
+2. ~~More reliance on `content.json` file instead of hardcoding any content, e.g disqus configurations~~ Done
+3. More improvements on tests
+4. ~~Continuous integration if necessary.~~ Done
+5. ~~`content.json` validation~~ Done
 
 
 ## Licence
