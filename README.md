@@ -1,6 +1,9 @@
 # Project Development has been moved To Zalando
-Sunstreet At Zalando https://github.com/zalando/sunstreet, License Also changed to MIT
+You can find it here: https://github.com/zalando/sunstreet, License Also changed to MIT
 
+
+Thanks,
+Ismail Marmoush
 
 -----------------
 
