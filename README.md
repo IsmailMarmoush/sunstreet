@@ -1,3 +1,10 @@
+# Project Development has been moved To Zalando
+Sunstreet At Zalando https://github.com/zalando/sunstreet, License Also changed to MIT
+
+
+-----------------
+
+
 # Sunstreet
 [![License](https://img.shields.io/badge/license-AGPLV3-blue.svg?style=flat)](https://raw.githubusercontent.com/m-io/sunstreet/master/LICENSE)
 [![Build Status](https://travis-ci.org/m-io/sunstreet.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
