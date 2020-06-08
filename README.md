@@ -1,5 +1,5 @@
-# Project Development has been moved To Zalando
-You can find it here: https://github.com/zalando/sunstreet, License Also changed to MIT
+# Project Development has been moved To Memoria.io
+You can find it here: https://github.com/memoria-io/sunstreet, License Also changed to MIT
 
 
 Thanks,
