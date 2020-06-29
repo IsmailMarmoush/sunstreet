@@ -1,14 +1,3 @@
-# Project Development has been moved To Memoria.io
-You can find it here: https://github.com/memoria-io/sunstreet, License Also changed to MIT
-
-
-Thanks,
-
-Ismail Marmoush
-
------------------
-
-
 # Sunstreet
 [![License](https://img.shields.io/badge/license-AGPLV3-blue.svg?style=flat)](https://raw.githubusercontent.com/m-io/sunstreet/master/LICENSE)
 [![Build Status](https://travis-ci.org/m-io/sunstreet.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
