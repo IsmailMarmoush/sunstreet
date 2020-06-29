@@ -2,11 +2,9 @@
 [![License](https://img.shields.io/badge/license-AGPLV3-blue.svg?style=flat)](https://raw.githubusercontent.com/m-io/sunstreet/master/LICENSE)
 [![Build Status](https://travis-ci.org/m-io/sunstreet.svg?branch=master)](https://travis-ci.org/m-io/sunstreet)
 
-<small>By Ismail Marmoush and [Contributers](https://github.com/m-io/sunstreet/graphs/contributors) are much welcome to join. </small>
-
 Sunstreet is a minimalistic blog template, specially made for Github pages and can be statically/dynamically served anywhere else too. You can view the demo from [here](http://marmoush.com) which is my personal blog.
 
-![Screenshot Am I Responsive](https://raw.githubusercontent.com/m-io/sunstreet/master/screentshot.png)
+![Screenshot Am I Responsive](https://raw.githubusercontent.com/memoria-io/sunstreet/master/screentshot.png)
 
 
 ### Usage Features
